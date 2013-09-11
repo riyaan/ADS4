@@ -147,8 +147,14 @@ namespace DS_S2_A2
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class ConcreteStateBlocked : CellState
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConcreteStateBlocked"/> class.
+        /// </summary>
         public ConcreteStateBlocked()
         {
             Console.WriteLine("Cell is now blocked.");            
