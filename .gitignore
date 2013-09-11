@@ -1,0 +1,22 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ConsoleApplication1/obj/Debug/**/*
+/WindowsFormsApplication1/obj/Debug/**/*
+/WindowsFormsApplication1/bin/**/*
+/RecursiveBackTrackingBruteForce/obj/**/*
+/RecursiveBackTrackingBruteForce/bin/**/*
+/RecursiveBacktracking/obj/Debug/**/*
+/ConsoleApplication1/bin/Debug/**/*
+/ConsoleApplication1/obj/Debug/**/*
+/ConsoleApplication2/bin/Debug/**/*
+/ConsoleApplication2/obj/Debug/**/*
+/DS_S2_A2/bin/Debug/**/*
+/DS_S2_A2/obj/Debug/**/*
+/Insertion Sort/bin/Debug/**/*
+/Insertion Sort/obj/Debug/**/*
+/NetworkApp/bin/Debug/**/*
+/NetworkApp/obj/Debug/**/*
+/RecursiveBacktracking/bin/Debug/**/*
+/RecursiveBacktracking/obj/Debug/**/*
