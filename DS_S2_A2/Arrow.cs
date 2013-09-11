@@ -2,6 +2,9 @@
 
 namespace DS_S2_A2
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ArrowContext
     {
         private ArrowState _currentState;
@@ -24,6 +27,9 @@ namespace DS_S2_A2
         public void MoveEast() { this.CurrentState.MoveEast(this); }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class ArrowState
     {
         public abstract void MoveNorth(ArrowContext context);
