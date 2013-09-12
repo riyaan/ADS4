@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="d8f84467-3ef5-47c1-926e-d58b9d909eeb" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="89b86354-a098-413d-a0a3-7028741eb995" name="Comment1">
+      <body>Based this architecture on the following:
+
+http://msdn.microsoft.com/en-us/library/ff648105.aspx</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="ff3f4ed2-4545-4830-895a-d52bbed5e945" name="Data Access Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="058c198c-14f9-4aa7-8fee-d1ec2ebb018a" direction="Bidirectional">
+          <layerMoniker Id="e3c8a6e1-c2c3-4ff0-86a0-effb81606b8e" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="bfe71b75-2f0e-4be4-b6a1-c5dd8de3c39f" name="Data Access Component" />
+      </childLayers>
+    </layer>
+    <layer Id="e3c8a6e1-c2c3-4ff0-86a0-effb81606b8e" name="Application Logic Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="3c177d2d-d200-437e-a0b1-a47038ca418f" direction="Bidirectional">
+          <layerMoniker Id="78f8e3cb-7fca-46dc-8d76-a3b182a68a24" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="701a0427-9327-4ce7-93fa-39247229d237" name="Application Components (Main Controller, Maze Controller, Arrow Controller, MCL)">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="07acaf73-082d-452b-97f3-1b96861e9ed7" direction="Bidirectional">
+              <layerMoniker Id="71f8d216-7558-42f3-8fa6-dcb1c6470eaf" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="71f8d216-7558-42f3-8fa6-dcb1c6470eaf" name="Application Entities (Arrow, Maze)" />
+      </childLayers>
+    </layer>
+    <layer Id="78f8e3cb-7fca-46dc-8d76-a3b182a68a24" name="Presentation Layer">
+      <childLayers>
+        <layer Id="0acbd0e9-a1ee-46ef-bf9b-77b08043d298" name="UI Components">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="da26262c-97a0-4258-8924-fb817b6cbbb3" direction="Bidirectional">
+              <layerMoniker Id="a82d3c70-d58f-4d7f-bd82-2840b3e1a531" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="a82d3c70-d58f-4d7f-bd82-2840b3e1a531" name="UI Process Components (UIP)" />
+      </childLayers>
+    </layer>
+    <layer Id="579e6565-1b08-4c3c-93c8-f8d8567b4c2c" name="User">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="d0729e35-51a5-46ac-b222-964db3d24642" direction="Bidirectional">
+          <layerMoniker Id="78f8e3cb-7fca-46dc-8d76-a3b182a68a24" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>
