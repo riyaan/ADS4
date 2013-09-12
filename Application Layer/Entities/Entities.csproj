@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrow.cs" />
-    <Compile Include="ArrowController.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Cell\CellFactory.cs" />
     <Compile Include="Cell\CellProductBase.cs" />
