@@ -1,0 +1,30 @@
+Program initialization:
+	Maze Controller
+		Generate a random maze (grid) with a random number of columns and rows, e.g 3 rows,
+		3 columns.
+		
+	Arrow Controller
+		Place the arrow in the starting position of the maze.
+		Accept a command.
+		While(validCommand, canMove and endNotReached)
+			Navigate
+			
+			
+Maze properties:
+	Cells
+		Cell Borders
+		Cell walls that are still up
+		if Solution Path goes through it, and in which direction
+		if Backtrack Path goes through it, and in which direction
+	
+	Starting Position
+	Ending position	
+	
+	============================================
+	
+Maze 
+	Rows
+	Columns
+	
+	Cell
+		4 Borders

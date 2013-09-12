@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"> <head>
+<base href="http://bytes.com/" /><!--[if IE]></base><![endif]--> <title>Question about storing a maze board(like 2d array) into Tree. - C / C++</title> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> <meta name="keywords" content="Question,about,storing,maze,board,like,2d,array,into,Tree, Question about storing a maze board(like 2d array) into Tree., questions, insights, articles, development, programming, business, it, technology, small business" /> <meta name="description" content="Question about storing a maze board(like 2d array) into Tree.. C / C++ Forums on Bytes." /> <meta itemprop="name" content="Question about storing a maze board(like 2d array) into Tree."> <meta itemprop="description" content="C / C++ question on Bytes."> <link rel="canonical" href="http://bytes.com/topic/c/answers/219417-question-about-storing-maze-board-like-2d-array-into-tree" />  <style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.7.6 CSS
+* Style: 'bytes.answers'; Style ID: 18
+*/
+@import url("/clientscript/vbulletin_css/style-8fe5d790-00018.css");
+</style> <link rel="stylesheet" type="text/css" href="/clientscript/vbulletin_important.css?v=376" />  <script type="text/javascript" src="/clientscript/yui/yahoo-dom-event/yahoo-dom-event.js?v=376"></script> <script type="text/javascript" src="/clientscript/yui/connection/connection-min.js?v=376"></script> <script type="text/javascript" src="/clientscript/navMenu.js"></script> <script type="text/javascript" src="/clientscript/CodeTags.js"></script> <script type="text/javascript"> <!--
+var SESSIONURL = "s=874c154c5d462a2a7d0fef91b4c26ddc&";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "/images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+window.onload = navMenuExp; 
+// --> </script> <script type="text/javascript" src="/clientscript/vbulletin_global.js?v=376"></script> <link rel="alternate" type="application/rss+xml" title="Bytes RSS Feed" href="/external.php?type=RSS2" /> <link rel="alternate" type="application/rss+xml" title="Bytes - answers - RSS Feed" href="/external.php?type=RSS2&amp;forumids=308" /> <script type="text/javascript" src="http://bytes.com/clientscript/vbulletin_post_loader.js?v=376"></script> <style type="text/css" id="vbulletin_showthread_css"> <!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	--> </style> <script type="text/javascript" src="http://bytes.com/ads/as_header.js"></script> <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function() {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+        })();
+        </script> <script type='text/javascript'>
+        googletag.cmd.push(function() {
+        
+        
+        
+        googletag.pubads().setTargeting("keywords", "development");
+googletag.pubads().setTargeting("keywords", "c");
+googletag.pubads().setTargeting("keywords", "answers");
+
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+        });
+        </script> </head> <body> <div class="codeBlur" id="codeBlur">&nbsp;</div> <div class="codeAbs" id="codeAbs">&nbsp;</div> <div style="margin: 0px 0px 0px 0px; padding:5px 0px 5px 0px; background-color:#2D2D2D; width: 100%; z-index: 10; border-bottom: 3px solid #CCC;"> <table class="tempwrapper"> <tr> <td width="475px;"> <div > <ul id="navbar"> <li id="channel"><a href='http://bytes.com/careers/' id="channeltitle">Careers</a><ul><li><a href='http://bytes.com/topic/career-advice/'>Career Advice</a></li><li><a href='http://bytes.com/topic/consulting-contracting/'>Consulting and Contracting</a></li><li><a href='http://bytes.com/topic/hr-recruiting/'>HR and Recruiting</a></li><li><a href='http://bytes.com/topic/interview-questions/'>Interview Questions</a></li><li><a href='http://bytes.com/topic/resumes/'>Resumes Portfolios and Certification</a></li><li><a href='http://bytes.com/topic/salaries-compensation/'>Salaries and Compensation</a></li></ul></li><li id="channel"><a href='http://bytes.com/it/' id="channeltitle">IT</a><ul><li><a href='http://bytes.com/topic/apache/'>Apache Web Server</a></li><li><a href='http://bytes.com/topic/computer-hardware/'>Computer Hardware</a></li><li><a href='http://bytes.com/topic/cms/'>Content Management Systems</a></li><li><a href='http://bytes.com/topic/data-management/'>Data Management</a></li><li><a href='http://bytes.com/topic/desktop-software/'>Desktop Software</a></li><li><a href='http://bytes.com/topic/iis/'>IIS / Internet Information Server</a></li><li><a href='http://bytes.com/topic/macosx/'>Mac OS X</a></li><li><a href='http://bytes.com/topic/excel/'>Microsoft Excel</a></li><li><a href='http://bytes.com/topic/windows/'>Microsoft Windows / Windows 7 / Vista / XP</a></li><li><a href='http://bytes.com/topic/mobile/'>Mobile Phones and PDAs</a></li><li><a href='http://bytes.com/topic/networking/'>Networking - Hardware / Configuration</a></li><li><a href='http://bytes.com/topic/security/'>Security</a></li><li><a href='http://bytes.com/topic/unix/'>Unix / Linux / BSD</a></li><li><a href='http://bytes.com/topic/web-applications/'>Web Applications</a></li><li><a href='http://bytes.com/topic/windows-server/'>Windows Server 2003 / 2008</a></li></ul></li><li id="channel"><a href='http://bytes.com/development/' id="channeltitle">Software Development</a><ul><li><a href='http://bytes.com/topic/net/'>.NET Framework</a></li><li><a href='http://bytes.com/topic/apis/'>APIs</a></li><li><a href='http://bytes.com/topic/asp-classic/'>ASP / Active Server Pages</a></li><li><a href='http://bytes.com/topic/asp-net/'>ASP.NET</a></li><li><a href='http://bytes.com/topic/algorithms/'>Algorithms / Advanced Math</a></li><li><a href='http://bytes.com/topic/c/'>C / C++</a></li><li><a href='http://bytes.com/topic/c-sharp/'>C# / C Sharp</a></li><li><a href='http://bytes.com/topic/coldfusion/'>ColdFusion</a></li><li><a href='http://bytes.com/topic/db2/'>DB2 Database</a></li><li><a href='http://bytes.com/topic/flash/'>Flash / Actionscript</a></li><li><a href='http://bytes.com/topic/html-css/'>HTML / CSS</a></li><li><a href='http://bytes.com/topic/java/'>Java</a></li><li><a href='http://bytes.com/topic/javascript/'>JavaScript / Ajax / DHTML</a></li><li><a href='http://bytes.com/topic/access/'>Microsoft Access / VBA</a></li><li><a href='http://bytes.com/topic/sql-server/'>Microsoft SQL Server</a></li><li><a href='http://bytes.com/topic/mobile-development/'>Mobile Development</a></li><li><a href='http://bytes.com/topic/mysql/'>MySQL Database</a></li><li><a href='http://bytes.com/topic/oracle/'>Oracle Database</a></li><li><a href='http://bytes.com/topic/php/'>PHP</a></li><li><a href='http://bytes.com/topic/perl/'>Perl</a></li><li><a href='http://bytes.com/topic/postgresql/'>PostgreSQL Database</a></li><li><a href='http://bytes.com/topic/python/'>Python</a></li><li><a href='http://bytes.com/topic/ruby/'>Ruby / Ruby on Rails</a></li><li><a href='http://bytes.com/topic/software-development/'>Software Development</a></li><li><a href='http://bytes.com/topic/visual-basic-net/'>Visual Basic .NET</a></li><li><a href='http://bytes.com/topic/visual-basic/'>Visual Basic 4 / 5 / 6</a></li><li><a href='http://bytes.com/topic/xaml/'>XAML / WPF / Silverlight</a></li><li><a href='http://bytes.com/topic/xml/'>XML</a></li></ul></li><li id="channel"><a href='http://bytes.com/marketing/' id="channeltitle">Internet Marketing</a><ul><li><a href='http://bytes.com/topic/ppc/'>Pay Per Click</a></li><li><a href='http://bytes.com/topic/seo/'>SEO</a></li><li><a href='http://bytes.com/topic/social-media/'>Social Media</a></li><li><a href='http://bytes.com/topic/ecommerce/'>eCommerce</a></li></ul></li> </ul> </div> </td> <td align="right"> <div id="login_box"> <ul> <li> <a href="/register/" rel="nofollow" class="btn_awesome btn_orange btn_small">Join Now</a> </li> <li> <a href="/login/" rel="nofollow">login</a> </li> </ul> </div> </td> </tr> </table> </div> <div style="margin: 5px 0px 5px 0px; padding:0px 0px 0px 0px; width: 100%; z-index: 10;"> <table class="tempwrapper"> <tr> <td align="left" width="140px;"> <A HREF="http://bytes.com"><IMG SRC="/images/bytes_logo_a4k80.gif" WIDTH="151px" HEIGHT="44px" BORDER="0" ALT="Bytes IT Community" style="padding-top:8px;"></A> </td> <td align="left">  <div class="top_header_topmenu"> <div class="newquestion"> <a href="http://bytes.com/submit/g/308/" rel="nofollow" class="btn_awesome btn_green btn_medium">
+                                                + Ask Question
+                                            </a> </div> <p class="header_nav"> <span class="header_types"> <a href="/answers/" class="green_tag">Questions</a> <a href="/insights/" class="blue_tag">Articles</a> <a href="/browse/">Browse Topics</a> <a href="/topic/">Latest</a> <a href="/users/">Top Members</a> <a href="/faq.php">FAQ</a> </span> </p> </div>  </td> </tr> </table> </div>  <div class="navtable"> <div class="navbar_box"> <div style="float:right; width:350px; text-align:right;"> <form action="http://bytes.com/search.php" method="post" name="search" style="margin:0px; padding: 0px;"> <input type="hidden" name="do" value="process" /> <input type="hidden" name="showposts" value="0" /> <input type="hidden" name="quicksearch" value="1" /> <input type="hidden" name="forumchoice[]" value="" /> <input type="text" name="query" size="20" value="" onfocus="this.value=''" style="font-size: 12px; vertical-align: middle;margin:0px; padding:0px;"/> <input type="submit" value="Search" name="gobutton" style="font-size: 12px; height: 1.85em; vertical-align: middle; margin:0px; padding: 0px;"> </form> </div> <a href="/" accesskey="1">home</a> &gt; <a href="/browse/" accesskey="1">topics</a> <span class="navbar">&gt; <a href="http://bytes.com/topic/c/">c / c++</a></span> <span class="navbar">&gt; <a href="http://bytes.com/topic/c/answers/">questions</a></span>
+
+ &gt; 
+
+	 question about storing a maze board(like 2d array) into tree.
+
+
+
+			
+		
+		
+		
+		
+	
+	
+
+
+
+<div style="clear:both;"></div> </div> </div> <div class="tempwrapper"> <div style="padding: 15px 0px 15px 20px; margin-top:15px; font-size:1.2em; font-weight: bold; background-color:#ecfdf5; color:#454747"> <div style="width: 180px;display:inline;float:left;"><a href="http://bytes.com/submit/g/288/" rel="nofollow" class="btn_awesome btn_green btn_large">+ Ask a Question</a></div>
+ 
+ Need help? Post your question and get tips &amp; solutions from a community of 378,833 IT Pros &amp; Developers. 
+ It's quick &amp; easy.<br/> </div> </div> <table class="maintable"> <tr> <td valign="top"> <h1 style="font-size: 15pt; padding: 0px 0px 5px 0px; margin-bottom: 10px; border-bottom: 1px solid #ccc;"> <a href="http://bytes.com/topic/c/answers/219417-question-about-storing-maze-board-like-2d-array-into-tree">Question about storing a maze board(like 2d array) into Tree.</a> </h1> <table border="0" cellspacing="0" cellpadding="0"> <tr> <td style="border-right: 1px solid #ccc; padding-right:10px;" height="1000px" valign="top" width="635px">  <a name="poststop" id="poststop"></a>    <div id="posts" style="padding: 0px; margin: 0px;">  <div id="edit880943" style="padding:0px 0px 0px 0px; margin: 0px;">  <table id="post880943" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="margin-bottom: 10px; clear:both;"> <tr> <td class="alt2" style="padding:0px">  <div style="margin: 0px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tr> <td class="alt2" valign="top" width="55px"> <div title="Daniel" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="/images/da/default_avatar_D.gif" width="50px" height="50px" alt="Daniel" border="0" /></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_880943">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post880943"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="/register/" rel="nofollow">Daniel</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_880943">
+
+				
+			
+				 I need to build the maze board(like 2d array) using a tree. But I find<br />
+that my buildTree function doesn't work. Could anyone give me some<br />
+hints on debugging it? Thanks<br /> <br />
+bool BuildTree(TreeNodePtr *T, int x, int y)<br />
+{	if (boardSize == 0) //boardSize is a global variable<br />
+{	return TRUE;<br />
+}<br />
+else<br />
+{<br />
+if (x &gt; boardSize || y &gt; boardSize)<br />
+{	return FALSE;<br />
+}<br />
+else<br />
+{	TreeNodePtr p = (TreeNodePtr)malloc(sizeof(struct TreeNode));<br />
+p-&gt;left = NULL;<br />
+p-&gt;right = NULL;<br />
+p-&gt;data.x = x;<br />
+p-&gt;data.y = y;<br />
+p-&gt;data.type = GetStepType(itemList, x, y); //GetStepType just<br />
+return a int<br /> <br />
+if (!BuildTree(&amp;(p-&gt;left), x, y+1))//Build left tree<br />
+{	return FALSE;<br />
+}<br />
+if (!BuildTree(&amp;(p-&gt;right), x+1, y)) //Build right tree<br />
+{	return FALSE;<br />
+}<br />
+*T = p;<br />
+}<br />
+}<br />
+return TRUE;<br />
+}<br /> <br />
+////////////////////////////////<br />
+// In the Main<br />
+///////////////////////////////<br />
+void main()<br />
+{	TreeNodePtr fullTree=(TreeNodePtr) malloc (sizeof (struct<br />
+TreeNode));<br /> <br />
+fullTree-&gt;data.x = 0;<br />
+fullTree-&gt;data.y = 0;<br />
+fullTree-&gt;data.type = 1;<br />
+fullTree-&gt;left = NULL;<br />
+fullTree-&gt;right = NULL;<br /> <br />
+BuildTree(&amp;fullTree, 0, 0);<br /> <br />
+PrintTree(fullTree,0);<br />
+}<br /> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Nov 14 '05
+                                                                #<a href="http://bytes.com/topic/c/answers/219417-question-about-storing-maze-board-like-2d-array-into-tree#post880943"  id="postcount880943" name="1" title="permalink">1</a> </div>  <div class="actionbuttons"> <div style="float:right;"> <a href="/register/" rel="nofollow">Post Reply</a> </div> </div>  </td> </tr> </table> </div>  </td> </tr> </table> </div>  <div style="margin: 0px 0px 0px 70px; padding: 0px;font-size: 115%; font-weight: bold; color:#666;">
+
+Share this Question
+
+</div> <div style="margin: 5px 0px 15px 70px;"> <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbytes.com%2Ftopic%2Fc%2Fanswers%2F219417-question-about-storing-maze-board-like-2d-array-into-tree&amp;t=Question about storing a maze board(like 2d array) into Tree." alt="Share this on facebook"><img src="/images/facebook.png"></a> <a href="http://twitter.com/?status=Question about storing a maze board(like 2d array) into Tree. - http://bytes.com/topic/c/answers/219417-question-about-storing-maze-board-like-2d-array-into-tree" alt="Share this on twitter"><img src="/images/twitter.png"></a> <a href="http://plus.google.com/share?url=http%3A%2F%2Fbytes.com%2Ftopic%2Fc%2Fanswers%2F219417-question-about-storing-maze-board-like-2d-array-into-tree" alt="Share this on Google+" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="http://bytes.com/images/gplus-32.png" alt="Share on Google+"></a> <a href="http://www.linkedin.com/cws/share?url=http%3A%2F%2Fbytes.com%2Ftopic%2Fc%2Fanswers%2F219417-question-about-storing-maze-board-like-2d-array-into-tree" alt="Share this on linkedin"><img src="/images/linkedin.png"></a> </div> <div style="clear:both;"></div> <div style="margin: 20px 0px 5px 0px"> <span style="padding: 0px; margin: 0px 25px 0px 65px;font-size:110%; font-weight:bold;">4 Replies </span> <div style="clear:both;"></div> </div> <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 15px 0px; padding:0px;"> <script type="text/JavaScript">//
+google_ad_client = 'pub-8550604525820387'; /* substitute your client_id (pub-#) */
+google_ad_channel = "0164673410";
+google_ad_output = 'js';
+google_max_num_ads = '2';
+google_ad_type = 'text';
+google_image_size = '728x90';
+google_feedback = 'on';
+google_skip = 0; /* to skip for multiple units, insert this snippet for each ad call */
+//</script> <script language="JavaScript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> </script>  <div id="edit880944" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post880944" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tr> <td class="alt2" valign="top" width="55px"> <div title="Robert Gamble" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="/images/da/default_avatar_R.gif" width="50px" height="50px" alt="Robert Gamble" border="0" /></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_880944">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post880944"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="/register/" rel="nofollow">Robert Gamble</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_880944">
+
+					
+	
+				 On Fri, 19 Nov 2004 18:57:02 -0800, Daniel wrote:<br /> <blockquote class="post_quotes"> I need to build the maze board(like 2d array) using a tree. But I find<br /> that my buildTree function doesn't work. Could anyone give me some<br /> hints on debugging it? Thanks</blockquote><br /> <br />
+Why don't you start by telling us exactly what the program is &quot;supposed&quot;<br />
+to do and exactly what &quot;doesn't work&quot;.<br /> <br />
+Rob Gamble<br /> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Nov 14 '05
+                                                                #<a href="http://bytes.com/topic/c/answers/219417-question-about-storing-maze-board-like-2d-array-into-tree#post880944"  id="postcount880944" name="2" title="permalink">2</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </table> </div>  </td> </tr> </table> </div>  <div id="edit880976" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post880976" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tr> <td class="alt2" valign="top" width="55px"> <div title="scott" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="/images/da/default_avatar_S.gif" width="50px" height="50px" alt="scott" border="0" /></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_880976">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post880976"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="/register/" rel="nofollow">scott</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_880976"> <br />
+&quot;Robert Gamble&quot; &lt;rgamble99@gmail.com&gt; wrote in message<br />
+news:pan.2004.11.20.03.41.37.163725@gmail.com...<blockquote class="post_quotes"> On Fri, 19 Nov 2004 18:57:02 -0800, Daniel wrote:<br /><blockquote class="post_quotes"> I need to build the maze board(like 2d array) using a tree. But I find<br /> that my buildTree function doesn't work. Could anyone give me some<br /> hints on debugging it? Thanks</blockquote> <br />
+I would personally black box test each function. When you find the<br />
+function with the error, white box test it.<br /> <br />
+ Why don't you start by telling us exactly what the program is &quot;supposed&quot;<br /> to do and exactly what &quot;doesn't work&quot;.<br /><br /> Rob Gamble</blockquote><br /> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Nov 14 '05
+                                                                #<a href="http://bytes.com/topic/c/answers/219417-question-about-storing-maze-board-like-2d-array-into-tree#post880976"  id="postcount880976" name="3" title="permalink">3</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </table> </div>  </td> </tr> </table> </div>  <div id="edit880977" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post880977" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tr> <td class="alt2" valign="top" width="55px"> <div title="Robert Gamble" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="/images/da/default_avatar_R.gif" width="50px" height="50px" alt="Robert Gamble" border="0" /></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_880977">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post880977"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="/register/" rel="nofollow">Robert Gamble</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_880977">
+
+					
+	
+				 On Sat, 20 Nov 2004 15:56:04 +0000, scott wrote:<br /> <br /> <blockquote class="post_quotes"> &quot;Robert Gamble&quot; &lt;rgamble99@gmail.com&gt; wrote in message<br /> news:pan.2004.11.20.03.41.37.163725@gmail.com...<blockquote class="post_quotes"> On Fri, 19 Nov 2004 18:57:02 -0800, Daniel wrote:<br /><blockquote class="post_quotes"> &gt; I need to build the maze board(like 2d array) using a tree. But I<br /> &gt; find that my buildTree function doesn't work. Could anyone give me<br /> &gt; some hints on debugging it? Thanks</blockquote></blockquote><br /><br />     I would personally black box test each function. When you find the<br /> function with the error, white box test it.</blockquote><br /> <br />
+It looks like the OP has already found the function that doesn't work.<br />
+He is now looking for help with the &quot;white box testing&quot; in which case he<br />
+needs to explain what the function is supposed to do and what part isn't<br />
+working as expected.<br /> <br />
+Rob Gamble<br /> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Nov 14 '05
+                                                                #<a href="http://bytes.com/topic/c/answers/219417-question-about-storing-maze-board-like-2d-array-into-tree#post880977"  id="postcount880977" name="4" title="permalink">4</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </table> </div>  </td> </tr> </table> </div>  <div id="edit881051" style="padding:0px 0px 0px 0px; margin: 0px;"> <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post881051" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tr> <td class="alt2" valign="top" width="55px"> <div title="Barry Schwarz" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="/images/da/default_avatar_B.gif" width="50px" height="50px" alt="Barry Schwarz" border="0" /></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_881051">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post881051"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="/register/" rel="nofollow">Barry Schwarz</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_881051">
+
+					
+	
+				 On 19 Nov 2004 18:57:02 -0800, <a href="mailto:hkdaniel@gmail.com">hkdaniel@gmail.com</a> (Daniel) wrote:<br /> <blockquote class="post_quotes">I need to build the maze board(like 2d array) using a tree. But I find<br />that my buildTree function doesn't work. Could anyone give me some
+<br />
+How about a clue as to what kind of &quot;doesn't work.&quot;<br />
+hints on debugging it? Thanks
+<br />
+The program is not that big.  Did you use your degbugger to step<br />
+through it?<br /> <br />
+Your algorithm is flawed.<br /> <br />
+Let's set up some notation:<br />
+p{i} will be the local automatic variable p created for the i-th<br />
+recursion of BuildTree.<br />
+x{i}, and y{i} are the actual arguments passed to BuildTree on the<br />
+i-th recursion.<br /> <br />bool BuildTree(TreeNodePtr *T, int x, int y)
+<br />
+Hiding a pointer type inside a typedef or macro just leads to<br />
+confusion.  Consider the standard macro FILE.  Even though a user<br />
+never needs an object of type FILE but only pointers of type FILE*,<br />
+the language authors recognized the potential problems and did not<br />
+create the macro as FILEPTR.<br /> <br />
+On the call from main, x{0} and y{0} are both 0.<br />
+On the first recursive entry, x{1} is still 0 but y{1} is 1.<br />
+On the second recursive entry, x{2} is still 0 but y{2} is 2.<br />
+On the third recursive entry, x{3} is still 0 but y{3} is 3.<br />
+{	if (boardSize == 0) //boardSize is a global variable<br />	{	return TRUE;<br />	}<br />	else<br />	{<br />		if (x &gt; boardSize || y &gt; boardSize)
+<br />
+Let's assume boardSize is 2 for discussion.<br /> <br />
+On the call from main, this is false.<br />
+On recursion 1, still false.<br />
+On recursion 2, still false.<br />
+On recursion 3, this is now true.<br />
+		{	return FALSE;
+<br />
+Recursion 3 returns to recursion 2 at this point.  Note that<br />
+p{2}-&gt;left was never updated.<br /> <br />
+		}<br />		else<br />		{	TreeNodePtr p = (TreeNodePtr)malloc(sizeof(struct TreeNode));
+<br />
+You should test the return from malloc.  You should not cast the<br />
+return at all.<br /> <br />
+p{0} contains the address of the allocated area.<br />
+p{1} contains the address of another allocated area.<br />
+p{2} contains the address of a third allocated area.<br />
+			p-&gt;left = NULL;<br />			p-&gt;right = NULL;<br />			p-&gt;data.x = x;<br />			p-&gt;data.y = y;<br />			p-&gt;data.type = GetStepType(itemList, x, y); //GetStepType just<br />return a int<br /><br />			if (!BuildTree(&amp;(p-&gt;left), x, y+1))//Build left tree
+<br />
+On the call from main, you initiate the first recursion here.<br />
+During recursion 1, you initiate the second recursion.<br />
+During recursion 2, you initiate the third recursion.<br /> <br />
+The third recursion returned false, so this is now true.<br /> <br />
+The second recursion returned false, so this is now true.<br /> <br />
+The first recursion returned false, so this is now true.<br />
+			{	return FALSE;
+<br />
+Recursion 2 returns to recursion 1 at this point.  Note that<br />
+p{1}-&gt;left was not updated.  p{2} is destroyed (the variable itself,<br />
+not the memory it points to).<br /> <br />
+Recursion 1 returns to recursion 0 at this point.  Note that<br />
+p{0}-&gt;left was not updated.  p{1} is destroyed.<br /> <br />
+Recursion 0 returns to main at this point.  Note that fullTree was not<br />
+updated.  p{0} is destroyed.<br />
+			}<br />			if (!BuildTree(&amp;(p-&gt;right), x+1, y)) //Build right tree
+<br />
+By now you should realize that this code is unreachable.<br />
+			{	return FALSE;<br />			}<br />			*T = p;<br />		}<br />	}<br />	return TRUE;<br />}<br /><br />////////////////////////////////<br />// In the Main<br />///////////////////////////////<br />void main()<br />{	TreeNodePtr fullTree=(TreeNodePtr) malloc (sizeof (struct<br />TreeNode));<br /><br />	fullTree-&gt;data.x = 0;<br />	fullTree-&gt;data.y = 0;<br />	fullTree-&gt;data.type = 1;<br />	fullTree-&gt;left = NULL;<br />	fullTree-&gt;right = NULL;<br /><br />	BuildTree(&amp;fullTree, 0, 0);
+<br />
+Why don't you test the return code?  It would have told you there was<br />
+a problem.<br /> <br />
+Under normal (non-error) circumstances, BuildTree would have replaced<br />
+the value of fullTree, thereby creating a memory leak.<br /> <br />
+You now have three allocated areas of memory which you no longer have<br />
+pointers for, otherwise known as three memory leaks.<br /> <br />	PrintTree(fullTree,0);<br />}</blockquote><br /> <br />
+This should have printed out the data from fullTree.  Did it?<br />
+&lt;&lt;Remove the del for email&gt;&gt;<br /> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Nov 14 '05
+                                                                #<a href="http://bytes.com/topic/c/answers/219417-question-about-storing-maze-board-like-2d-array-into-tree#post881051"  id="postcount881051" name="5" title="permalink">5</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </table> </div>  </td> </tr> </table> </div>  <div id="lastpost"></div> </div>    <div style="clear:both;"></div> <div style="clear:both;"></div> <div style="clear:both;"></div> <div style="margin:25px 25px 25px 0px;"> <h3 style="border-bottom: 1px solid #ccc; margin: 0px; padding: 0px 0px 3px 0px;">Post your reply</h3> <div style="float:right; padding:0px; margin:10px 0px 10px 0px; width: 100px; text-align: right;"> <a href="/register/" class="btn_orange btn_awesome" rel="nofollow"> Post Reply</a> </div> <p style="padding:0px; margin:10px 0px 10px 0px; font-size: 120%; font-weight: bold;">Help answer this question</p> </div>  <br/> <br/> <div style="clear:both"></div> <div style="margin:40px 25px 25px 0px;">  <p style="padding:0px; margin:10px 0px 10px 70px; font-size: 110%; font-weight: bold;"> <a href="http://bytes.com/topic/c/answers/" style="font-weight: bold;">Browse more C / C++ Questions on Bytes</a>  </div>    </td> <td width="15px" class="spacer"></td> <td width="300px" height="1000px" valign="top"> <img src="/images/sidecolumn.gif" width="300px" height="1px" border="0" style="margin: 0px; padding: 0px;"> <div class="navbox"> <h3>Question stats</h3> <ul> <li> <span>viewed: 1453</span> </li> <li> <span>replies: 4</span> </li> <li> <span>date asked: Nov 14 '05</span> </li> </ul> <div style="margin:10px 0px 10px 0px; padding: 10px 0px 10px 0px;"> <a href="http://bytes.com/subscription.php?do=addsubscription&amp;t=219417" class="btn_blue btn_awesome" rel="nofollow">Subscribe</a> to get updates
+	
+     </div> <div style="clear:both"></div> </div> <div class="navbox"> <h3>Similar topics</h3> <ul> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/javascript/answers/809008-naming-array-values">naming array values?</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/php/answers/783409-problem-storing-array-database">Problem storing array in database</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/591231-another-silly-question-array-vars">Another silly question: array with vars</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/584811-how-make-two-dimensional-array-put-new-use-c">How to make two-dimensional array put 'new' to use in C++?</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/net/answers/579253-yet-another-xsd-question">Yet another XSD question</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c-sharp/answers/502001-quick-question-il-c">A quick question for IL and C#</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/php/answers/489695-storing-array-row">Storing array in a row</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c-sharp/answers/484678-simple-but-confusing-algorith-question">Simple but confusing algorith question</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/visual-basic-net/answers/357942-image-question">Image Question</a> </li> </ul> </div>   </td> </tr> </table> </td> </tr> </table> <div class="navtable"> <br /> </div> <table class="maintable footer"> <tr> <td> <div style="width: 650px; float:left;">
+BYTES.COM © 2013
+<br/>
+Formerly "TheScripts.com" from 2005-2008
+<br /> <A HREF="/about_us.html">About Bytes</A> | <a href="/mediakit.html">Advertise on Bytes</a> | <a href="/contactus.html">Contact Us</a> <br /> <a href="/sitemap/">Sitemap</a> 
+
+ | <a href="/sitemap/f-308.html">C / C++ Answers Sitemap</a> | <a href="/sitemap/f-309.html">C / C++ Insights Sitemap</a> </div> <div style="width: 250px; float:right; text-align:right;"> <a href="https://plus.google.com/103908789625268779320" rel="publisher"><img src="/images/icon-googlePlus.png" height="32px" width="32px" border="0px" title="Follow us on Google Plus for the latest Bytes Updates."></a> <a href="http://twitter.com/bytes" rel="nofollow"><img src="/images/twitter.png" height="32px" width="32px" border="0px" title="Follow us on Twitter for the latest Bytes updates."></a> <a href="http://www.facebook.com/bytes" rel="nofollow"><img src="/images/facebook.png" height="32px" width="32px" border="0px" title="Follow us on Facebook for the latest Bytes updates."></a> <br />
+Follow us to get the Latest Bytes Updates
+
+</div> </td> </tr> </table> <script type="text/javascript"> <!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//--> </script> <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-90111-7']);
+  _gaq.push(['_setDomainName', 'bytes.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>  
+<script type="text/javascript">
+//<![CDATA[
+
+window.orig_onload = window.onload;
+window.onload = function() {
+var cpost=document.location.hash.substring(1);var cpost2='';if(cpost){ var ispost=cpost.substring(0,4)=='post';if(ispost)cpost2='post_'+cpost.substring(4);if((cobj = fetch_object(cpost))||(cobj = fetch_object(cpost2))){cobj.scrollIntoView(true);}else if(ispost){cpostno = cpost.substring(4,cpost.length);if(parseInt(cpostno)>0){location.replace('http://bytes.com/showthread.php?p='+cpostno);};} }
+
+if(typeof window.orig_onload == "function") window.orig_onload();
+}
+
+//]]>
+</script>
+</body> </html>

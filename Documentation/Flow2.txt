@@ -1,0 +1,23 @@
+Starting cell
+	Choose random direction (N, S, W, E)
+	N (x, y+1)
+	S (x, y-1)
+	W (x+1, y)
+	E (x-1, y)
+	check if the cell at this position(direction) exists
+	If there is a cell on the other side (this is not a wall) Then
+		Get the cell status
+		If cell in this direction has not been visited Then
+			Break down direction wall of previous cell and current cell (Cell will have 4 walls, mark the relevant wall as "Down")
+			previousCell.Direction.BreakWall
+			currentCell.Direction.Opposite.BreakWall	
+			Move to cell
+			Mark current cell as visited
+			The cell that was entered, has to know from which direction it was entered.
+		endif
+	EndIf
+
+vars:
+	currentDirection
+	currentCell
+	nextCell

@@ -13,6 +13,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveBackTrackingBruteF
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "MazeNavigator", "MazeNavigator\MazeNavigator.modelproj", "{7D2E9721-AF94-414E-B947-F96B36700656}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{07C58EFE-A4CF-4DA3-B505-E342A2EED0F9}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Adjacents.docx = Documentation\Adjacents.docx
+		Documentation\Advanced DS4 Assignment 2 2013(1).docx = Documentation\Advanced DS4 Assignment 2 2013(1).docx
+		Documentation\Backtracking.htm = Documentation\Backtracking.htm
+		Documentation\Flow.txt = Documentation\Flow.txt
+		Documentation\Flow2.txt = Documentation\Flow2.txt
+		Documentation\Flow3.txt = Documentation\Flow3.txt
+		Documentation\Generating Maze using C# and .NET.htm = Documentation\Generating Maze using C# and .NET.htm
+		Documentation\MazeWorks - How to Build a Maze.htm = Documentation\MazeWorks - How to Build a Maze.htm
+		Documentation\Movement Control Language.vsd = Documentation\Movement Control Language.vsd
+		Documentation\New Text Document.txt = Documentation\New Text Document.txt
+		Documentation\Project.vsd = Documentation\Project.vsd
+		Documentation\Question about storing a maze board(like 2d array) into Tree. - C _ C++.htm = Documentation\Question about storing a maze board(like 2d array) into Tree. - C _ C++.htm
+		Documentation\Using This Three-Layered Services Application.htm = Documentation\Using This Three-Layered Services Application.htm
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

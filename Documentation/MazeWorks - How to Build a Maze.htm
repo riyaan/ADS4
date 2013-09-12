@@ -1,0 +1,190 @@
+<html>
+<head>
+<title>MazeWorks - How to Build a Maze</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="A Maze Generation Tutorial">
+<meta name="keywords" content="mazeworks,maze, maze generation,tutorial">
+</head>
+
+<body bgcolor="#000000" text="#FFFFCC" link="#FFFFFF" vlink="#CCCCCC" alink="#FFCC99">
+<div align="center"><!-- #BeginLibraryItem "/Library/Header.lbi" --><table width="600" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      
+    <td><a href="../../home.htm"><img src="../../images/hd_mw.gif" width="238" height="75" border="0" alt="MazeWorks"></a><img src="../../images/hd_wheel.gif" width="362" height="75"></td>
+    </tr>
+    <tr> 
+      
+    <td><img src="../../images/hd_jgp.gif" width="286" height="19" alt="Java Games and Puzzles"><a href="../../home.htm"><img src="../../images/hd_home.gif" width="41" height="19" alt="Home" border="0"></a><img src="../../images/hd_sep.gif" width="20" height="19"><a href="../../books/index.htm"><img src="../../images/hd_books.gif" width="42" height="19" alt="Books" border="0"></a><img src="../../images/hd_sep.gif" width="20" height="19"><a href="../../download/index.htm"><img src="../../images/hd_dl.gif" width="69" height="19" border="0" alt="Download"></a><img src="../../images/hd_sep.gif" width="20" height="19"><a href="../../links.htm"><img src="../../images/hd_links.gif" width="35" height="19" alt="Links" border="0"></a><a href="../../download/index.htm"><img src="../../images/hd_sep.gif" width="20" height="19" border="0"></a><a href="mailto:&#109;&#111;&#114;&#101;&#105;&#110;&#102;o2&#64;m&#97;&#122;e&#119;or&#107;&#115;.&#99;om"><img src="../../images/hd_email.gif" width="38" height="19" alt="Email" border="0"></a><img src="../../images/hd_end.gif" width="9" height="19"></td>
+    </tr>
+  </table><!-- #EndLibraryItem --><table width="600" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td><img src="../../images/clear350.gif" width="350" height="1"></td>
+      <td><img src="../../images/clear140.gif" width="140" height="1"></td>
+    </tr>
+    <tr>
+      <td align="left" valign="bottom" colspan="2">
+        <div align="center"><img src="../../images/clr20x20.gif" width="20" height="20"></div>
+      </td>
+    </tr>
+    <tr> 
+      <td align="left" valign="bottom" colspan="2"> 
+        <div align="center"><font size=+3> How to Build a Maze</font></div>
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="2"><img src="../../images/spectrum3.gif" width="600" height="3" vspace="15"></td>
+    </tr>
+    <tr> 
+      <td colspan="2"> 
+        <p><br>
+          It's easier than you think.&nbsp; </p>
+        <p>Our objective here is to create a <i>perfect</i> maze, the simplest 
+          type of maze for a computer to generate and solve. A perfect maze is 
+          defined as a maze which has one and only one path from any point in 
+          the maze to any other point. This means that the maze has no inaccessible 
+          sections, no circular paths, no open areas.&nbsp; 
+          <center>
+            <img src="tut1.gif" hspace=40 vspace=20 height=142 width=163><img src="tut2.gif" hspace=40 vspace=20 height=142 width=163> 
+          </center>
+          We'll assume a rectangular maze, since that's the easiest type to create, 
+          but with the method presented here, we can create mazes of almost any 
+          shape and size, even 3-dimensional ones. To begin with, we'll need a 
+          grid:&nbsp; 
+          <center>
+            <img src="tut3.gif" vspace=20 height=135 width=178> 
+          </center>
+          Each square of the grid is a <b>cell</b>. The horizontal and vertical 
+          lines represent the walls of the maze. The generation algorithm we're 
+          using will assume that, at the beginning, all the walls of the maze 
+          are <i>up</i>. Then we selectively knock down walls until we've made 
+          a working maze that fits our definition of "perfect."&nbsp; 
+        <p>We'll need a data structure to store information about the cells. But 
+          exactly what data should we be tracking? Assuming that we're interested 
+          in solving the maze as well as creating it, here's a graphical representation 
+          of all the information necessary:&nbsp; 
+          <center>
+            <img src="tut4.gif" vspace=20 height=123 width=163> 
+          </center>
+          The maze borders are gray, the walls are white, the starting position 
+          is green, the ending position is red, the solution path is yellow, and 
+          the backtrack path is light gray.&nbsp; 
+        <p>The start and end points can easily be stored as individual variables. 
+          Then all we need to track, for each cell in the grid, are:&nbsp; 
+        <ul>
+          <li> Any <b>borders</b> the cell has</li>
+          <li> Which <b>walls</b> are still up</li>
+          <li> If the <b>solution</b> path goes through it, and in which directions</li>
+          <li> If the <b>backtrack</b> path goes through it, and in which directions</li>
+        </ul>
+        Here's one way to do it (this is by no means the only way): a 12x16 maze 
+        grid can be represented as an array <b><tt>m[16][12]</tt></b> of 16-bit 
+        integers. Each array element would contains all the information for a 
+        single corresponding cell in the grid, with the integer bits mapped like 
+        this:&nbsp; 
+        <center>
+          <img src="tut5.gif" vspace=20 height=61 width=261> 
+        </center>
+        To knock down a wall, set a border, or create a particular path, all we 
+        need to do is flip bits in one or two array elements.&nbsp; 
+        <p>You might think we don't really need to track the borders, since we 
+          could just use the minimum and maximum array indices to determine them. 
+          That's true, but storing border information in the array makes our maze 
+          much more flexible. It means we can easily change the shape of the maze 
+          in various ways and still be able to use our 2D array and maze generating 
+          algorithm without any code modification.&nbsp; <br>
+          <img src="tut6.gif" hspace=50 vspace=20 height=123 width=123><img src="tut7.gif" hspace=50 vspace=20 height=123 width=163>&nbsp; 
+          <br>
+          With a data structure in place for holding the maze information, we 
+          can initialize the maze by setting the appropriate borders and putting 
+          up all of the walls. Then we're ready to implement the algorithm.&nbsp; 
+          <br>
+          &nbsp; <br>
+          <b><font size=+1><a name="DFS"></a>Depth-First Search</font></b>&nbsp; 
+          <br>
+          &nbsp; <br>
+          This is the simplest maze generation algorithm. It works like this:&nbsp; 
+        <ul>
+          1) Start at a random cell in the grid.&nbsp; <br>
+          2) Look for a random neighbor cell you haven't been to yet.&nbsp; <br>
+          3) If you find one, move there, knocking down the wall between the cells. 
+          If you don't find one, back up to the previous cell.&nbsp; <br>
+          4) Repeat steps 2 and 3 until you've been to every cell in the grid. 
+        </ul>
+        Here's the DFS algorithm written as pseudocode:&nbsp;</td>
+    </tr>
+  </table>
+  <br>
+  <table border=2 cellspacing=0 cellpadding=0 cols=1 width="550" >
+    <tr> 
+      <td bgcolor="#333333"> 
+        <ul>
+          <font color="#FFFFFF">&nbsp;</font>&nbsp; <br>
+          <font color="#FFFFFF">create a <tt>CellStack</tt> (LIFO) to hold a list 
+          of cell locations</font>&nbsp; <br>
+          <font color="#FFFFFF">set <tt>TotalCells</tt> = number of cells in grid</font>&nbsp; 
+          <br>
+          <font color="#FFFFFF">choose a cell at random and call it <tt>CurrentCell</tt></font>&nbsp; 
+          <br>
+          <font color="#FFFFFF">set <tt>VisitedCells</tt> = 1</font>&nbsp; <br>
+          <font color="#FFFFFF">&nbsp;</font>&nbsp; <br>
+          <font color="#FFFFFF">while <tt>VisitedCells</tt> &lt; <tt>TotalCells</tt></font>&nbsp; 
+          <ul>
+            <font color="#FFFFFF">find all neighbors of <tt>CurrentCell</tt> with 
+            all walls intact&nbsp;</font>&nbsp; <br>
+            <font color="#FFFFFF">if one or more found</font>&nbsp; 
+            <ul>
+              <font color="#FFFFFF">choose one at random</font>&nbsp; <br>
+              <font color="#FFFFFF">knock down the wall between it and <tt>CurrentCell</tt></font>&nbsp; 
+              <br>
+              <font color="#FFFFFF">push <tt>CurrentCell</tt> location on the 
+              <tt>CellStack</tt></font>&nbsp; <br>
+              <font color="#FFFFFF">make the new cell <tt>CurrentCell</tt></font>&nbsp; 
+              <br>
+              <font color="#FFFFFF">add 1 to <tt>VisitedCells</tt></font>
+            </ul>
+            <font color="#FFFFFF">else</font>&nbsp; 
+            <ul>
+              <font color="#FFFFFF">pop the most recent cell entry off the <tt>CellStack</tt></font>&nbsp; 
+              <br>
+              <font color="#FFFFFF">make it <tt>CurrentCell</tt></font>
+            </ul>
+            <font color="#FFFFFF">endIf</font>
+          </ul>
+          <font color="#FFFFFF">endWhile</font>&nbsp; <br>
+          <font color="#FFFFFF">&nbsp;</font>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <br>
+</div>
+<div align="center">
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>When the <tt>while</tt> loop terminates, the algorithm is completed. 
+        Every cell has been visited and thus no cell is inaccessible. Also, since 
+        we test each possible move to see if we've already been there, the algorithm 
+        prevents the creation of any open areas, or paths that circle back on 
+        themselves.&nbsp; 
+        <p>We can put the start and end points wherever we want. This is another 
+          advantage of a perfect maze. Since, by definition, one and only one 
+          path will exist between any two points in the maze, we know that given 
+          a start/end pair, a unique solution to the maze must exist.&nbsp; 
+        <p>Depth-First Search is the most common algorithm used in maze generation 
+          programs: it's simple to implement, works quickly, and generates very 
+          pretty mazes. The algorithm can also be used to solve mazes. This is 
+          how MazeGen generates solutions for all mazes, no matter which algorithm 
+          was used to create them.&nbsp; 
+      </td>
+    </tr>
+    <tr> 
+      <td><img src="../../images/spectrum3.gif" width="600" height="3" vspace="15"></td>
+    </tr>
+    <tr align="center" valign="middle"> 
+      <td><a href="../index.htm"><img src="../../images/mazegen.gif" width="76" height="76" vspace="5" border="0" alt="MazeGen"></a></td>
+    </tr>
+  </table>
+</div>
+<p>&nbsp;</p>
+</body>
+</html>
