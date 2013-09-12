@@ -3,7 +3,9 @@
 ################################################################################
 
 /Application Layer/Entities/obj/Debug/**/*
+/Application Layer/Entities/bin/Debug/**/*
 /Application Layer/RecursiveBacktracking/obj/Debug/**/*
+/Application Layer/RecursiveBacktracking/bin/Debug/**/*
 /Application Layer/RecursiveBackTrackingBruteForce/bin/Debug/**/*
 /Application Layer/RecursiveBackTrackingBruteForce/obj/Debug/**/*
 /Presentation Layer/ConsoleApplication1/bin/Debug/**/*
