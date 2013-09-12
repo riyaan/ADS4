@@ -1,6 +1,6 @@
-﻿using DS_S2_A2;
-using DS_S2_A2.Cell;
-using DS_S2_A2.Maze;
+﻿using Entities;
+using Entities.Cell;
+using Entities.Maze;
 using System;
 using System.Collections.Generic;
 using System.Linq;
