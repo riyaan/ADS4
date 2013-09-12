@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DS_S2_A2
+namespace Entities
 {
     public enum COMMAND { L1, L2, R1, R2, F1, F2 }
 

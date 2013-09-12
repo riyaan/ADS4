@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DS_S2_A2.Maze
+namespace Entities.Maze
 {
     public class Maze
     {

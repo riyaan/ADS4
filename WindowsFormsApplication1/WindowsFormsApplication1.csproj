@@ -78,9 +78,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DS_S2_A2\DS_S2_A2.csproj">
+    <ProjectReference Include="..\DS_S2_A2\Entities.csproj">
       <Project>{59b97bfc-f2aa-4ef1-9527-2b86fc198ecc}</Project>
-      <Name>DS_S2_A2</Name>
+      <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

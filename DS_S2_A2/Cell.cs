@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DS_S2_A2
+namespace Entities
 {
     public enum CELLSTATE { OPEN, BLOCKED };
 

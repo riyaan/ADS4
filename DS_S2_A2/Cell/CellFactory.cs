@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DS_S2_A2.Cell
+namespace Entities.Cell
 {
     public static class CellFactory
     {
