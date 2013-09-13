@@ -25,7 +25,7 @@ http://msdn.microsoft.com/en-us/library/ff648105.aspx</body>
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
       <childLayers>
-        <layer Id="701a0427-9327-4ce7-93fa-39247229d237" name="Application Components (Main Controller, Maze Controller, Arrow Controller, MCL)">
+        <layer Id="701a0427-9327-4ce7-93fa-39247229d237" name="Application Components (Main Controller, &#xD;&#xA;Maze Controller, &#xD;&#xA;Arrow Controller, MCL)">
           <dependencyToLayers>
             <dependencyFromLayerToLayer Id="07acaf73-082d-452b-97f3-1b96861e9ed7" direction="Bidirectional">
               <layerMoniker Id="71f8d216-7558-42f3-8fa6-dcb1c6470eaf" />
