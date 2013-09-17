@@ -80,7 +80,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Application Layer\Source\Entities\Entities.csproj">
       <Project>{59b97bfc-f2aa-4ef1-9527-2b86fc198ecc}</Project>
-      <Name>Entities</Name>
+      <Name>Entities %28Application Layer\Source\Entities%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

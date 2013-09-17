@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RecursiveBackTrackingBruteForce")]
+[assembly: AssemblyTitle("Entities.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("RecursiveBackTrackingBruteForce")]
+[assembly: AssemblyProduct("Entities.Tests")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2097a8fc-2df7-4476-b3ff-6f89b6cbfe3e")]
+[assembly: Guid("f9d0381e-0828-48df-9626-4dd1678b1294")]
 
 // Version information for an assembly consists of the following four values:
 //

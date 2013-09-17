@@ -1,5 +1,4 @@
 ﻿using Entities;
-using Entities.Maze;
 using System;
 using System.Text;
 using System.Windows.Forms;
@@ -62,28 +61,6 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadMz();
-
-            foreach (CellContext cellContext in Maze.Cells)
-            {
-                Button btn = new Button();
-                btn.Name = cellContext.XCoordinate + "_" + cellContext.YCoordinate;
-                btn.Text = String.Format("({0},{1})", cellContext.XCoordinate, cellContext.YCoordinate);
-                this.flowLayoutPanel1.Controls.Add(btn);
-                
-                //Label lbl = new Label();
-                //lbl.BorderStyle = BorderStyle.FixedSingle;
-                //lbl.Name = cellContext.XCoordinate + "_" + cellContext.YCoordinate;
-                //lbl.Text = String.Format("({0},{1})", cellContext.XCoordinate, cellContext.YCoordinate);
-                //this.flowLayoutPanel1.Controls.Add(lbl);
-            }
-        }
-
-        private void LoadMz()
-        {
-            Maze = new Maze(Rows, Columns);
-            Maze.InitializeMaze();
-            label1.Text = "Grid size: " + Rows + " X " + Columns;
         }
     }
 }

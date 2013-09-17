@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Entities.Cell
 {
@@ -11,6 +12,30 @@ namespace Entities.Cell
 
     public abstract class CellProductBase
     {
+        private int xCoordinate;
+
+        public int XCoordinate
+        {
+            get { return xCoordinate; }
+            set { xCoordinate = value; }
+        }
+
+        private int yCoordinate;
+
+        public int YCoordinate
+        {
+            get { return yCoordinate; }
+            set { yCoordinate = value; }
+        }
+
+        List<CellProductBase> adjacents;
+
+        public List<CellProductBase> Adjacents
+        {
+            get { return adjacents; }
+            set { adjacents = value; }
+        }
+
         public CELL_COLOUR CellColour { get; private set; }
 
         protected CellProductBase(CELL_COLOUR cellColour)

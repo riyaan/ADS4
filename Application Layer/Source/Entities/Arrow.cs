@@ -2,17 +2,13 @@
 
 namespace Entities
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class ArrowContext
     {
         private ArrowState _currentState;
 
         public ArrowState CurrentState 
         {
-            get { return _currentState; }
-            
+            get { return _currentState; }            
             set { _currentState = value; } 
         }
 
@@ -27,9 +23,6 @@ namespace Entities
         public void MoveEast() { this.CurrentState.MoveEast(this); }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public abstract class ArrowState
     {
         public abstract void MoveNorth(ArrowContext context);

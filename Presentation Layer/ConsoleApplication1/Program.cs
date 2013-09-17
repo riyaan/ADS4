@@ -1,5 +1,4 @@
 ﻿using Entities;
-using Entities.Maze;
 using System;
 
 namespace ConsoleApplication1
@@ -60,7 +59,6 @@ namespace ConsoleApplication1
             #region Mz Testing using Strategy
 
             Maze maze = new Maze(3, 3);
-            maze.InitializeMaze();
             Console.WriteLine("Maze has been initialized");
 
             //int cellNumber = 1;
@@ -89,10 +87,6 @@ namespace ConsoleApplication1
 
             Console.WriteLine();
             Console.WriteLine("Done searching maze");
-            foreach (CellContext c in maze.Cells)
-            {
-                Console.WriteLine(String.Format("Cell X, Y: {0},{1}__State: {2}", c.XCoordinate, c.YCoordinate, c.CurrentState.ToString()));
-            }
 
             for(int i=0; i<maze.Cells.Count; i++)
             {
