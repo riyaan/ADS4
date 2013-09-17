@@ -23,3 +23,6 @@
 /Presentation Layer/ConsoleApplication1/obj/**/*
 /Presentation Layer/WindowsFormsApplication1/bin/**/*
 /Presentation Layer/WindowsFormsApplication1/obj/**/*
+/Application Layer/RecursiveBackTrackingBruteForce/bin/Debug/**/*
+/Application Layer/RecursiveBackTrackingBruteForce/obj/Debug/**/*
+/MazeGenerator/bin/Debug/**/*
