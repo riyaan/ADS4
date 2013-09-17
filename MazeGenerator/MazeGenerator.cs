@@ -153,6 +153,5 @@ namespace MazeGenerator
                 list[n] = tmp;
             }
         }        
-    }    
-    
+    }
 }
