@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace RecursiveBackTrackingBruteForce
+namespace Diagnostics
 {
     public class Logger
     {
@@ -8,12 +8,12 @@ namespace RecursiveBackTrackingBruteForce
 
         public static Logger Instance
         {
-            get 
+            get
             {
                 if (instance == null)
                     instance = new Logger();
 
-                return instance; 
+                return instance;
             }
         }
 
@@ -21,8 +21,8 @@ namespace RecursiveBackTrackingBruteForce
 
         internal StreamWriter LogFile
         {
-          get { return logFile; }
-          set { logFile = value; }
+            get { return logFile; }
+            set { logFile = value; }
         }
 
         private Logger()
