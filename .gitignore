@@ -12,3 +12,14 @@
 /Presentation Layer/ConsoleApplication1/obj/Debug/**/*
 /Presentation Layer/WindowsFormsApplication1/bin/Debug/**/*
 /Presentation Layer/WindowsFormsApplication1/obj/Debug/**/*
+/Application Layer/Entities/obj/**/*
+/Application Layer/Entities/bin/**/*
+/Application Layer/RecursiveBacktracking/obj/**/*
+/Application Layer/RecursiveBackTrackingBruteForce/obj/**/*
+/MazeGenerator.Tests/bin/**/*
+/MazeGenerator.Tests/obj/**/*
+/MazeGenerator/obj/**/*
+/Presentation Layer/ConsoleApplication1/bin/**/*
+/Presentation Layer/ConsoleApplication1/obj/**/*
+/Presentation Layer/WindowsFormsApplication1/bin/**/*
+/Presentation Layer/WindowsFormsApplication1/obj/**/*
