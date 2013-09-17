@@ -32,16 +32,30 @@ namespace Entities
             set { size = value; }
         }
 
-        private List<CellProductBase> cells;
+        private CellProductBase[,] grid;
 
-        public List<CellProductBase> Cells
+        public CellProductBase[,] Grid
         {
-            get { return cells; }
-            set { cells = value; }
+            get { return grid; }
+            set { grid = value; }
         }
 
-        public Maze(int row, int column)
+        public Maze(int rows, int columnc)
         {
+            Rows = rows;
+            Columns = Columns;
+
+            Size = Rows * Columns;
+
+            Grid = new CellProductBase[Rows, Columns];
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    Grid[i, j] = CellFactory.MakeCell(CELL_TYPE.OPEN);
+                }
+            }
         }
     }
 }
