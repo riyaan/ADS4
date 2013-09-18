@@ -54,7 +54,31 @@ namespace Entities
                 for (int j = 0; j < Columns; j++)
                 {
                     Grid[i, j] = CellFactory.MakeCell(CELL_TYPE.OPEN);
+                    Grid[i, j].XCoordinate = i;
+                    Grid[i, j].YCoordinate = j;
+                    Grid[i, j].Adjacents = new List<CellProductBase>();
                 }
+            }
+        }
+
+        public void CreateAdjacents()
+        {
+            for(int i=0; i<Rows; i++)
+            {
+                for(int j=0; j<Columns; j++)
+                {
+                    if ((i - 1) >= 0)                                         
+                        Grid[i,j].Adjacents.Add(grid[i - 1, j]);                    
+
+                    if((i + 1) < Rows)
+                        Grid[i, j].Adjacents.Add(grid[i + 1, j]);
+
+                    if((j - 1) >= 0)
+                        Grid[i, j].Adjacents.Add(grid[i, j - 1]);
+
+                    if((j + 1) < Columns)
+                        Grid[i, j].Adjacents.Add(grid[i, j + 1]);
+                 }
             }
         }
     }
