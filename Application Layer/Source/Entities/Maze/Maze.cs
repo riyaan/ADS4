@@ -40,10 +40,10 @@ namespace Entities
             set { grid = value; }
         }
 
-        public Maze(int rows, int columnc)
+        public Maze(int rows, int column)
         {
             Rows = rows;
-            Columns = Columns;
+            Columns = column;
 
             Size = Rows * Columns;
 
