@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Diagnostics;
 
 namespace Entities.Tests
 {
@@ -16,9 +17,34 @@ namespace Entities.Tests
         [TestMethod]
         public void CreateAdjacentsSuccess()
         {
-            Maze maze = new Maze(3, 3);
+            Maze maze = new Maze(5, 5);
             maze.CreateAdjacents();
             Assert.AreNotEqual(0, maze.Grid[0, 0].Adjacents.Count);
+        }
+
+        [TestMethod]
+        public void FindEndSuccess()
+        {
+            Maze maze = new Maze(10, 10);
+            maze.CreateAdjacents();
+            maze.FindEnd(maze.Grid[0, 0]);            
+
+            string output = String.Empty;
+            for (int i = 0; i < maze.Rows; i++)
+            {
+                for (int j = 0; j < maze.Columns; j++)
+                {
+                    if (maze.Grid[i, j].CellState == CELL_STATE.OPEN)
+                        output += "|O|";
+                    else
+                        output += "|X|";
+                }
+                output += System.Environment.NewLine;
+            }
+
+            Logger.Instance.Log(output);
+
+            Assert.AreEqual(1, 1);
         }
     }
 }

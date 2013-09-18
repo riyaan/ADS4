@@ -31,8 +31,9 @@ namespace Diagnostics
         }
 
         public void Log(string output)
-        {
+        {            
             this.logFile.WriteLine(output);
+            this.logFile.Flush();
         }
     }
 }

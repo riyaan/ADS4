@@ -55,6 +55,10 @@
     <Compile Include="MazeUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Logger\Diagnostics.csproj">
+      <Project>{bafbf14b-3a55-40d8-a676-5e8ee4a74a48}</Project>
+      <Name>Diagnostics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Source\Entities\Entities.csproj">
       <Project>{59b97bfc-f2aa-4ef1-9527-2b86fc198ecc}</Project>
       <Name>Entities</Name>

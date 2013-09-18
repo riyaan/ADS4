@@ -40,9 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrow.cs" />
+    <Compile Include="CellContext.cs" />
     <Compile Include="Cell.cs" />
-    <Compile Include="Cell\CellFactory.cs" />
-    <Compile Include="Cell\CellProductBase.cs" />
     <Compile Include="Maze\Maze.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
