@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ArrowUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MazeUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Source\Entities\Entities.csproj">

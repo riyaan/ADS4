@@ -88,10 +88,10 @@ namespace ConsoleApplication1
             Console.WriteLine();
             Console.WriteLine("Done searching maze");
 
-            for(int i=0; i<maze.Cells.Count; i++)
-            {
-                //rnd.Next(
-            }
+            //for(int i=0; i<maze.Cells.Count; i++)
+            //{
+            //    //rnd.Next(
+            //}
             
             #endregion Mz Testing
 

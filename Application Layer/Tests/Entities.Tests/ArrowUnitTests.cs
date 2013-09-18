@@ -7,7 +7,7 @@ namespace Entities.Tests
     public class ArrowUnitTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CreateArrowSuccess()
         {
             ArrowContext arrow = new ArrowContext(new ConcreteStateNorth());
             arrow.MoveEast();

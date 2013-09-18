@@ -7,8 +7,8 @@ namespace MazeGenerator.Tests
     [TestClass]
     public class MazeGeneratorTest
     {
-        [TestMethod]
-        public void TestCreateMaze()
+        [TestMethod]        
+        public void MazeGeneratorCreateMaze()
         {
             int rows = 5, columns = 5;
             int gridSize = rows * columns;
