@@ -30,9 +30,9 @@ namespace Entities.Tests
             maze.FindEnd(maze.Grid[0, 0]);            
 
             string output = String.Empty;
-            for (int i = 0; i < maze.Rows; i++)
+            for (int i = maze.Rows-1; i >= 0; i--)
             {
-                for (int j = 0; j < maze.Columns; j++)
+                for (int j = maze.Columns-1; j >= 0; j--)
                 {
                     if (maze.Grid[i, j].CellState == CELL_STATE.OPEN)
                         output += "|O|";
