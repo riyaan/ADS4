@@ -11,11 +11,9 @@ namespace MovementControl
         public ExpressionBase exp1 { get; set; }
         public ExpressionBase exp2 { get; set; }
 
-        public override void Interpret(Context context)
+        public override Context Interpret()
         {
-            Console.WriteLine(String.Format("Non-Terminal for {0}", context.Command));
-            exp1.Interpret(context);
-            exp2.Interpret(context);
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace MovementControl.Tests
 {
@@ -10,9 +11,9 @@ namespace MovementControl.Tests
         public void ParseSuccess()
         {
             Parser parser = new Parser();
-            ExpressionBase eb = parser.Parse("F2");
+            List<Context> context = parser.Parse("F2U5L6");
 
-            Assert.AreNotEqual(null, eb);
+            Assert.AreNotEqual(null, context);
         }
     }
 }

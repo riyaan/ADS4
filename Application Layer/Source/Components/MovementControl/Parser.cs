@@ -13,18 +13,26 @@ namespace MovementControl
          * */
         const string PATTERN = @"(F[1-9])|(R[1-9])|(L[1-9])";
 
-        public ExpressionBase Parse(string mcl)
+        public List<Context> Parse(string mcl)
         {
-            TerminalExpression te = null;
+            List<Context> commands = new List<Context>();
 
-            Match match = Regex.Match(mcl, PATTERN);
-            if (match.Success)
+            MatchCollection matchCollection = Regex.Matches(mcl, PATTERN);
+            foreach (Match match in matchCollection)
             {
-                GroupCollection gc = match.Groups;
-                te = new TerminalExpression();
+                foreach (Capture c in match.Captures)
+                {
+                    MclCommand mclCommand = new MclCommand(c.Value);
+                    commands.Add(mclCommand.Interpret());
+                }
             }
 
-            return te;
+            return commands;       
+        }
+
+        private ExpressionBase ParseNextExpression(List<string> commands)
+        {
+            throw new NotImplementedException();
         }
     }
 }

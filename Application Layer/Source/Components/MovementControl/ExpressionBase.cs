@@ -8,6 +8,6 @@ namespace MovementControl
 {
     public abstract class ExpressionBase
     {
-        public abstract void Interpret(Context context);
+        public abstract Context Interpret();
     }
 }

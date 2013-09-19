@@ -8,11 +8,13 @@ namespace MovementControl
 {
     public class Context
     {
-        public string Command;
+        public string Direction;
+        public int Steps;
 
-        public Context(string command)
+        public Context(string direction, int steps)
         {
-            Command = command;
+            Direction = direction;
+            Steps = steps;
         }
     }
 }
