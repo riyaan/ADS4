@@ -1,8 +1,10 @@
 ﻿using Controllers;
 using Entities;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace MazeNavigatorUI
@@ -40,6 +42,8 @@ namespace MazeNavigatorUI
             set { maze = value; }
         }
 
+        private BackgroundWorker backGroundWorker1;
+
         public NavigatorUI()
         {
             InitializeComponent();            
@@ -49,7 +53,11 @@ namespace MazeNavigatorUI
             //Columns = Random.Next(3, MAX_COLUMNS);
 
             //this.ClientSize = new System.Drawing.Size(rows*100, columns*100);
-            mazeLayoutPanel.Size = new System.Drawing.Size(this.Height, this.Width);            
+            mazeLayoutPanel.Size = new System.Drawing.Size(this.Height, this.Width);
+
+            backGroundWorker1 = new BackgroundWorker();
+            backGroundWorker1.DoWork += backGroundWorker1_DoWork;
+            backGroundWorker1.RunWorkerCompleted += backGroundWorker1_RunWorkerCompleted; 
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -59,23 +67,33 @@ namespace MazeNavigatorUI
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mazeLayoutPanel.Controls.Clear();
+            backGroundWorker1.RunWorkerAsync();           
+        }
 
-            // UI Controller interacts with the Maze Controller
-            UIController uiController = new UIController();
-            Maze = uiController.GenerateNewMaze(MAX_ROWS, MAX_COLUMNS);
-
+        void backGroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
             CreateMazeVisually();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        void backGroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Application.Exit();
+            GenerateMaze();
+        }
+
+        private void GenerateMaze()
+        {
+            Rows = Int32.Parse(this.txtRows.Text);
+            Columns = Int32.Parse(this.txtColumns.Text);
+
+            // UI Controller interacts with the Maze Controller
+            UIController uiController = new UIController();
+            Maze = uiController.GenerateNewMaze(Rows, Columns);
         }
 
         private void CreateMazeVisually()
         {
-            // Create the required rows and columns for this table
-            mazeLayoutPanel.RowCount = Maze.Rows;
+            // TODO: Create this on a seperate thread
+            mazeLayoutPanel.RowCount = Maze.Rows;            
             mazeLayoutPanel.ColumnCount = Maze.Columns;
 
             //string output = String.Empty;
@@ -107,9 +125,14 @@ namespace MazeNavigatorUI
 
         private void mazeLayoutPanel_SizeChanged(object sender, EventArgs e)
         {
-            this.ClientSize = new Size(mazeLayoutPanel.Size.Width + 50, mazeLayoutPanel.Size.Height + 50);
-            this.SetClientSizeCore(mazeLayoutPanel.Size.Width, mazeLayoutPanel.Size.Height);
-            this.Refresh();
+            //this.ClientSize = new Size(mazeLayoutPanel.Size.Width + 50, mazeLayoutPanel.Size.Height + 50);
+            //this.SetClientSizeCore(mazeLayoutPanel.Size.Width, mazeLayoutPanel.Size.Height);
+            //this.Refresh();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
