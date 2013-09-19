@@ -1,11 +1,12 @@
-﻿using Entities;
+﻿using Controllers;
+using Entities;
 using System;
 using System.Text;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication1
+namespace MazeNavigatorUI
 {
-    public partial class Form1 : Form
+    public partial class NavigatorUI : Form
     {
         const int MAX_ROWS = 10;
         const int MAX_COLUMNS = 10;
@@ -45,7 +46,7 @@ namespace WindowsFormsApplication1
             set { stringBuilder = value; }
         }
 
-        public Form1()
+        public NavigatorUI()
         {
             InitializeComponent();            
 
@@ -61,6 +62,20 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // UI Controller interacts with the Maze Controller
+            MazeController mazeController = new MazeController(MAX_ROWS, MAX_COLUMNS);
+            Maze = mazeController.Maze;
+
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
