@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="MazeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Common\Logger\Diagnostics.csproj">
