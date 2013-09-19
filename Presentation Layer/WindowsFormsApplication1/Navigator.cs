@@ -49,7 +49,7 @@ namespace MazeNavigatorUI
             //Columns = Random.Next(3, MAX_COLUMNS);
 
             //this.ClientSize = new System.Drawing.Size(rows*100, columns*100);
-            flowLayoutPanel1.Size = new System.Drawing.Size(this.Height-10, this.Width-10);            
+            mazeLayoutPanel.Size = new System.Drawing.Size(this.Height, this.Width);            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace MazeNavigatorUI
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
+            mazeLayoutPanel.Controls.Clear();
 
             // UI Controller interacts with the Maze Controller
             UIController uiController = new UIController();
@@ -74,6 +74,10 @@ namespace MazeNavigatorUI
 
         private void CreateMazeVisually()
         {
+            // Create the required rows and columns for this table
+            mazeLayoutPanel.RowCount = Maze.Rows;
+            mazeLayoutPanel.ColumnCount = Maze.Columns;
+
             //string output = String.Empty;
             for (int i = Maze.Rows - 1; i >= 0; i--)
             {
@@ -93,11 +97,18 @@ namespace MazeNavigatorUI
                     {                        
                         //output += "|X|";
                     }
-
-                    flowLayoutPanel1.Controls.Add(b);
+                    
+                    mazeLayoutPanel.Controls.Add(b, j, i);
                 }
                 //output += System.Environment.NewLine;
             }
+        }
+
+        private void mazeLayoutPanel_SizeChanged(object sender, EventArgs e)
+        {
+            this.ClientSize = new Size(mazeLayoutPanel.Size.Width + 50, mazeLayoutPanel.Size.Height + 50);
+            this.SetClientSizeCore(mazeLayoutPanel.Size.Width, mazeLayoutPanel.Size.Height);
+            this.Refresh();
         }
     }
 }
