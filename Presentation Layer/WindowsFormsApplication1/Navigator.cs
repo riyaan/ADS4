@@ -85,7 +85,8 @@ namespace MazeNavigatorUI
                 {
                     Button b = new Button
                     {
-                        Name = Maze.Grid[i, j].XCoordinate + "_" + Maze.Grid[i, j].YCoordinate
+                        Name = Maze.Grid[i, j].XCoordinate + "_" + Maze.Grid[i, j].YCoordinate,
+                        Size = new Size(18, 23)
                     };
 
                     if (Maze.Grid[i, j].CellState == CELL_STATE.OPEN)
