@@ -43,6 +43,7 @@
     <Compile Include="CellContext.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Maze\Maze.cs" />
+    <Compile Include="Observer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
