@@ -37,8 +37,11 @@ namespace Entities
         }
 
         public void Forward() { this.CurrentState.Forward(this); }
+
         public void Downward() { this.CurrentState.Downward(this); }
+
         public void Left() { this.CurrentState.Left(this); }
+
         public void Right() { this.CurrentState.Right(this); }
     }
 
@@ -52,14 +55,11 @@ namespace Entities
 
     public class ConcreteStateForward : ArrowState
     {
-        public ConcreteStateForward()
-        {
-            Console.WriteLine("Forward FACING");
-        }
+        public ConcreteStateForward() { }
 
         public override void Forward(ArrowContext context)
         {
-            Console.WriteLine("NO EFFECT. MOVING.");
+            context.Y += 1;
         }
 
         public override void Downward(ArrowContext context)
@@ -80,10 +80,7 @@ namespace Entities
 
     public class ConcreteStateDownward : ArrowState
     {
-        public ConcreteStateDownward()
-        {            
-            Console.WriteLine("Downward FACING");
-        }
+        public ConcreteStateDownward() { }
 
         public override void Forward(ArrowContext context)
         {
@@ -92,7 +89,7 @@ namespace Entities
 
         public override void Downward(ArrowContext context)
         {
-            Console.WriteLine("No effect. Moving");
+            context.Y -= 1;
         }
 
         public override void Left(ArrowContext context)
@@ -108,10 +105,7 @@ namespace Entities
 
     public class ConcreteStateLeft : ArrowState
     {
-        public ConcreteStateLeft()
-        {
-            Console.WriteLine("Left FACING");
-        }
+        public ConcreteStateLeft() { }
 
         public override void Forward(ArrowContext context)
         {
@@ -125,7 +119,7 @@ namespace Entities
 
         public override void Left(ArrowContext context)
         {
-            Console.WriteLine("No effect. Moving");
+            context.X -= 1;
         }
 
         public override void Right(ArrowContext context)
@@ -137,10 +131,7 @@ namespace Entities
 
     public class ConcreteStateRight : ArrowState
     {
-        public ConcreteStateRight()
-        {
-            Console.WriteLine("Downward FACING");
-        }
+        public ConcreteStateRight() { }
 
         public override void Forward(ArrowContext context)
         {
@@ -149,7 +140,7 @@ namespace Entities
 
         public override void Downward(ArrowContext context)
         {
-            Console.WriteLine("No effect. Moving");
+            context.CurrentState = new ConcreteStateDownward();
         }
 
         public override void Left(ArrowContext context)
@@ -159,7 +150,7 @@ namespace Entities
 
         public override void Right(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateRight();
+            context.X += 1;
         }
     }
 }

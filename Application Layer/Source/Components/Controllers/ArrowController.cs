@@ -1,9 +1,4 @@
 ﻿using Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controllers
 {
@@ -20,6 +15,8 @@ namespace Controllers
         public ArrowController()
         {
             Arrow = new ArrowContext(new ConcreteStateForward());
+            Arrow.X = 0;
+            Arrow.Y = 0;
         }
 
         public void Forward(int steps)
