@@ -9,10 +9,10 @@ namespace Entities.Tests
         [TestMethod]
         public void CreateArrowSuccess()
         {
-            ArrowContext arrow = new ArrowContext(new ConcreteStateNorth());
-            arrow.MoveEast();
-            arrow.MoveEast();
-            arrow.MoveWest();
+            ArrowContext arrow = new ArrowContext(new ConcreteStateForward());
+            arrow.Right();
+            arrow.Right();
+            arrow.Left();
         }
     }
 }

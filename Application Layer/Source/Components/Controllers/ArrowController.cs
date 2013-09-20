@@ -19,25 +19,25 @@ namespace Controllers
 
         public ArrowController()
         {
-            Arrow = new ArrowContext(new ConcreteStateNorth());
+            Arrow = new ArrowContext(new ConcreteStateForward());
         }
 
         public void Forward(int steps)
         {
             for (int i = 0; i < steps; i++)
-                Arrow.MoveNorth();
+                Arrow.Forward();
         }
 
         public void Right(int steps)
         {
             for (int i = 0; i < steps; i++)
-                Arrow.MoveWest();
+                Arrow.Right();
         }
 
         public void Left(int steps)
         {
             for(int i=0; i<steps; i++)
-                Arrow.MoveEast();
+                Arrow.Left();
         }
     }
 }

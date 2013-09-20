@@ -15,132 +15,151 @@ namespace Entities
         public ArrowContext(ArrowState arrowState)
         {
             this.CurrentState = arrowState;
+
+            this.X = 0;
+            this.Y = 0;
         }
 
-        public void MoveNorth() { this.CurrentState.MoveNorth(this); }
-        public void MoveSouth() { this.CurrentState.MoveSouth(this); }
-        public void MoveWest() { this.CurrentState.MoveWest(this); }
-        public void MoveEast() { this.CurrentState.MoveEast(this); }
+        private int x;
+
+        public int X
+        {
+            get { return x; }
+            set { x = value; }
+        }
+
+        private int y;
+
+        public int Y
+        {
+            get { return y; }
+            set { y = value; }
+        }
+
+        public void Forward() { this.CurrentState.Forward(this); }
+        public void Downward() { this.CurrentState.Downward(this); }
+        public void Left() { this.CurrentState.Left(this); }
+        public void Right() { this.CurrentState.Right(this); }
     }
 
     public abstract class ArrowState
     {
-        public abstract void MoveNorth(ArrowContext context);
-        public abstract void MoveSouth(ArrowContext context);
-        public abstract void MoveWest(ArrowContext context);
-        public abstract void MoveEast(ArrowContext context);
+        public abstract void Forward(ArrowContext context);
+        public abstract void Downward(ArrowContext context);
+        public abstract void Right(ArrowContext context);
+        public abstract void Left(ArrowContext context);
     }
 
-    public class ConcreteStateNorth : ArrowState
+    public class ConcreteStateForward : ArrowState
     {
-        public ConcreteStateNorth()
+        public ConcreteStateForward()
         {
-            Console.WriteLine("NORTH FACING");
+            Console.WriteLine("Forward FACING");
         }
 
-        public override void MoveNorth(ArrowContext context)
+        public override void Forward(ArrowContext context)
         {
             Console.WriteLine("NO EFFECT. MOVING.");
         }
 
-        public override void MoveSouth(ArrowContext context)
+        public override void Downward(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateSouth();
+            context.CurrentState = new ConcreteStateDownward();
         }
 
-        public override void MoveWest(ArrowContext context)
+        public override void Left(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateWest();
+            context.CurrentState = new ConcreteStateLeft();
         }
 
-        public override void MoveEast(ArrowContext context)
+        public override void Right(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateEast();
+            context.CurrentState = new ConcreteStateRight();
         }
     }
 
-    public class ConcreteStateSouth : ArrowState
+    public class ConcreteStateDownward : ArrowState
     {
-        public ConcreteStateSouth()
+        public ConcreteStateDownward()
         {            
-            Console.WriteLine("SOUTH FACING");
+            Console.WriteLine("Downward FACING");
         }
 
-        public override void MoveNorth(ArrowContext context)
+        public override void Forward(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateNorth();            
+            context.CurrentState = new ConcreteStateForward();            
         }
 
-        public override void MoveSouth(ArrowContext context)
+        public override void Downward(ArrowContext context)
         {
             Console.WriteLine("No effect. Moving");
         }
 
-        public override void MoveWest(ArrowContext context)
+        public override void Left(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateWest();
+            context.CurrentState = new ConcreteStateLeft();
         }
 
-        public override void MoveEast(ArrowContext context)
+        public override void Right(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateEast();
+            context.CurrentState = new ConcreteStateRight();
         }
     }
 
-    public class ConcreteStateWest : ArrowState
+    public class ConcreteStateLeft : ArrowState
     {
-        public ConcreteStateWest()
+        public ConcreteStateLeft()
         {
-            Console.WriteLine("WEST FACING");
+            Console.WriteLine("Left FACING");
         }
 
-        public override void MoveNorth(ArrowContext context)
+        public override void Forward(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateNorth();
+            context.CurrentState = new ConcreteStateForward();
         }
 
-        public override void MoveSouth(ArrowContext context)
+        public override void Downward(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateSouth();
+            context.CurrentState = new ConcreteStateDownward();
         }
 
-        public override void MoveWest(ArrowContext context)
+        public override void Left(ArrowContext context)
         {
             Console.WriteLine("No effect. Moving");
         }
 
-        public override void MoveEast(ArrowContext context)
+        public override void Right(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateEast();
+            context.CurrentState = new ConcreteStateRight();
         }
 
     }
 
-    public class ConcreteStateEast : ArrowState
+    public class ConcreteStateRight : ArrowState
     {
-        public ConcreteStateEast()
+        public ConcreteStateRight()
         {
-            Console.WriteLine("SOUTH FACING");
+            Console.WriteLine("Downward FACING");
         }
 
-        public override void MoveNorth(ArrowContext context)
+        public override void Forward(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateNorth();
+            context.CurrentState = new ConcreteStateForward();
         }
 
-        public override void MoveSouth(ArrowContext context)
+        public override void Downward(ArrowContext context)
         {
             Console.WriteLine("No effect. Moving");
         }
 
-        public override void MoveWest(ArrowContext context)
+        public override void Left(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateWest();
+            context.CurrentState = new ConcreteStateLeft();
         }
 
-        public override void MoveEast(ArrowContext context)
+        public override void Right(ArrowContext context)
         {
-            context.CurrentState = new ConcreteStateEast();
+            context.CurrentState = new ConcreteStateRight();
         }
     }
 }
