@@ -71,17 +71,7 @@ namespace MazeNavigatorUI
             
             // the Arrow Controller should communicate to the UI Controller to display the arrow correctly
             // in the grid.
-            foreach (object o in this.mazeLayoutPanel.Controls)
-            {
-                if (o is Button)
-                {
-                    Button b = (Button)o;
-                    if (b.Name.Equals("0_0"))
-                    {
-                        b.Text = "|";
-                    }
-                }
-            }
+            UpdateGrid(0, 0, "U");
         }
 
         void backGroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -151,9 +141,44 @@ namespace MazeNavigatorUI
         private void btnGo_Click(object sender, EventArgs e)
         {
             // Process the command
-            _uiController.ParseCommand(txtCommand.Text);            
+            int arrowX, arrowY;
+            string direction;
+            _uiController.ParseCommand(txtCommand.Text, out arrowX, out arrowY, out direction);            
 
-            // Update the grid            
+            // Update the grid
+            UpdateGrid(arrowX, arrowY, direction);
+        }
+
+        private void UpdateGrid(int x, int y, string d)
+        {
+            foreach (object o in this.mazeLayoutPanel.Controls)
+            {
+                Button b = (Button)o;
+                b.Text = String.Empty;
+            }
+
+            foreach (object o in this.mazeLayoutPanel.Controls)
+            {
+                if (o is Button)
+                {
+                    Button b = (Button)o;
+                    string temp = String.Format("{0}_{1}", x, y);
+                    if (b.Name.Equals(temp))
+                    {
+                        switch(d)
+                        {
+                            case "R":
+                            case "L":
+                                b.Text = "--";
+                                break;
+                            case "U":
+                                b.Text = "|";
+                                break;
+                        }
+                        break;
+                    }
+                }
+            }
         }
     }
 }
