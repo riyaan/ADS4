@@ -2,6 +2,14 @@
 
 namespace Entities
 {
+    public abstract class ArrowState
+    {
+        public abstract void Forward(ArrowContext context);
+        public abstract void Downward(ArrowContext context);
+        public abstract void Right(ArrowContext context);
+        public abstract void Left(ArrowContext context);
+    }
+
     public class ArrowContext
     {
         private ArrowState _currentState;
@@ -43,15 +51,7 @@ namespace Entities
         public void Left() { this.CurrentState.Left(this); }
 
         public void Right() { this.CurrentState.Right(this); }
-    }
-
-    public abstract class ArrowState
-    {
-        public abstract void Forward(ArrowContext context);
-        public abstract void Downward(ArrowContext context);
-        public abstract void Right(ArrowContext context);
-        public abstract void Left(ArrowContext context);
-    }
+    }    
 
     public class ConcreteStateForward : ArrowState
     {

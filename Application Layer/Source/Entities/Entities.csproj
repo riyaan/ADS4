@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arrow.cs" />
+    <Compile Include="ArrowContext.cs" />
     <Compile Include="CellContext.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Maze\Maze.cs" />

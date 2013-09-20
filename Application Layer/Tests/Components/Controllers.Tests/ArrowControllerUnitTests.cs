@@ -9,7 +9,7 @@ namespace Controllers.Tests
         [TestMethod]
         public void MovementSuccess()
         {
-            ArrowController ac = new ArrowController();
+            ArrowController ac = new ArrowController(10, 10);
             ac.Right(5);
             ac.Left(2);
             ac.Forward(3);
