@@ -29,10 +29,5 @@ namespace MovementControl
 
             return commands;       
         }
-
-        private ExpressionBase ParseNextExpression(List<string> commands)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
