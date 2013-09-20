@@ -65,8 +65,7 @@ namespace MazeNavigatorUI
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            mazeLayoutPanel.Controls.Clear();
+        {            
             backGroundWorker1.RunWorkerAsync();           
         }
 
@@ -93,8 +92,12 @@ namespace MazeNavigatorUI
         private void CreateMazeVisually()
         {
             // TODO: Create this on a seperate thread
+            mazeLayoutPanel.Visible = false;
+            mazeLayoutPanel.Controls.Clear();
             mazeLayoutPanel.RowCount = Maze.Rows;            
             mazeLayoutPanel.ColumnCount = Maze.Columns;
+
+            mazeLayoutPanel.SuspendLayout();
 
             //string output = String.Empty;
             for (int i = Maze.Rows - 1; i >= 0; i--)
@@ -121,6 +124,9 @@ namespace MazeNavigatorUI
                 }
                 //output += System.Environment.NewLine;
             }
+
+            mazeLayoutPanel.ResumeLayout();
+            mazeLayoutPanel.Visible = true;
         }
 
         private void mazeLayoutPanel_SizeChanged(object sender, EventArgs e)
