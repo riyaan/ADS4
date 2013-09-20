@@ -51,5 +51,10 @@ namespace Controllers
             x = _arrowController.Arrow.X;
             y = _arrowController.Arrow.Y;            
         }
+
+        public void UpdateTheGrid()
+        {
+
+        }
     }
 }

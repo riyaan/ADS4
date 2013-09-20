@@ -12,6 +12,15 @@ namespace MazeNavigatorUI
 {
     public partial class NavigatorUI : Form
     {
+        public event EventHandler<MazeEventArgs> MazeChanged;
+
+        protected virtual void OnMazeChanged(MazeEventArgs e)
+        {
+            EventHandler<MazeEventArgs> handler = MazeChanged;
+            if (handler != null)
+                handler(this, e);
+        }
+
         const int MAX_ROWS = 10;
         const int MAX_COLUMNS = 10;
 
@@ -140,14 +149,29 @@ namespace MazeNavigatorUI
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            // Process the command
-            int arrowX, arrowY;
-            string direction;
-            _uiController.ParseCommand(txtCommand.Text, out arrowX, out arrowY, out direction);            
+            this.OnMazeChanged += c_OnMazeChanged;
 
-            // Update the grid
-            UpdateGrid(arrowX, arrowY, direction);
+            NotificationFromObserver();
+            //// Process the command
+            //int arrowX, arrowY;
+            //string direction;
+            //_uiController.ParseCommand(txtCommand.Text, out arrowX, out arrowY, out direction);            
+
+            //// Update the grid
+            //UpdateGrid(arrowX, arrowY, direction);
+        }        
+
+        public void c_OnMazeChanged(object sender, MazeEventArgs e)
+        {
         }
+
+        public void NotificationFromObserver()
+        {
+            MazeEventArgs args = new MazeEventArgs();
+            args.Maze = Maze;
+            OnMazeChanged(args);
+        }
+
 
         private void UpdateGrid(int x, int y, string d)
         {
@@ -180,5 +204,7 @@ namespace MazeNavigatorUI
                 }
             }
         }
+
+        
     }
 }
