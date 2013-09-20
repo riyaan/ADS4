@@ -1,4 +1,5 @@
 ﻿using Controllers;
+using Diagnostics;
 using Entities;
 using System;
 using System.ComponentModel;
@@ -125,8 +126,12 @@ namespace MazeNavigatorUI
                 //output += System.Environment.NewLine;
             }
 
+            this.Size = mazeLayoutPanel.Size;
             mazeLayoutPanel.ResumeLayout();
             mazeLayoutPanel.Visible = true;
+
+            this.txtCommand.Location = new Point(mazeLayoutPanel.Bounds.Left, mazeLayoutPanel.Bounds.Bottom);
+            this.btnGo.Location = new Point(this.txtCommand.Bounds.Right, mazeLayoutPanel.Bounds.Bottom);
         }
 
         private void mazeLayoutPanel_SizeChanged(object sender, EventArgs e)
