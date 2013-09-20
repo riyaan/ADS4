@@ -45,24 +45,17 @@ namespace MazeNavigatorUI
 
         private BackgroundWorker backGroundWorker1;
 
+        private UIController _uiController;
+
         public NavigatorUI()
         {
             InitializeComponent();            
 
-            //Random = new Random((int)DateTime.Now.Ticks);
-            //Rows = Random.Next(3, MAX_ROWS);
-            //Columns = Random.Next(3, MAX_COLUMNS);
-
-            //this.ClientSize = new System.Drawing.Size(rows*100, columns*100);
             mazeLayoutPanel.Size = new System.Drawing.Size(this.Height, this.Width);
 
             backGroundWorker1 = new BackgroundWorker();
             backGroundWorker1.DoWork += backGroundWorker1_DoWork;
             backGroundWorker1.RunWorkerCompleted += backGroundWorker1_RunWorkerCompleted; 
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +66,22 @@ namespace MazeNavigatorUI
         void backGroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             CreateMazeVisually();
+
+            // Thethe ArrowController should create the intial location of this arrow
+            
+            // the Arrow Controller should communicate to the UI Controller to display the arrow correctly
+            // in the grid.
+            foreach (object o in this.mazeLayoutPanel.Controls)
+            {
+                if (o is Button)
+                {
+                    Button b = (Button)o;
+                    if (b.Name.Equals("0_0"))
+                    {
+                        b.Text = "|";
+                    }
+                }
+            }
         }
 
         void backGroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -86,8 +95,8 @@ namespace MazeNavigatorUI
             Columns = Int32.Parse(this.txtColumns.Text);
 
             // UI Controller interacts with the Maze Controller
-            UIController uiController = new UIController();
-            Maze = uiController.GenerateNewMaze(Rows, Columns);
+            _uiController = new UIController();
+            Maze = _uiController.GenerateNewMaze(Rows, Columns);
         }
 
         private void CreateMazeVisually()
@@ -134,16 +143,17 @@ namespace MazeNavigatorUI
             this.btnGo.Location = new Point(this.txtCommand.Bounds.Right, mazeLayoutPanel.Bounds.Bottom);
         }
 
-        private void mazeLayoutPanel_SizeChanged(object sender, EventArgs e)
-        {
-            //this.ClientSize = new Size(mazeLayoutPanel.Size.Width + 50, mazeLayoutPanel.Size.Height + 50);
-            //this.SetClientSizeCore(mazeLayoutPanel.Size.Width, mazeLayoutPanel.Size.Height);
-            //this.Refresh();
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            // Process the command
+            _uiController.ParseCommand(txtCommand.Text);            
+
+            // Update the grid            
         }
     }
 }

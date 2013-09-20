@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrowController.cs" />
     <Compile Include="MazeController.cs" />
+    <Compile Include="MCLController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIController.cs" />
   </ItemGroup>
@@ -51,6 +53,10 @@
     <ProjectReference Include="..\..\Entities\Entities.csproj">
       <Project>{59b97bfc-f2aa-4ef1-9527-2b86fc198ecc}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovementControl\MovementControl.csproj">
+      <Project>{2b8b0b71-276b-4426-a24a-f50f91dbd1d9}</Project>
+      <Name>MovementControl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
