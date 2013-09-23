@@ -1,5 +1,6 @@
 ﻿using Entities;
 using MovementControl;
+using SharedEvents;
 using System;
 
 namespace Controllers
@@ -11,6 +12,14 @@ namespace Controllers
 
     public class UIController: Observer
     {
+        public event EventHandler<ArrowChangedEventArgs> ArrowChanged;
+
+        protected virtual void OnArrowChanged(ArrowChangedEventArgs e)
+        {
+            if (ArrowChanged != null)
+                ArrowChanged(this, e);
+        }
+
         private ArrowContext observerState;
         private ArrowController subject;
 
@@ -22,6 +31,12 @@ namespace Controllers
         {
         }
 
+        void _arrowController_ArrowChanged(object sender, ArrowChangedEventArgs e)
+        {            
+            // Pass the event on to the calling party
+            OnArrowChanged(e);
+        }
+
         public Maze GenerateNewMaze(int rows, int columns)
         {
             // UI Controller interacts with the Maze Controller
@@ -30,6 +45,9 @@ namespace Controllers
             _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
             this.subject = _arrowController;
             this.subject.SubjectState = _arrowController.Arrow;
+
+            _arrowController.ArrowChanged += _arrowController_ArrowChanged;
+
             _arrowController.Attach(this);            
 
             _mclController = new MCLController();
@@ -40,7 +58,9 @@ namespace Controllers
         public void ParseCommand(string command, out int x, out int y, out string direction)
         {
             // UI Controller interacts with the MCL Controller            
-            _mclController.ParseCommand(command);            
+            _mclController.ParseCommand(command);
+
+            ArrowChangedEventArgs ecea = new ArrowChangedEventArgs();
 
             direction = string.Empty;
             // Execute each command
@@ -49,10 +69,10 @@ namespace Controllers
                 switch (context.Direction)
                 {
                     case "R":
-                        _arrowController.Right(context.Steps);                      
+                        _arrowController.Right(context.Steps);                        
                         break;
                     case "L":
-                        _arrowController.Left(context.Steps);
+                        _arrowController.Left(context.Steps);                        
                         break;
                     case "F":
                         _arrowController.Forward(context.Steps);
@@ -66,17 +86,11 @@ namespace Controllers
             y = _arrowController.Arrow.Y;            
         }
 
-        public void UpdateTheGrid()
-        {
-        }
-
         public override void Update()
         {            
             observerState = subject.SubjectState;
             Diagnostics.Logger.Instance.Log(String.Format("Observer new state is {0},{1},{2}",
               observerState.CurrentState, observerState.X, observerState.Y));
-
-            // TODO: Notify the UI. How is this done???
         }
     }
 }

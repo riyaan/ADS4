@@ -50,6 +50,10 @@
       <Project>{bafbf14b-3a55-40d8-a676-5e8ee4a74a48}</Project>
       <Name>Diagnostics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\SharedEvents\SharedEvents.csproj">
+      <Project>{e6b1767b-5547-46c3-b7ff-227703ff5ad6}</Project>
+      <Name>SharedEvents</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Entities\Entities.csproj">
       <Project>{59b97bfc-f2aa-4ef1-9527-2b86fc198ecc}</Project>
       <Name>Entities</Name>

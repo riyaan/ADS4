@@ -59,7 +59,7 @@ namespace Entities
 
         public override void Forward(ArrowContext context)
         {
-            context.Y += 1;
+            context.Y++;
         }
 
         public override void Downward(ArrowContext context)
@@ -89,7 +89,7 @@ namespace Entities
 
         public override void Downward(ArrowContext context)
         {
-            context.Y -= 1;
+            context.Y--;
         }
 
         public override void Left(ArrowContext context)
@@ -119,7 +119,7 @@ namespace Entities
 
         public override void Left(ArrowContext context)
         {
-            context.X -= 1;
+            context.X--;
         }
 
         public override void Right(ArrowContext context)
@@ -150,7 +150,7 @@ namespace Entities
 
         public override void Right(ArrowContext context)
         {
-            context.X += 1;
+            context.X++;
         }
     }
 }

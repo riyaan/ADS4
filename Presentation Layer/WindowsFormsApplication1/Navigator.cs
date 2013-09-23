@@ -1,11 +1,9 @@
 ﻿using Controllers;
-using Diagnostics;
 using Entities;
 using SharedEvents;
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -13,17 +11,6 @@ namespace MazeNavigatorUI
 {
     public partial class NavigatorUI : Form
     {
-        public event EventHandler<MazeChangedEventArgs> MazeChanged;
-
-        public delegate void MazeChangedEventHandler(object sender, MazeChangedEventArgs e);
-
-        protected virtual void OnMazeChanged(MazeChangedEventArgs e)
-        {
-            EventHandler<MazeChangedEventArgs> handler = MazeChanged;
-            if (handler != null)
-                handler(this, e);
-        }
-
         const int MAX_ROWS = 10;
         const int MAX_COLUMNS = 10;
 
@@ -63,8 +50,6 @@ namespace MazeNavigatorUI
         {
             InitializeComponent();
 
-            MazeChanged += NavigatorUI_MazeChanged;
-
             mazeLayoutPanel.Size = new System.Drawing.Size(this.Height, this.Width);
 
             backGroundWorker1 = new BackgroundWorker();
@@ -72,11 +57,27 @@ namespace MazeNavigatorUI
             backGroundWorker1.RunWorkerCompleted += backGroundWorker1_RunWorkerCompleted;
 
             _uiController = new UIController();
+            _uiController.ArrowChanged += _uiController_ArrowChanged;
         }
 
-        void NavigatorUI_MazeChanged(object sender, MazeChangedEventArgs e)
+        void _uiController_ArrowChanged(object sender, ArrowChangedEventArgs e)
         {
-            Console.WriteLine("Handling maze event");
+            // TODO: Update the buttons
+            Diagnostics.Logger.Instance.Log("Handling the arrow changed event.");
+            ArrowContext ac = e.Arrow;
+            Diagnostics.Logger.Instance.Log("Current State: " + ac.CurrentState.ToString());
+            Diagnostics.Logger.Instance.Log(String.Format("X:{0} Y:{1}", ac.X, ac.Y));
+
+            // Clear all the button images
+            string direction = String.Empty;
+            if(ac.CurrentState.ToString().ToUpper().Contains("RIGHT"))
+                direction = "R";
+            else if(ac.CurrentState.ToString().ToUpper().Contains("LEFT"))
+                direction = "L";
+            else if(ac.CurrentState.ToString().ToUpper().Contains("FORWARD"))
+                direction = "F";
+
+            UpdateGrid(ac.X, ac.Y, direction);
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,14 +120,11 @@ namespace MazeNavigatorUI
 
             mazeLayoutPanel.SuspendLayout();
 
-            //string output = String.Empty;
-            //for (int i = Maze.Rows - 1; i >= 0; i--)
-            //{
-            //    for (int j = Maze.Columns - 1; j >= 0; j--)
-            //    {
-            for (int i=0; i<Maze.Rows; i++)
+            int k = 0;
+            int l = 0;
+            for (int i = Maze.Rows - 1; i >= 0; i--)
             {
-                for (int j=0; j<Maze.Columns; j++)
+                for (int j = Maze.Columns - 1; j >= 0; j--)
                 {
                     Button b = new Button
                     {
@@ -135,18 +133,13 @@ namespace MazeNavigatorUI
                     };
 
                     if (Maze.Grid[i, j].CellState == CELL_STATE.OPEN)
-                    {
                         b.BackColor = Color.Blue;
-                        //output += "|O|";
-                    }
-                    else
-                    {                        
-                        //output += "|X|";
-                    }
-                    
-                    mazeLayoutPanel.Controls.Add(b, j, i);
+
+                    mazeLayoutPanel.Controls.Add(b, k, l);
+                    l++;
                 }
-                //output += System.Environment.NewLine;
+                k++;
+                l = 0;
             }
 
             this.Size = mazeLayoutPanel.Size;
@@ -164,11 +157,7 @@ namespace MazeNavigatorUI
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            OnMazeChanged(new MazeChangedEventArgs());
-            // this.OnMazeChanged += c_OnMazeChanged;
-
-            //NotificationFromObserver();
-            //// Process the command
+            // Process the command
             int arrowX, arrowY;
             string direction;
             _uiController.ParseCommand(txtCommand.Text, out arrowX, out arrowY, out direction);
@@ -177,19 +166,10 @@ namespace MazeNavigatorUI
             UpdateGrid(arrowX, arrowY, direction);
         }
 
-        public void c_OnMazeChanged(object sender, MazeChangedEventArgs e)
-        {
-        }
-
-        public void NotificationFromObserver()
-        {
-            MazeChangedEventArgs args = new MazeChangedEventArgs();
-            args.o = Maze;
-            OnMazeChanged(args);
-        }
-
         private void UpdateGrid(int x, int y, string d)
         {
+            Diagnostics.Logger.Instance.Log("Updating the buttons");
+
             foreach (object o in this.mazeLayoutPanel.Controls)
             {
                 Button b = (Button)o;
@@ -203,7 +183,7 @@ namespace MazeNavigatorUI
                     Button b = (Button)o;
                     string temp = String.Format("{0}_{1}", x, y);
                     if (b.Name.Equals(temp))
-                    {
+                    {                        
                         switch(d)
                         {
                             case "R":

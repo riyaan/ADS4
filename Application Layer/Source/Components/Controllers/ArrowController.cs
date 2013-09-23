@@ -1,5 +1,8 @@
 ﻿using Entities;
+using SharedEvents;
+using System;
 using System.Collections.Generic;
+using System.Timers;
 
 namespace Controllers
 {
@@ -28,6 +31,14 @@ namespace Controllers
 
     public class ArrowController: Subject
     {
+        public event EventHandler<ArrowChangedEventArgs> ArrowChanged;
+
+        protected virtual void OnArrowChanged(ArrowChangedEventArgs e)
+        {
+            if (ArrowChanged != null)
+                ArrowChanged(this, e);
+        }
+
         private ArrowContext subjectState;
 
         public ArrowContext SubjectState
@@ -46,6 +57,7 @@ namespace Controllers
 
         private int _rows;
         private int _columns;
+        private ArrowChangedEventArgs _acea;
 
         public ArrowController(int rows, int columns)
         {
@@ -55,6 +67,8 @@ namespace Controllers
 
             _rows = rows;
             _columns = columns;
+
+            _acea = new ArrowChangedEventArgs();
         }
 
         public void Forward(int steps)
@@ -64,9 +78,16 @@ namespace Controllers
                 if ((Arrow.Y + 1) <= _rows)
                 {
                     Arrow.Forward();
-                    this.Notify();
+                    RaiseEvent();                                        
+                    //this.Notify();                    
                 }
             }
+        }
+
+        private void RaiseEvent()
+        {
+            _acea.Arrow = Arrow;
+            OnArrowChanged(_acea);
         }
 
         public void Right(int steps)
@@ -76,7 +97,8 @@ namespace Controllers
                 if ((Arrow.X + 1) <= _columns)
                 {
                     Arrow.Right();
-                    this.Notify();
+                    RaiseEvent();                   
+                    //this.Notify();
                 }
             }
         }
@@ -88,7 +110,8 @@ namespace Controllers
                 if ((Arrow.X - 1) >= 0)
                 {
                     Arrow.Left();
-                    this.Notify();
+                    RaiseEvent();           
+                    //this.Notify();
                 }
             }
         }
