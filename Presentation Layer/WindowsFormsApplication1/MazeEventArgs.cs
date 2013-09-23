@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MazeNavigatorUI
 {
-    public class MazeEventArgs : EventArgs
+    public class MazeChangedEventArgs : EventArgs
     {
         public Maze Maze { get; set; }        
     }

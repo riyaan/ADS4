@@ -12,11 +12,13 @@ namespace MazeNavigatorUI
 {
     public partial class NavigatorUI : Form
     {
-        public event EventHandler<MazeEventArgs> MazeChanged;
+        public event EventHandler<MazeChangedEventArgs> MazeChanged;
 
-        protected virtual void OnMazeChanged(MazeEventArgs e)
+        public delegate void MazeChangedEventHandler(object sender, MazeChangedEventArgs e);
+
+        protected virtual void OnMazeChanged(MazeChangedEventArgs e)
         {
-            EventHandler<MazeEventArgs> handler = MazeChanged;
+            EventHandler<MazeChangedEventArgs> handler = MazeChanged;
             if (handler != null)
                 handler(this, e);
         }
@@ -58,13 +60,20 @@ namespace MazeNavigatorUI
 
         public NavigatorUI()
         {
-            InitializeComponent();            
+            InitializeComponent();
+
+            MazeChanged += NavigatorUI_MazeChanged;
 
             mazeLayoutPanel.Size = new System.Drawing.Size(this.Height, this.Width);
 
             backGroundWorker1 = new BackgroundWorker();
             backGroundWorker1.DoWork += backGroundWorker1_DoWork;
             backGroundWorker1.RunWorkerCompleted += backGroundWorker1_RunWorkerCompleted; 
+        }
+
+        void NavigatorUI_MazeChanged(object sender, MazeChangedEventArgs e)
+        {
+            Console.WriteLine("Handling maze event");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,9 +158,10 @@ namespace MazeNavigatorUI
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            this.OnMazeChanged += c_OnMazeChanged;
+            OnMazeChanged(new MazeChangedEventArgs());
+            //this.OnMazeChanged += c_OnMazeChanged;
 
-            NotificationFromObserver();
+            //NotificationFromObserver();
             //// Process the command
             //int arrowX, arrowY;
             //string direction;
@@ -161,13 +171,13 @@ namespace MazeNavigatorUI
             //UpdateGrid(arrowX, arrowY, direction);
         }        
 
-        public void c_OnMazeChanged(object sender, MazeEventArgs e)
+        public void c_OnMazeChanged(object sender, MazeChangedEventArgs e)
         {
         }
 
         public void NotificationFromObserver()
         {
-            MazeEventArgs args = new MazeEventArgs();
+            MazeChangedEventArgs args = new MazeChangedEventArgs();
             args.Maze = Maze;
             OnMazeChanged(args);
         }
