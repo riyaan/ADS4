@@ -36,9 +36,7 @@ namespace Controllers
                 switch (context.Direction)
                 {
                     case "R":
-                        _arrowController.Right(context.Steps);
-                        // Update the grid
-                        OnMazeChanged(new MazeChangedEventArgs());
+                        _arrowController.Right(context.Steps);                      
                         break;
                     case "L":
                         _arrowController.Left(context.Steps);

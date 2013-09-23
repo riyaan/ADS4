@@ -40,6 +40,7 @@
             this.txtCommand = new System.Windows.Forms.TextBox();
             this.txtRows = new System.Windows.Forms.TextBox();
             this.txtColumns = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,6 +145,15 @@
             this.txtColumns.Size = new System.Drawing.Size(35, 20);
             this.txtColumns.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.Image = global::MazeNavigatorUI.Properties.Resources.Forward;
+            this.button1.Location = new System.Drawing.Point(420, 215);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(18, 23);
+            this.button1.TabIndex = 8;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // NavigatorUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +161,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(539, 416);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtColumns);
             this.Controls.Add(this.txtRows);
             this.Controls.Add(this.txtCommand);
@@ -160,7 +171,7 @@
             this.MainMenuStrip = this.menuMain;
             this.Name = "NavigatorUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Navigator UI";            
+            this.Text = "Navigator UI";
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
             this.ResumeLayout(false);
@@ -182,5 +193,6 @@
         private System.Windows.Forms.TextBox txtRows;
         private System.Windows.Forms.TextBox txtColumns;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

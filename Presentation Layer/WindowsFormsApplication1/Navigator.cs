@@ -89,7 +89,7 @@ namespace MazeNavigatorUI
             
             // the Arrow Controller should communicate to the UI Controller to display the arrow correctly
             // in the grid.
-            UpdateGrid(0, 0, "U");
+            UpdateGrid(0, 0, "F");
         }
 
         void backGroundWorker1_DoWork(object sender, DoWorkEventArgs e)
