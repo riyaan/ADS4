@@ -125,7 +125,7 @@ namespace MazeNavigatorUI
                     Button b = new Button
                     {
                         Name = Maze.Grid[i, j].XCoordinate + "_" + Maze.Grid[i, j].YCoordinate,
-                        Size = new Size(18, 23)
+                        Size = new Size(26, 23)
                     };
 
                     if (Maze.Grid[i, j].CellState == CELL_STATE.OPEN)
@@ -202,11 +202,13 @@ namespace MazeNavigatorUI
                         switch(d)
                         {
                             case "R":
+                                b.Image = global::MazeNavigatorUI.Properties.Resources.Right;
+                                break;
                             case "L":
-                                b.Text = "--";
+                                b.Image = global::MazeNavigatorUI.Properties.Resources.Left;
                                 break;
                             case "F":
-                                b.Text = "|";
+                                b.Image = global::MazeNavigatorUI.Properties.Resources.Forward;
                                 break;
                         }
                         break;
