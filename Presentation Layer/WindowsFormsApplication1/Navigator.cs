@@ -159,17 +159,17 @@ namespace MazeNavigatorUI
         private void btnGo_Click(object sender, EventArgs e)
         {
             OnMazeChanged(new MazeChangedEventArgs());
-            //this.OnMazeChanged += c_OnMazeChanged;
+            // this.OnMazeChanged += c_OnMazeChanged;
 
             //NotificationFromObserver();
             //// Process the command
-            //int arrowX, arrowY;
-            //string direction;
-            //_uiController.ParseCommand(txtCommand.Text, out arrowX, out arrowY, out direction);            
+            int arrowX, arrowY;
+            string direction;
+            _uiController.ParseCommand(txtCommand.Text, out arrowX, out arrowY, out direction);
 
-            //// Update the grid
-            //UpdateGrid(arrowX, arrowY, direction);
-        }        
+            // Update the grid
+            UpdateGrid(arrowX, arrowY, direction);
+        }
 
         public void c_OnMazeChanged(object sender, MazeChangedEventArgs e)
         {
@@ -205,7 +205,7 @@ namespace MazeNavigatorUI
                             case "L":
                                 b.Text = "--";
                                 break;
-                            case "U":
+                            case "F":
                                 b.Text = "|";
                                 break;
                         }

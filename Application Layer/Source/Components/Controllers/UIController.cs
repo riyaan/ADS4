@@ -4,7 +4,7 @@ using MovementControl;
 namespace Controllers
 {
     public class UIController
-    {
+    {        
         private MazeController _mazeController;
         private MCLController _mclController;
         private ArrowController _arrowController;
@@ -17,16 +17,17 @@ namespace Controllers
         {
             // UI Controller interacts with the Maze Controller
             _mazeController = new MazeController(rows, columns);
+
+            _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
+            _mclController = new MCLController();
+
             return _mazeController.Maze; // return the maze for display purposes
         }
 
         public void ParseCommand(string command, out int x, out int y, out string direction)
         {
-            // UI Controller interacts with the MCL Controller
-            _mclController = new MCLController();
-            _mclController.ParseCommand(command);
-
-            _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
+            // UI Controller interacts with the MCL Controller            
+            _mclController.ParseCommand(command);            
 
             direction = string.Empty;
             // Execute each command
@@ -35,12 +36,14 @@ namespace Controllers
                 switch (context.Direction)
                 {
                     case "R":
-                        _arrowController.Right(context.Steps);                        
+                        _arrowController.Right(context.Steps);
+                        // Update the grid
+                        OnMazeChanged(new MazeChangedEventArgs());
                         break;
                     case "L":
                         _arrowController.Left(context.Steps);
                         break;
-                    case "U":
+                    case "F":
                         _arrowController.Forward(context.Steps);
                         break;
                 }
