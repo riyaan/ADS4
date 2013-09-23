@@ -94,7 +94,7 @@ namespace Controllers
         {
             for (int i = 0; i <= steps; i++)
             {
-                if ((Arrow.X + 1) <= _columns)
+                if ((Arrow.X - 1) >= 0)
                 {
                     Arrow.Right();
                     RaiseEvent();                   
@@ -107,7 +107,7 @@ namespace Controllers
         {
             for (int i = 0; i <= steps; i++)
             {
-                if ((Arrow.X - 1) >= 0)
+                if ((Arrow.X + 1) <= _columns)
                 {
                     Arrow.Left();
                     RaiseEvent();           

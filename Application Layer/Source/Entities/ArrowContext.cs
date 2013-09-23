@@ -119,7 +119,7 @@ namespace Entities
 
         public override void Left(ArrowContext context)
         {
-            context.X--;
+            context.X++;
         }
 
         public override void Right(ArrowContext context)
@@ -150,7 +150,7 @@ namespace Entities
 
         public override void Right(ArrowContext context)
         {
-            context.X++;
+            context.X--;
         }
     }
 }
