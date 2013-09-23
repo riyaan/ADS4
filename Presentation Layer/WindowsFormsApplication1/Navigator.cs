@@ -1,6 +1,7 @@
 ﻿using Controllers;
 using Diagnostics;
 using Entities;
+using SharedEvents;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -183,7 +184,7 @@ namespace MazeNavigatorUI
         public void NotificationFromObserver()
         {
             MazeChangedEventArgs args = new MazeChangedEventArgs();
-            args.Maze = Maze;
+            args.o = Maze;
             OnMazeChanged(args);
         }
 

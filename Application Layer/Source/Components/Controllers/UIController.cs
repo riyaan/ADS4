@@ -11,8 +11,7 @@ namespace Controllers
 
     public class UIController: Observer
     {
-        private string name;
-        private string observerState;
+        private ArrowContext observerState;
         private ArrowController subject;
 
         private MazeController _mazeController;
@@ -29,10 +28,9 @@ namespace Controllers
             _mazeController = new MazeController(rows, columns);
 
             _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
-            _arrowController.Attach(this);
-
             this.subject = _arrowController;
-            this.name = _arrowController.ToString();
+            this.subject.SubjectState = _arrowController.Arrow;
+            _arrowController.Attach(this);            
 
             _mclController = new MCLController();
 
@@ -73,10 +71,12 @@ namespace Controllers
         }
 
         public override void Update()
-        {
+        {            
             observerState = subject.SubjectState;
-            Diagnostics.Logger.Instance.Log(String.Format("Observer {0}'s new state is {1}",
-              name, observerState));
+            Diagnostics.Logger.Instance.Log(String.Format("Observer new state is {0},{1},{2}",
+              observerState.CurrentState, observerState.X, observerState.Y));
+
+            // TODO: Notify the UI. How is this done???
         }
     }
 }

@@ -28,9 +28,9 @@ namespace Controllers
 
     public class ArrowController: Subject
     {
-        private string subjectState;
+        private ArrowContext subjectState;
 
-        public string SubjectState
+        public ArrowContext SubjectState
         {
           get { return subjectState; }
           set { subjectState = value; }
