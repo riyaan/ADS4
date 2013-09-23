@@ -1,10 +1,20 @@
 ﻿using Entities;
 using MovementControl;
+using System;
 
 namespace Controllers
 {
-    public class UIController
-    {        
+    public abstract class Observer
+    {
+        public abstract void Update();
+    }
+
+    public class UIController: Observer
+    {
+        private string name;
+        private string observerState;
+        private ArrowController subject;
+
         private MazeController _mazeController;
         private MCLController _mclController;
         private ArrowController _arrowController;
@@ -19,6 +29,11 @@ namespace Controllers
             _mazeController = new MazeController(rows, columns);
 
             _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
+            _arrowController.Attach(this);
+
+            this.subject = _arrowController;
+            this.name = _arrowController.ToString();
+
             _mclController = new MCLController();
 
             return _mazeController.Maze; // return the maze for display purposes
@@ -55,7 +70,13 @@ namespace Controllers
 
         public void UpdateTheGrid()
         {
+        }
 
+        public override void Update()
+        {
+            observerState = subject.SubjectState;
+            Diagnostics.Logger.Instance.Log(String.Format("Observer {0}'s new state is {1}",
+              name, observerState));
         }
     }
 }

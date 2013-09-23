@@ -68,7 +68,9 @@ namespace MazeNavigatorUI
 
             backGroundWorker1 = new BackgroundWorker();
             backGroundWorker1.DoWork += backGroundWorker1_DoWork;
-            backGroundWorker1.RunWorkerCompleted += backGroundWorker1_RunWorkerCompleted; 
+            backGroundWorker1.RunWorkerCompleted += backGroundWorker1_RunWorkerCompleted;
+
+            _uiController = new UIController();
         }
 
         void NavigatorUI_MazeChanged(object sender, MazeChangedEventArgs e)
@@ -102,8 +104,7 @@ namespace MazeNavigatorUI
             Rows = Int32.Parse(this.txtRows.Text);
             Columns = Int32.Parse(this.txtColumns.Text);
 
-            // UI Controller interacts with the Maze Controller
-            _uiController = new UIController();
+            // UI Controller interacts with the Maze Controller            
             Maze = _uiController.GenerateNewMaze(Rows, Columns);
         }
 
@@ -118,9 +119,13 @@ namespace MazeNavigatorUI
             mazeLayoutPanel.SuspendLayout();
 
             //string output = String.Empty;
-            for (int i = Maze.Rows - 1; i >= 0; i--)
+            //for (int i = Maze.Rows - 1; i >= 0; i--)
+            //{
+            //    for (int j = Maze.Columns - 1; j >= 0; j--)
+            //    {
+            for (int i=0; i<Maze.Rows; i++)
             {
-                for (int j = Maze.Columns - 1; j >= 0; j--)
+                for (int j=0; j<Maze.Columns; j++)
                 {
                     Button b = new Button
                     {
@@ -182,13 +187,12 @@ namespace MazeNavigatorUI
             OnMazeChanged(args);
         }
 
-
         private void UpdateGrid(int x, int y, string d)
         {
             foreach (object o in this.mazeLayoutPanel.Controls)
             {
                 Button b = (Button)o;
-                b.Text = String.Empty;
+                b.Image = null;
             }
 
             foreach (object o in this.mazeLayoutPanel.Controls)
@@ -215,8 +219,6 @@ namespace MazeNavigatorUI
                     }
                 }
             }
-        }
-
-        
+        }        
     }
 }

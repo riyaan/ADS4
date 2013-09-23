@@ -1,9 +1,41 @@
 ﻿using Entities;
+using System.Collections.Generic;
 
 namespace Controllers
 {
-    public class ArrowController
+    public abstract class Subject
     {
+        private List<Observer> observers = new List<Observer>();
+
+        public void Attach(Observer observer)
+        {
+            observers.Add(observer);
+        }
+
+        public void Detach(Observer observer)
+        {
+            observers.Remove(observer);
+        }
+
+        public void Notify()
+        {
+            foreach (Observer o in observers)
+            {
+                o.Update();
+            }
+        }
+    }
+
+    public class ArrowController: Subject
+    {
+        private string subjectState;
+
+        public string SubjectState
+        {
+          get { return subjectState; }
+          set { subjectState = value; }
+        }
+
         private ArrowContext arrow;
 
         public ArrowContext Arrow
@@ -29,8 +61,11 @@ namespace Controllers
         {
             for (int i = 0; i <= steps; i++)
             {
-                if((Arrow.Y + 1) <= _rows)
+                if ((Arrow.Y + 1) <= _rows)
+                {
                     Arrow.Forward();
+                    this.Notify();
+                }
             }
         }
 
@@ -39,7 +74,10 @@ namespace Controllers
             for (int i = 0; i <= steps; i++)
             {
                 if ((Arrow.X + 1) <= _columns)
+                {
                     Arrow.Right();
+                    this.Notify();
+                }
             }
         }
 
@@ -48,7 +86,10 @@ namespace Controllers
             for (int i = 0; i <= steps; i++)
             {
                 if ((Arrow.X - 1) >= 0)
+                {
                     Arrow.Left();
+                    this.Notify();
+                }
             }
         }
     }
