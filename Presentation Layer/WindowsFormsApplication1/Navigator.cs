@@ -89,7 +89,7 @@ namespace MazeNavigatorUI
         {
             CreateMazeVisually();
 
-            // Thethe ArrowController should create the intial location of this arrow
+            // The ArrowController should create the intial location of this arrow
             
             // the Arrow Controller should communicate to the UI Controller to display the arrow correctly
             // in the grid.
@@ -112,7 +112,6 @@ namespace MazeNavigatorUI
 
         private void CreateMazeVisually()
         {
-            // TODO: Create this on a seperate thread
             mazeLayoutPanel.Visible = false;
             mazeLayoutPanel.Controls.Clear();
             mazeLayoutPanel.RowCount = Maze.Rows;            
@@ -191,15 +190,12 @@ namespace MazeNavigatorUI
                         {
                             case "R":
                                 b.Image = global::MazeNavigatorUI.Properties.Resources.Right;
-                                b.Invalidate();
                                 break;
                             case "L":
                                 b.Image = global::MazeNavigatorUI.Properties.Resources.Left;
-                                b.Invalidate();
                                 break;
                             case "F":
                                 b.Image = global::MazeNavigatorUI.Properties.Resources.Forward;
-                                b.Invalidate();
                                 break;
                         }
                         break;

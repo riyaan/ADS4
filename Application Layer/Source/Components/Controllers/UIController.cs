@@ -60,8 +60,6 @@ namespace Controllers
             // UI Controller interacts with the MCL Controller            
             _mclController.ParseCommand(command);
 
-            ArrowChangedEventArgs ecea = new ArrowChangedEventArgs();
-
             direction = string.Empty;
             // Execute each command
             foreach (Context context in _mclController.Context)
