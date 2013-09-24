@@ -135,6 +135,12 @@ namespace MazeNavigatorUI
                     if (Maze.Grid[i, j].CellState == CELL_STATE.OPEN)
                         b.BackColor = Color.Blue;
 
+                    if(i==Maze.Rows-1 && j==Maze.Columns-1)
+                        b.BackColor = Color.Yellow;
+
+                    if (i == 0 && j == 0)
+                        b.BackColor = Color.Green;
+
                     mazeLayoutPanel.Controls.Add(b, k, l);
                     l++;
                 }
