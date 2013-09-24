@@ -74,11 +74,12 @@ namespace Controllers
         public void Forward(int steps)
         {
             for (int i = 0; i <= steps; i++)
-            {
+            {                
                 if ((Arrow.Y + 1) <= _rows)
                 {
-                    Arrow.Forward();
-                    RaiseEvent();                                        
+                    Arrow.Forward();                    
+                    RaiseEvent();
+                    //System.Threading.Thread.Sleep(3000);
                     //this.Notify();                    
                 }
             }
@@ -97,7 +98,9 @@ namespace Controllers
                 if ((Arrow.X - 1) >= 0)
                 {
                     Arrow.Right();
-                    RaiseEvent();                   
+                    RaiseEvent();
+                    //System.Threading.Thread.Sleep(3000);
+                    //_timer.Enabled = true;
                     //this.Notify();
                 }
             }
@@ -110,7 +113,9 @@ namespace Controllers
                 if ((Arrow.X + 1) <= _columns)
                 {
                     Arrow.Left();
-                    RaiseEvent();           
+                    RaiseEvent();
+                    //System.Threading.Thread.Sleep(3000);
+                    //_timer.Enabled = true;
                     //this.Notify();
                 }
             }

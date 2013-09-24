@@ -161,9 +161,6 @@ namespace MazeNavigatorUI
             int arrowX, arrowY;
             string direction;
             _uiController.ParseCommand(txtCommand.Text, out arrowX, out arrowY, out direction);
-
-            // Update the grid
-            UpdateGrid(arrowX, arrowY, direction);
         }
 
         private void UpdateGrid(int x, int y, string d)
