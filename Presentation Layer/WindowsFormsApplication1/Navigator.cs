@@ -185,12 +185,15 @@ namespace MazeNavigatorUI
                         {
                             case "R":
                                 b.Image = global::MazeNavigatorUI.Properties.Resources.Right;
+                                b.Invalidate();
                                 break;
                             case "L":
                                 b.Image = global::MazeNavigatorUI.Properties.Resources.Left;
+                                b.Invalidate();
                                 break;
                             case "F":
                                 b.Image = global::MazeNavigatorUI.Properties.Resources.Forward;
+                                b.Invalidate();
                                 break;
                         }
                         break;

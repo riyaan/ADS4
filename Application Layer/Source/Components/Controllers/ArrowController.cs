@@ -73,7 +73,7 @@ namespace Controllers
 
         public void Forward(int steps)
         {
-            for (int i = 0; i <= steps; i++)
+            for (int i = 0; i < steps; i++)
             {                
                 if ((Arrow.Y + 1) <= _rows)
                 {
@@ -93,7 +93,7 @@ namespace Controllers
 
         public void Right(int steps)
         {
-            for (int i = 0; i <= steps; i++)
+            for (int i = 0; i < steps; i++)
             {
                 if ((Arrow.X - 1) >= 0)
                 {
@@ -108,7 +108,7 @@ namespace Controllers
 
         public void Left(int steps)
         {
-            for (int i = 0; i <= steps; i++)
+            for (int i = 0; i < steps; i++)
             {
                 if ((Arrow.X + 1) <= _columns)
                 {
