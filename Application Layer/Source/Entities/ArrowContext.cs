@@ -5,7 +5,6 @@ namespace Entities
     public abstract class ArrowState
     {
         public abstract void Forward(ArrowContext context);
-        public abstract void Downward(ArrowContext context);
         public abstract void Right(ArrowContext context);
         public abstract void Left(ArrowContext context);
     }
@@ -46,8 +45,6 @@ namespace Entities
 
         public void Forward() { this.CurrentState.Forward(this); }
 
-        public void Downward() { this.CurrentState.Downward(this); }
-
         public void Left() { this.CurrentState.Left(this); }
 
         public void Right() { this.CurrentState.Right(this); }
@@ -62,44 +59,16 @@ namespace Entities
             context.Y++;
         }
 
-        public override void Downward(ArrowContext context)
-        {
-            context.CurrentState = new ConcreteStateDownward();
-        }
-
         public override void Left(ArrowContext context)
         {
             context.CurrentState = new ConcreteStateLeft();
+            context.X++;
         }
 
         public override void Right(ArrowContext context)
         {
             context.CurrentState = new ConcreteStateRight();
-        }
-    }
-
-    public class ConcreteStateDownward : ArrowState
-    {
-        public ConcreteStateDownward() { }
-
-        public override void Forward(ArrowContext context)
-        {
-            context.CurrentState = new ConcreteStateForward();            
-        }
-
-        public override void Downward(ArrowContext context)
-        {
-            context.Y--;
-        }
-
-        public override void Left(ArrowContext context)
-        {
-            context.CurrentState = new ConcreteStateLeft();
-        }
-
-        public override void Right(ArrowContext context)
-        {
-            context.CurrentState = new ConcreteStateRight();
+            context.X--;
         }
     }
 
@@ -110,11 +79,7 @@ namespace Entities
         public override void Forward(ArrowContext context)
         {
             context.CurrentState = new ConcreteStateForward();
-        }
-
-        public override void Downward(ArrowContext context)
-        {
-            context.CurrentState = new ConcreteStateDownward();
+            context.Y++;
         }
 
         public override void Left(ArrowContext context)
@@ -125,6 +90,7 @@ namespace Entities
         public override void Right(ArrowContext context)
         {
             context.CurrentState = new ConcreteStateRight();
+            context.X--;
         }
 
     }
@@ -136,16 +102,13 @@ namespace Entities
         public override void Forward(ArrowContext context)
         {
             context.CurrentState = new ConcreteStateForward();
-        }
-
-        public override void Downward(ArrowContext context)
-        {
-            context.CurrentState = new ConcreteStateDownward();
+            context.Y++;
         }
 
         public override void Left(ArrowContext context)
         {
             context.CurrentState = new ConcreteStateLeft();
+            context.X++;
         }
 
         public override void Right(ArrowContext context)
