@@ -5,12 +5,7 @@ using System;
 
 namespace Controllers
 {
-    public abstract class Observer
-    {
-        public abstract void Update();
-    }
-
-    public class UIController: Observer
+    public class UIController
     {
         public event EventHandler<ArrowChangedEventArgs> ArrowChanged;
 
@@ -19,9 +14,6 @@ namespace Controllers
             if (ArrowChanged != null)
                 ArrowChanged(this, e);
         }
-
-        private ArrowContext observerState;
-        private ArrowController subject;
 
         private MazeController _mazeController;
         private MCLController _mclController;
@@ -43,12 +35,8 @@ namespace Controllers
             _mazeController = new MazeController(rows, columns);
 
             _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
-            this.subject = _arrowController;
-            this.subject.SubjectState = _arrowController.Arrow;
 
-            _arrowController.ArrowChanged += _arrowController_ArrowChanged;
-
-            _arrowController.Attach(this);            
+            _arrowController.ArrowChanged += _arrowController_ArrowChanged;         
 
             _mclController = new MCLController();
 
@@ -82,13 +70,6 @@ namespace Controllers
             // return the coordinates of the arrow
             x = _arrowController.Arrow.X;
             y = _arrowController.Arrow.Y;            
-        }
-
-        public override void Update()
-        {            
-            observerState = subject.SubjectState;
-            Diagnostics.Logger.Instance.Log(String.Format("Observer new state is {0},{1},{2}",
-              observerState.CurrentState, observerState.X, observerState.Y));
         }
     }
 }

@@ -6,30 +6,7 @@ using System.Timers;
 
 namespace Controllers
 {
-    public abstract class Subject
-    {
-        private List<Observer> observers = new List<Observer>();
-
-        public void Attach(Observer observer)
-        {
-            observers.Add(observer);
-        }
-
-        public void Detach(Observer observer)
-        {
-            observers.Remove(observer);
-        }
-
-        public void Notify()
-        {
-            foreach (Observer o in observers)
-            {
-                o.Update();
-            }
-        }
-    }
-
-    public class ArrowController: Subject
+    public class ArrowController
     {
         public event EventHandler<ArrowChangedEventArgs> ArrowChanged;
 
@@ -37,14 +14,6 @@ namespace Controllers
         {
             if (ArrowChanged != null)
                 ArrowChanged(this, e);
-        }
-
-        private ArrowContext subjectState;
-
-        public ArrowContext SubjectState
-        {
-          get { return subjectState; }
-          set { subjectState = value; }
         }
 
         private ArrowContext arrow;
@@ -78,9 +47,7 @@ namespace Controllers
                 if ((Arrow.Y + 1) <= _rows)
                 {
                     Arrow.Forward();                    
-                    RaiseEvent();
-                    //System.Threading.Thread.Sleep(3000);
-                    //this.Notify();                    
+                    RaiseEvent();              
                 }
             }
         }
@@ -99,9 +66,6 @@ namespace Controllers
                 {
                     Arrow.Right();
                     RaiseEvent();
-                    //System.Threading.Thread.Sleep(3000);
-                    //_timer.Enabled = true;
-                    //this.Notify();
                 }
             }
         }
@@ -114,9 +78,6 @@ namespace Controllers
                 {
                     Arrow.Left();
                     RaiseEvent();
-                    //System.Threading.Thread.Sleep(3000);
-                    //_timer.Enabled = true;
-                    //this.Notify();
                 }
             }
         }
