@@ -44,7 +44,7 @@ namespace Controllers
             _columns = columns;
 
             _acea = new ArrowChangedEventArgs();
-            _timer = new Timer(2000);
+            _timer = new Timer(4000);
             _timer.Elapsed += _timer_Elapsed;
         }
 

@@ -2,6 +2,7 @@
 using MovementControl;
 using SharedEvents;
 using System;
+using System.Timers;
 
 namespace Controllers
 {
@@ -15,20 +16,12 @@ namespace Controllers
                 ArrowChanged(this, e);
         }
 
-        // Handles the Arrow direction changed.
-        public event EventHandler<ArrowDirectionChangedEventArgs> ArrowDirectionChanged;
-        protected virtual void OnArrowDirectionChanged(ArrowDirectionChangedEventArgs e)
-        {
-            if (ArrowDirectionChanged != null)
-                ArrowDirectionChanged(this, e);
-        }
-
-
         private MazeController _mazeController;
         private MCLController _mclController;
         private ArrowController _arrowController;
 
-        private ArrowDirectionChangedEventArgs _adcea;
+        private Timer _timer;
+        private static int _count = 0;
 
         public UIController()
         {
@@ -49,48 +42,73 @@ namespace Controllers
 
             _arrowController.ArrowChanged += _arrowController_ArrowChanged;
 
-            _adcea = new ArrowDirectionChangedEventArgs();
-
             _mclController = new MCLController();
+
+            _timer = new Timer(3000);
+            _timer.Elapsed += _timer_Elapsed;
 
             return _mazeController.Maze; // return the maze for display purposes
         }
 
-        public void ParseCommand(string command, out int x, out int y, out string direction)
+        void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            ProcessCommand();
+        }
+
+        public void ParseCommand(string command)
         {
             // UI Controller interacts with the MCL Controller            
             _mclController.ParseCommand(command);
+            _timer.Enabled = true;
+            //// Execute each command
+            //foreach (Context context in _mclController.Context)
+            //{
+            //    switch (context.Direction)
+            //    {
+            //        case "R":
+            //            // send an event back to the UI to change the arrow direction
+            //            _arrowController.Right(context.Steps);                        
+            //            break;
+            //        case "L":
+            //            // send an event back to the UI to change the arrow direction
+            //            _arrowController.Left(context.Steps);                        
+            //            break;
+            //        case "F":
+            //            // send an event back to the UI to change the arrow direction
+            //            _arrowController.Forward(context.Steps);
+            //            break;
+            //    }
+            //}       
+        }
 
-            direction = string.Empty;
-            // Execute each command
-            foreach (Context context in _mclController.Context)
+        // Process each command group using a Timer
+        private void ProcessCommand()
+        {
+            if (_count <= _mclController.Context.Count)
             {
-                _adcea.Arrow = _arrowController.Arrow;
-
+                Context context = _mclController.Context[_count];
                 switch (context.Direction)
                 {
                     case "R":
                         // send an event back to the UI to change the arrow direction
-                        OnArrowDirectionChanged(_adcea);
-                        _arrowController.Right(context.Steps);                        
+                        _arrowController.Right(context.Steps);
                         break;
                     case "L":
                         // send an event back to the UI to change the arrow direction
-                        OnArrowDirectionChanged(_adcea);
-                        _arrowController.Left(context.Steps);                        
+                        _arrowController.Left(context.Steps);
                         break;
                     case "F":
                         // send an event back to the UI to change the arrow direction
-                        OnArrowDirectionChanged(_adcea);
                         _arrowController.Forward(context.Steps);
                         break;
                 }
-                direction = context.Direction;
+                _count++;
             }
-
-            // return the coordinates of the arrow
-            x = _arrowController.Arrow.X;
-            y = _arrowController.Arrow.Y;            
+            else
+            {
+                _count = 0;
+                _timer.Enabled = false;
+            }
         }
     }
 }

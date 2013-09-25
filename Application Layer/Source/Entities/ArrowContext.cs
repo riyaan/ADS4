@@ -15,8 +15,8 @@ namespace Entities
 
         public ArrowState CurrentState 
         {
-            get { return _currentState; }            
-            set { _currentState = value; } 
+            get { return _currentState; }
+            set { _currentState = value; }
         }
 
         public ArrowContext(ArrowState arrowState)
@@ -92,7 +92,6 @@ namespace Entities
             context.CurrentState = new ConcreteStateRight();
             context.X--;
         }
-
     }
 
     public class ConcreteStateRight : ArrowState

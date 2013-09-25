@@ -56,23 +56,7 @@ namespace MazeNavigatorUI
             backGroundWorker1.RunWorkerCompleted += backGroundWorker1_RunWorkerCompleted;
 
             _uiController = new UIController();
-            _uiController.ArrowChanged += _uiController_ArrowChanged;
-            _uiController.ArrowDirectionChanged += _uiController_ArrowDirectionChanged;
-        }
-
-        void _uiController_ArrowDirectionChanged(object sender, ArrowDirectionChangedEventArgs e)
-        {
-            ArrowContext ac = e.Arrow;
-
-            string direction = String.Empty;
-            if(ac.CurrentState.ToString().ToUpper().Contains("RIGHT"))
-                direction = "R";
-            else if(ac.CurrentState.ToString().ToUpper().Contains("LEFT"))
-                direction = "L";
-            else if(ac.CurrentState.ToString().ToUpper().Contains("FORWARD"))
-                direction = "F";
-
-            UpdateGrid(ac.X, ac.Y, direction);
+            _uiController.ArrowChanged += _uiController_ArrowChanged;            
         }
 
         void _uiController_ArrowChanged(object sender, ArrowChangedEventArgs e)
@@ -177,10 +161,7 @@ namespace MazeNavigatorUI
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            // Process the command
-            int arrowX, arrowY;
-            string direction;
-            _uiController.ParseCommand(txtCommand.Text, out arrowX, out arrowY, out direction);
+            _uiController.ParseCommand(txtCommand.Text);
         }
 
         private void UpdateGrid(int x, int y, string d)
