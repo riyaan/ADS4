@@ -10,9 +10,6 @@ namespace MazeNavigatorUI
 {
     public partial class NavigatorUI : Form
     {
-        const int MAX_ROWS = 10;
-        const int MAX_COLUMNS = 10;
-
         private int rows;
         public int Rows
         {
@@ -163,6 +160,7 @@ namespace MazeNavigatorUI
             mazeLayoutPanel.Visible = true;
 
             this.txtCommand.Location = new Point(mazeLayoutPanel.Bounds.Left, mazeLayoutPanel.Bounds.Bottom);
+            this.txtCommand.Size = new Size(this.Size.Width / 2, this.txtCommand.Height);
             this.btnGo.Location = new Point(this.txtCommand.Bounds.Right, mazeLayoutPanel.Bounds.Bottom);
         }
 

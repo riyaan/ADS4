@@ -10,7 +10,7 @@ namespace MazeNavigatorUI
         {
             InitializeComponent();
 
-            ConfigurationManager.RefreshSection("appSettings");
+            //ConfigurationManager.RefreshSection("appSettings");
 
             // Load the values from the config
             txtRows.Text = ConfigurationManager.AppSettings["mazeRows"];
@@ -25,13 +25,13 @@ namespace MazeNavigatorUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // TODO: This is not saving.
-            Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
-            config.AppSettings.Settings.Add("mazeRows", txtRows.Text);
-            config.AppSettings.Settings.Add("mazeColumns", txtColumns.Text);
-            config.AppSettings.Settings.Add("animationSpeed", txtAnimationSpeed.Text);
+            //// TODO: This is not saving.
+            //Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+            //config.AppSettings.Settings.Add("mazeRows", txtRows.Text);
+            //config.AppSettings.Settings.Add("mazeColumns", txtColumns.Text);
+            //config.AppSettings.Settings.Add("animationSpeed", txtAnimationSpeed.Text);
 
-            config.Save(ConfigurationSaveMode.Full);
+            //config.Save(ConfigurationSaveMode.Full);
 
             this.Close();
         }
