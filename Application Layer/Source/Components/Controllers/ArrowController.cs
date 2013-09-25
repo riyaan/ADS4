@@ -9,13 +9,13 @@ namespace Controllers
     public class ArrowController
     {
         public event EventHandler<ArrowChangedEventArgs> ArrowChanged;
-
         protected virtual void OnArrowChanged(ArrowChangedEventArgs e)
         {
             if (ArrowChanged != null)
                 ArrowChanged(this, e);
         }
 
+        // Notify the UI Controller that the current command has finished execution.
         public event EventHandler AnimationCompleted;
         protected virtual void OnAnimationCompleted(EventArgs e)
         {
@@ -51,7 +51,7 @@ namespace Controllers
             _columns = columns;
 
             _acea = new ArrowChangedEventArgs();
-            _timer = new Timer(2000);
+            _timer = new Timer(2000); // TODO: Read this value from the configuration file.
             _timer.Elapsed += _timer_Elapsed;
         }
 
@@ -75,11 +75,7 @@ namespace Controllers
                         }
                     }
                     else
-                    {
-                        _timer.Enabled = false;
-                        _count = 0;
-                        OnAnimationCompleted(new EventArgs());
-                    }
+                        RaiseOnAnimationCompletedEvent();
                     break;
                 case "R":
                     if (_count < _steps)
@@ -92,12 +88,7 @@ namespace Controllers
                         }
                     }
                     else
-                    {
-                        _timer.Enabled = false;                        
-                        _count = 0;
-                        // send event to UI Controller to process the following command
-                        OnAnimationCompleted(new EventArgs());
-                    }
+                        RaiseOnAnimationCompletedEvent();
                     break;
                 case "L":
                     if (_count < _steps)
@@ -110,11 +101,7 @@ namespace Controllers
                         }
                     }
                     else
-                    {
-                        _timer.Enabled = false;
-                        _count = 0;
-                        OnAnimationCompleted(new EventArgs());
-                    }
+                        RaiseOnAnimationCompletedEvent();
                     break;
             }
         }
@@ -144,6 +131,13 @@ namespace Controllers
         {
             _acea.Arrow = Arrow;
             OnArrowChanged(_acea);
+        }
+
+        private void RaiseOnAnimationCompletedEvent()
+        {
+            _timer.Enabled = false;
+            _count = 0;
+            OnAnimationCompleted(new EventArgs());
         }
     }
 }
