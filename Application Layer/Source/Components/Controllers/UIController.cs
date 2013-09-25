@@ -41,25 +41,35 @@ namespace Controllers
             _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
 
             _arrowController.ArrowChanged += _arrowController_ArrowChanged;
+            _arrowController.AnimationCompleted += _arrowController_AnimationCompleted;
 
             _mclController = new MCLController();
 
-            _timer = new Timer(3000);
-            _timer.Elapsed += _timer_Elapsed;
+            //_timer = new Timer(6000);
+            //_timer.Elapsed += _timer_Elapsed;
 
             return _mazeController.Maze; // return the maze for display purposes
         }
 
-        void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        void _arrowController_AnimationCompleted(object sender, EventArgs e)
         {
             ProcessCommand();
         }
 
+        //void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        //{
+        //    Diagnostics.Logger.Instance.Log("Timer elapsed.");
+        //    ProcessCommand();
+        //}
+
         public void ParseCommand(string command)
         {
+            Diagnostics.Logger.Instance.Log("Parsing the command: " + command);
             // UI Controller interacts with the MCL Controller            
             _mclController.ParseCommand(command);
-            _timer.Enabled = true;
+
+            //Diagnostics.Logger.Instance.Log("Enabling the timer");
+            //_timer.Enabled = true;
             //// Execute each command
             //foreach (Context context in _mclController.Context)
             //{
@@ -79,13 +89,20 @@ namespace Controllers
             //            break;
             //    }
             //}       
+
+            ProcessCommand();
         }
 
         // Process each command group using a Timer
         private void ProcessCommand()
         {
-            if (_count <= _mclController.Context.Count)
+            Diagnostics.Logger.Instance.Log("Processing command");
+            Diagnostics.Logger.Instance.Log("Count = " + _count);
+            Diagnostics.Logger.Instance.Log("Context count: " + _mclController.Context.Count);
+
+            if (_count <= _mclController.Context.Count-1)
             {
+                Diagnostics.Logger.Instance.Log("Count is less thant Context count");
                 Context context = _mclController.Context[_count];
                 switch (context.Direction)
                 {
@@ -106,6 +123,9 @@ namespace Controllers
             }
             else
             {
+                Diagnostics.Logger.Instance.Log("All contexts have been processed.");
+                Diagnostics.Logger.Instance.Log("Resetting count");
+                Diagnostics.Logger.Instance.Log("Disabling the timer.");
                 _count = 0;
                 _timer.Enabled = false;
             }

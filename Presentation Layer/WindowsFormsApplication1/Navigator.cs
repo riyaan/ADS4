@@ -161,13 +161,12 @@ namespace MazeNavigatorUI
 
         private void btnGo_Click(object sender, EventArgs e)
         {
+            Diagnostics.Logger.Instance.Log("Go button clicked");
             _uiController.ParseCommand(txtCommand.Text);
         }
 
         private void UpdateGrid(int x, int y, string d)
         {
-            Diagnostics.Logger.Instance.Log("Updating the buttons");
-
             foreach (object o in this.mazeLayoutPanel.Controls)
             {
                 Button b = (Button)o;

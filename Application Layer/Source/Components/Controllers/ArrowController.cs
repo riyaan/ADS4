@@ -14,7 +14,14 @@ namespace Controllers
         {
             if (ArrowChanged != null)
                 ArrowChanged(this, e);
-        }        
+        }
+
+        public event EventHandler AnimationCompleted;
+        protected virtual void OnAnimationCompleted(EventArgs e)
+        {
+            if (AnimationCompleted != null)
+                AnimationCompleted(this, e);
+        }
 
         private ArrowContext arrow;
 
@@ -44,7 +51,7 @@ namespace Controllers
             _columns = columns;
 
             _acea = new ArrowChangedEventArgs();
-            _timer = new Timer(4000);
+            _timer = new Timer(2000);
             _timer.Elapsed += _timer_Elapsed;
         }
 
@@ -71,6 +78,7 @@ namespace Controllers
                     {
                         _timer.Enabled = false;
                         _count = 0;
+                        OnAnimationCompleted(new EventArgs());
                     }
                     break;
                 case "R":
@@ -85,8 +93,10 @@ namespace Controllers
                     }
                     else
                     {
-                        _timer.Enabled = false;
+                        _timer.Enabled = false;                        
                         _count = 0;
+                        // send event to UI Controller to process the following command
+                        OnAnimationCompleted(new EventArgs());
                     }
                     break;
                 case "L":
@@ -103,6 +113,7 @@ namespace Controllers
                     {
                         _timer.Enabled = false;
                         _count = 0;
+                        OnAnimationCompleted(new EventArgs());
                     }
                     break;
             }

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace Diagnostics
 {
@@ -31,8 +32,8 @@ namespace Diagnostics
         }
 
         public void Log(string output)
-        {            
-            this.logFile.WriteLine(output);
+        {
+            this.logFile.WriteLine(String.Format("[{0}] - {1}", DateTime.Now.ToString(), output));
             this.logFile.Flush();
         }
     }
