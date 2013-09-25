@@ -38,8 +38,7 @@
             this.mazeLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.btnGo = new System.Windows.Forms.Button();
             this.txtCommand = new System.Windows.Forms.TextBox();
-            this.txtRows = new System.Windows.Forms.TextBox();
-            this.txtColumns = new System.Windows.Forms.TextBox();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,8 +50,7 @@
             this.helpToolStripMenuItem});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
-            this.menuMain.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuMain.Size = new System.Drawing.Size(719, 28);
+            this.menuMain.Size = new System.Drawing.Size(539, 24);
             this.menuMain.TabIndex = 2;
             this.menuMain.Text = "menuStrip1";
             // 
@@ -62,42 +60,44 @@
             this.newToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.newToolStripMenuItem.Text = "@New";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
-            this.exitToolStripMenuItem.Text = "E@xit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
-            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "E&dit";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "A&bout";
             // 
             // mazeLayoutPanel
             // 
@@ -107,8 +107,7 @@
             this.mazeLayoutPanel.ColumnCount = 2;
             this.mazeLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.mazeLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.mazeLayoutPanel.Location = new System.Drawing.Point(189, 137);
-            this.mazeLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mazeLayoutPanel.Location = new System.Drawing.Point(142, 111);
             this.mazeLayoutPanel.Name = "mazeLayoutPanel";
             this.mazeLayoutPanel.RowCount = 2;
             this.mazeLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -118,10 +117,9 @@
             // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(603, 469);
-            this.btnGo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGo.Location = new System.Drawing.Point(452, 381);
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(100, 28);
+            this.btnGo.Size = new System.Drawing.Size(75, 23);
             this.btnGo.TabIndex = 4;
             this.btnGo.Text = "Go";
             this.btnGo.UseVisualStyleBackColor = true;
@@ -129,43 +127,30 @@
             // 
             // txtCommand
             // 
-            this.txtCommand.Location = new System.Drawing.Point(189, 469);
-            this.txtCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCommand.Location = new System.Drawing.Point(12, 381);
             this.txtCommand.Name = "txtCommand";
-            this.txtCommand.Size = new System.Drawing.Size(404, 22);
+            this.txtCommand.Size = new System.Drawing.Size(434, 20);
             this.txtCommand.TabIndex = 5;
             // 
-            // txtRows
+            // settingsToolStripMenuItem
             // 
-            this.txtRows.Location = new System.Drawing.Point(17, 469);
-            this.txtRows.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtRows.Name = "txtRows";
-            this.txtRows.Size = new System.Drawing.Size(43, 22);
-            this.txtRows.TabIndex = 6;
-            // 
-            // txtColumns
-            // 
-            this.txtColumns.Location = new System.Drawing.Point(83, 468);
-            this.txtColumns.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtColumns.Name = "txtColumns";
-            this.txtColumns.Size = new System.Drawing.Size(45, 22);
-            this.txtColumns.TabIndex = 7;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Text = "Se&ttings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // NavigatorUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(719, 512);
-            this.Controls.Add(this.txtColumns);
-            this.Controls.Add(this.txtRows);
+            this.ClientSize = new System.Drawing.Size(539, 416);
             this.Controls.Add(this.txtCommand);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.mazeLayoutPanel);
             this.Controls.Add(this.menuMain);
             this.MainMenuStrip = this.menuMain;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NavigatorUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Navigator UI";
@@ -187,8 +172,7 @@
         private System.Windows.Forms.TableLayoutPanel mazeLayoutPanel;
         private System.Windows.Forms.Button btnGo;
         private System.Windows.Forms.TextBox txtCommand;
-        private System.Windows.Forms.TextBox txtRows;
-        private System.Windows.Forms.TextBox txtColumns;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }

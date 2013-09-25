@@ -2,6 +2,7 @@
 using Entities;
 using SharedEvents;
 using System;
+using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -85,8 +86,9 @@ namespace MazeNavigatorUI
 
         private void GenerateMaze()
         {
-            Rows = Int32.Parse(this.txtRows.Text);
-            Columns = Int32.Parse(this.txtColumns.Text);
+            // Get the values from the configuration file
+            Rows = Int32.Parse(ConfigurationManager.AppSettings["mazeRows"]);
+            Columns = Int32.Parse(ConfigurationManager.AppSettings["mazeColumns"]);
 
             // UI Controller interacts with the Maze Controller            
             Maze = _uiController.GenerateNewMaze(Rows, Columns);
@@ -223,6 +225,13 @@ namespace MazeNavigatorUI
                     }
                 }
             }
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new form for editing the maze details.
+            Settings settings = new Settings();
+            settings.Show();
         }        
     }
 }
