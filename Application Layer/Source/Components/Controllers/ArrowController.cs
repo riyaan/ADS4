@@ -124,21 +124,6 @@ namespace Controllers
             _timer.Enabled = true;
             _direction = "F";
             _steps = steps;
-
-            //for (int i = 0; i < steps; i++)
-            //{                
-            //    if ((Arrow.Y + 1) <= _rows)
-            //    {
-            //        Arrow.Forward();                    
-            //        RaiseEvent();              
-            //    }
-            //}
-        }
-
-        private void RaiseEvent()
-        {
-            _acea.Arrow = Arrow;
-            OnArrowChanged(_acea);
         }
 
         public void Right(int steps)
@@ -146,15 +131,6 @@ namespace Controllers
             _timer.Enabled = true;
             _direction = "R";
             _steps = steps;
-
-            //for (int i = 0; i < steps; i++)
-            //{
-            //    if ((Arrow.X - 1) >= 0)
-            //    {
-            //        Arrow.Right();
-            //        RaiseEvent();
-            //    }
-            //}
         }
 
         public void Left(int steps)
@@ -162,15 +138,12 @@ namespace Controllers
             _timer.Enabled = true;
             _direction = "L";
             _steps = steps;
+        }
 
-            //for (int i = 0; i < steps; i++)
-            //{
-            //    if ((Arrow.X + 1) <= _columns)
-            //    {
-            //        Arrow.Left();
-            //        RaiseEvent();
-            //    }
-            //}
+        private void RaiseEvent()
+        {
+            _acea.Arrow = Arrow;
+            OnArrowChanged(_acea);
         }
     }
 }

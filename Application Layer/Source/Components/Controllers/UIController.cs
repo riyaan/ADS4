@@ -20,7 +20,6 @@ namespace Controllers
         private MCLController _mclController;
         private ArrowController _arrowController;
 
-        private Timer _timer;
         private static int _count = 0;
 
         public UIController()
@@ -45,9 +44,6 @@ namespace Controllers
 
             _mclController = new MCLController();
 
-            //_timer = new Timer(6000);
-            //_timer.Elapsed += _timer_Elapsed;
-
             return _mazeController.Maze; // return the maze for display purposes
         }
 
@@ -56,39 +52,11 @@ namespace Controllers
             ProcessCommand();
         }
 
-        //void _timer_Elapsed(object sender, ElapsedEventArgs e)
-        //{
-        //    Diagnostics.Logger.Instance.Log("Timer elapsed.");
-        //    ProcessCommand();
-        //}
-
         public void ParseCommand(string command)
         {
             Diagnostics.Logger.Instance.Log("Parsing the command: " + command);
             // UI Controller interacts with the MCL Controller            
-            _mclController.ParseCommand(command);
-
-            //Diagnostics.Logger.Instance.Log("Enabling the timer");
-            //_timer.Enabled = true;
-            //// Execute each command
-            //foreach (Context context in _mclController.Context)
-            //{
-            //    switch (context.Direction)
-            //    {
-            //        case "R":
-            //            // send an event back to the UI to change the arrow direction
-            //            _arrowController.Right(context.Steps);                        
-            //            break;
-            //        case "L":
-            //            // send an event back to the UI to change the arrow direction
-            //            _arrowController.Left(context.Steps);                        
-            //            break;
-            //        case "F":
-            //            // send an event back to the UI to change the arrow direction
-            //            _arrowController.Forward(context.Steps);
-            //            break;
-            //    }
-            //}       
+            _mclController.ParseCommand(command);    
 
             ProcessCommand();
         }
@@ -127,7 +95,6 @@ namespace Controllers
                 Diagnostics.Logger.Instance.Log("Resetting count");
                 Diagnostics.Logger.Instance.Log("Disabling the timer.");
                 _count = 0;
-                _timer.Enabled = false;
             }
         }
     }
