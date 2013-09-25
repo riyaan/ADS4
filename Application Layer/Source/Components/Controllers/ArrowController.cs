@@ -66,7 +66,7 @@ namespace Controllers
         {
             switch (_direction)
             {
-                case "F":
+                case "F": // TODO: Get rid of 'magic values'. Create an enumeration.
                     if (_count < _steps)
                     {
                         if ((Arrow.Y + 1) <= _rows)
