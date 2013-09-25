@@ -2,7 +2,6 @@
 using Entities;
 using SharedEvents;
 using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -39,11 +38,11 @@ namespace MazeNavigatorUI
         {
             get { return maze; }
             set { maze = value; }
-        }
-
-        private BackgroundWorker backGroundWorker1;
+        }        
 
         private UIController _uiController;
+
+        private bool _isRunning;
 
         public NavigatorUI()
         {
@@ -51,53 +50,37 @@ namespace MazeNavigatorUI
 
             mazeLayoutPanel.Size = new System.Drawing.Size(this.Height, this.Width);
 
-            backGroundWorker1 = new BackgroundWorker();
-            backGroundWorker1.DoWork += backGroundWorker1_DoWork;
-            backGroundWorker1.RunWorkerCompleted += backGroundWorker1_RunWorkerCompleted;
-
             _uiController = new UIController();
             _uiController.ArrowChanged += _uiController_ArrowChanged;            
         }
 
         void _uiController_ArrowChanged(object sender, ArrowChangedEventArgs e)
         {
-            // TODO: Update the buttons
-            Diagnostics.Logger.Instance.Log("Handling the arrow changed event.");
-            ArrowContext ac = e.Arrow;
-            Diagnostics.Logger.Instance.Log("Current State: " + ac.CurrentState.ToString());
-            Diagnostics.Logger.Instance.Log(String.Format("X:{0} Y:{1}", ac.X, ac.Y));
+            if (_isRunning)
+            {
+                Diagnostics.Logger.Instance.Log("Handling the arrow changed event.");
+                ArrowContext ac = e.Arrow;
+                Diagnostics.Logger.Instance.Log("Current State: " + ac.CurrentState.ToString());
+                Diagnostics.Logger.Instance.Log(String.Format("X:{0} Y:{1}", ac.X, ac.Y));
 
-            // Clear all the button images
-            string direction = String.Empty;
-            if(ac.CurrentState.ToString().ToUpper().Contains("RIGHT"))
-                direction = "R";
-            else if(ac.CurrentState.ToString().ToUpper().Contains("LEFT"))
-                direction = "L";
-            else if(ac.CurrentState.ToString().ToUpper().Contains("FORWARD"))
-                direction = "F";
+                string direction = String.Empty;
+                if (ac.CurrentState.ToString().ToUpper().Contains("RIGHT"))
+                    direction = "R";
+                else if (ac.CurrentState.ToString().ToUpper().Contains("LEFT"))
+                    direction = "L";
+                else if (ac.CurrentState.ToString().ToUpper().Contains("FORWARD"))
+                    direction = "F";
 
-            UpdateGrid(ac.X, ac.Y, direction);
+                UpdateGrid(ac.X, ac.Y, direction);
+            }
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {            
-            backGroundWorker1.RunWorkerAsync();           
-        }
-
-        void backGroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            CreateMazeVisually();
-
-            // The ArrowController should create the intial location of this arrow
-            
-            // the Arrow Controller should communicate to the UI Controller to display the arrow correctly
-            // in the grid.
-            UpdateGrid(0, 0, "F");
-        }
-
-        void backGroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
             GenerateMaze();
+            CreateMazeVisually();
+            UpdateGrid(0, 0, "F");
+            _isRunning = true;
         }
 
         private void GenerateMaze()
@@ -111,9 +94,36 @@ namespace MazeNavigatorUI
 
         private void CreateMazeVisually()
         {
+            Diagnostics.Logger.Instance.Log("Creating maze visually.");
+
+            try
+            {
+
+                if (this.InvokeRequired)
+                {
+                    this.BeginInvoke((MethodInvoker)delegate()
+                    {
+                        Go();
+                        UpdateGrid(0, 0, "F");
+                    });
+                }
+                else
+                {
+                    Go();
+                    UpdateGrid(0, 0, "F");
+                }
+            }
+            catch (Exception ex)
+            {
+                Diagnostics.Logger.Instance.Log(ex.Message);
+            }
+        }
+
+        private void Go()
+        {
             mazeLayoutPanel.Visible = false;
             mazeLayoutPanel.Controls.Clear();
-            mazeLayoutPanel.RowCount = Maze.Rows;            
+            mazeLayoutPanel.RowCount = Maze.Rows;
             mazeLayoutPanel.ColumnCount = Maze.Columns;
 
             mazeLayoutPanel.SuspendLayout();
@@ -133,7 +143,7 @@ namespace MazeNavigatorUI
                     if (Maze.Grid[i, j].CellState == CELL_STATE.OPEN)
                         b.BackColor = Color.Blue;
 
-                    if(i==Maze.Rows-1 && j==Maze.Columns-1)
+                    if (i == Maze.Rows - 1 && j == Maze.Columns - 1)
                         b.BackColor = Color.Yellow;
 
                     if (i == 0 && j == 0)
@@ -162,6 +172,7 @@ namespace MazeNavigatorUI
         private void btnGo_Click(object sender, EventArgs e)
         {
             Diagnostics.Logger.Instance.Log("Go button clicked");
+            _isRunning = true;
             _uiController.ParseCommand(txtCommand.Text);
         }
 
@@ -193,6 +204,21 @@ namespace MazeNavigatorUI
                                 b.Image = global::MazeNavigatorUI.Properties.Resources.Forward;
                                 break;
                         }
+
+                        // Check if the button at this location is 'Closed'.
+                        // If so, warn the user and reset the arrow.
+                        if (b.BackColor.Equals(Color.Blue))
+                        {
+                            Diagnostics.Logger.Instance.Log("Cell cannot be entered.");
+                            
+                            // alert everything to stop
+                            _isRunning = false;
+                            MessageBox.Show("Error", "Error", MessageBoxButtons.OKCancel);                            
+                            CreateMazeVisually();
+                            _uiController.InitializeControllers();
+                            break;
+                        }
+
                         break;
                     }
                 }

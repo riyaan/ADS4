@@ -59,6 +59,7 @@ namespace Controllers
 
         void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
+            Diagnostics.Logger.Instance.Log("Timer elapsed");
             AnimateArrow();
         }
 
@@ -110,6 +111,7 @@ namespace Controllers
 
         public void Forward(int steps)
         {
+            Diagnostics.Logger.Instance.Log("Moving Forward");
             _timer.Enabled = true;
             _direction = "F";
             _steps = steps;
@@ -117,6 +119,7 @@ namespace Controllers
 
         public void Right(int steps)
         {
+            Diagnostics.Logger.Instance.Log("Moving Right");
             _timer.Enabled = true;
             _direction = "R";
             _steps = steps;
@@ -124,6 +127,7 @@ namespace Controllers
 
         public void Left(int steps)
         {
+            Diagnostics.Logger.Instance.Log("Moving Left");
             _timer.Enabled = true;
             _direction = "L";
             _steps = steps;
@@ -137,6 +141,7 @@ namespace Controllers
 
         private void RaiseOnAnimationCompletedEvent()
         {
+            Diagnostics.Logger.Instance.Log("Animation completed");
             _timer.Enabled = false;
             _count = 0;
             OnAnimationCompleted(new EventArgs());

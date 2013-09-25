@@ -2,7 +2,6 @@
 using MovementControl;
 using SharedEvents;
 using System;
-using System.Timers;
 
 namespace Controllers
 {
@@ -20,10 +19,21 @@ namespace Controllers
         private MCLController _mclController;
         private ArrowController _arrowController;
 
-        private static int _count = 0;
+        private int _count = 0;
 
         public UIController()
         {
+        }        
+
+        public void InitializeControllers()
+        {
+            _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
+            _mclController = new MCLController();
+
+            _arrowController.ArrowChanged += _arrowController_ArrowChanged;
+            _arrowController.AnimationCompleted += _arrowController_AnimationCompleted;
+
+            _count = 0;
         }
 
         void _arrowController_ArrowChanged(object sender, ArrowChangedEventArgs e)
@@ -37,12 +47,7 @@ namespace Controllers
             // UI Controller interacts with the Maze Controller
             _mazeController = new MazeController(rows, columns);
 
-            _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
-
-            _arrowController.ArrowChanged += _arrowController_ArrowChanged;
-            _arrowController.AnimationCompleted += _arrowController_AnimationCompleted;
-
-            _mclController = new MCLController();
+            InitializeControllers();
 
             return _mazeController.Maze; // return the maze for display purposes
         }

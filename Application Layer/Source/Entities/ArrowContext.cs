@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Entities
 {
     public abstract class ArrowState
