@@ -1,13 +1,14 @@
 ﻿using Entities;
 using SharedEvents;
 using System;
-using System.Collections.Generic;
 using System.Timers;
 
 namespace Controllers
 {
     public class ArrowController
     {
+        // Notify the UI Controller that the X and Y coordinates of the
+        // Arrow has changed.
         public event EventHandler<ArrowChangedEventArgs> ArrowChanged;
         protected virtual void OnArrowChanged(ArrowChangedEventArgs e)
         {
@@ -16,6 +17,7 @@ namespace Controllers
         }
 
         // Notify the UI Controller that the current command has finished execution.
+        // If this is a Composite command, the next command can be sent through.
         public event EventHandler AnimationCompleted;
         protected virtual void OnAnimationCompleted(EventArgs e)
         {
