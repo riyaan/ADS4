@@ -1,14 +1,9 @@
 ﻿using Diagnostics;
 using Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controllers
 {
-    // TODO: Make this a singleton as well?
+    // TODO: Make this a singleton as well? (Singleton Design Pattern)
     public class MazeController
     {
         private int rows;
@@ -49,7 +44,17 @@ namespace Controllers
             Maze.CreateAdjacents();
             Maze.FindEnd(maze.Grid[0, 0]);
 
-            string output = String.Empty;
+            PrintMaze();
+        }
+
+        /// <summary>
+        /// TODO: Disable this method when debugging is complete.
+        /// Prints a textual representation of the maze.
+        /// This is for Debugging purposes.
+        /// </summary>
+        private void PrintMaze()
+        {
+            string output = System.Environment.NewLine;
             for (int i = Maze.Rows - 1; i >= 0; i--)
             {
                 for (int j = Maze.Columns - 1; j >= 0; j--)

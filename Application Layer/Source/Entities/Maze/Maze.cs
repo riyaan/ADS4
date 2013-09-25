@@ -126,9 +126,8 @@ namespace Entities
                 EndReached = true;//return;//
             }
             
-            //log.Log(String.Format("Cell[{0},{1}]", c.XCoordinate, c.YCoordinate));            
+            //log.Log(String.Format("Cell[{0},{1}]", c.XCoordinate, c.YCoordinate));
 
-            // todo: sort adjacents
             SortAdjacentList(c.Adjacents);
 
             int numAdjacents = c.Adjacents.Count;            
@@ -158,8 +157,9 @@ namespace Entities
 
         private void SortAdjacentList(List<Cell> unsorted)
         {
-            // Selection sort
+            // TODO: Allow the user to specify the Sorting algorithm. (Strategy Design Pattern)
 
+            // Selection sort
             for (int i = 0; i < unsorted.Count - 1; i++)
             {
                 int smallest = unsorted[i].AdjacentValue;
