@@ -1,6 +1,7 @@
 ﻿using Entities;
 using SharedEvents;
 using System;
+using System.Configuration;
 using System.Timers;
 
 namespace Controllers
@@ -53,7 +54,11 @@ namespace Controllers
             _columns = columns;
 
             _acea = new ArrowChangedEventArgs();
-            _timer = new Timer(2000); // TODO: Read this value from the configuration file.
+
+            // TODO: Create a 'Common' configuration class for this.
+            int speed = Int32.Parse(ConfigurationManager.AppSettings["animationSpeed"]) * 1000;
+
+            _timer = new Timer(speed); 
             _timer.Elapsed += _timer_Elapsed;
         }
 
