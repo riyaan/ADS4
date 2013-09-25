@@ -7,4 +7,9 @@ namespace SharedEvents
     {
         public ArrowContext Arrow { get; set; }
     }
+
+    public class ArrowDirectionChangedEventArgs : EventArgs
+    {
+        public ArrowContext Arrow { get; set; }
+    }
 }

@@ -14,7 +14,7 @@ namespace Controllers
         {
             if (ArrowChanged != null)
                 ArrowChanged(this, e);
-        }
+        }        
 
         private ArrowContext arrow;
 
@@ -28,6 +28,12 @@ namespace Controllers
         private int _columns;
         private ArrowChangedEventArgs _acea;
 
+        // utilize a timer that will update the arrow slowly.
+        private Timer _timer;
+        private string _direction;
+        private int _steps;
+        private static int _count = 0;
+
         public ArrowController(int rows, int columns)
         {
             Arrow = new ArrowContext(new ConcreteStateForward());
@@ -38,18 +44,84 @@ namespace Controllers
             _columns = columns;
 
             _acea = new ArrowChangedEventArgs();
+            _timer = new Timer(2000);
+            _timer.Elapsed += _timer_Elapsed;
+        }
+
+        void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            AnimateArrow();
+        }
+
+        private void AnimateArrow()
+        {
+            switch (_direction)
+            {
+                case "F":
+                    if (_count < _steps)
+                    {
+                        if ((Arrow.Y + 1) <= _rows)
+                        {
+                            Arrow.Forward();
+                            RaiseEvent();
+                            _count++;
+                        }
+                    }
+                    else
+                    {
+                        _timer.Enabled = false;
+                        _count = 0;
+                    }
+                    break;
+                case "R":
+                    if (_count < _steps)
+                    {
+                        if ((Arrow.X - 1) >= 0)
+                        {
+                            Arrow.Right();
+                            RaiseEvent();
+                            _count++;
+                        }
+                    }
+                    else
+                    {
+                        _timer.Enabled = false;
+                        _count = 0;
+                    }
+                    break;
+                case "L":
+                    if (_count < _steps)
+                    {
+                        if ((Arrow.X + 1) <= _columns)
+                        {
+                            Arrow.Left();
+                            RaiseEvent();
+                            _count++;
+                        }
+                    }
+                    else
+                    {
+                        _timer.Enabled = false;
+                        _count = 0;
+                    }
+                    break;
+            }
         }
 
         public void Forward(int steps)
         {
-            for (int i = 0; i < steps; i++)
-            {                
-                if ((Arrow.Y + 1) <= _rows)
-                {
-                    Arrow.Forward();                    
-                    RaiseEvent();              
-                }
-            }
+            _timer.Enabled = true;
+            _direction = "F";
+            _steps = steps;
+
+            //for (int i = 0; i < steps; i++)
+            //{                
+            //    if ((Arrow.Y + 1) <= _rows)
+            //    {
+            //        Arrow.Forward();                    
+            //        RaiseEvent();              
+            //    }
+            //}
         }
 
         private void RaiseEvent()
@@ -60,26 +132,34 @@ namespace Controllers
 
         public void Right(int steps)
         {
-            for (int i = 0; i < steps; i++)
-            {
-                if ((Arrow.X - 1) >= 0)
-                {
-                    Arrow.Right();
-                    RaiseEvent();
-                }
-            }
+            _timer.Enabled = true;
+            _direction = "R";
+            _steps = steps;
+
+            //for (int i = 0; i < steps; i++)
+            //{
+            //    if ((Arrow.X - 1) >= 0)
+            //    {
+            //        Arrow.Right();
+            //        RaiseEvent();
+            //    }
+            //}
         }
 
         public void Left(int steps)
         {
-            for (int i = 0; i < steps; i++)
-            {
-                if ((Arrow.X + 1) <= _columns)
-                {
-                    Arrow.Left();
-                    RaiseEvent();
-                }
-            }
+            _timer.Enabled = true;
+            _direction = "L";
+            _steps = steps;
+
+            //for (int i = 0; i < steps; i++)
+            //{
+            //    if ((Arrow.X + 1) <= _columns)
+            //    {
+            //        Arrow.Left();
+            //        RaiseEvent();
+            //    }
+            //}
         }
     }
 }

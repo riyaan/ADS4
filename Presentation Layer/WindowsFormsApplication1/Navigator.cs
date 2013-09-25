@@ -4,7 +4,6 @@ using SharedEvents;
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace MazeNavigatorUI
@@ -58,6 +57,22 @@ namespace MazeNavigatorUI
 
             _uiController = new UIController();
             _uiController.ArrowChanged += _uiController_ArrowChanged;
+            _uiController.ArrowDirectionChanged += _uiController_ArrowDirectionChanged;
+        }
+
+        void _uiController_ArrowDirectionChanged(object sender, ArrowDirectionChangedEventArgs e)
+        {
+            ArrowContext ac = e.Arrow;
+
+            string direction = String.Empty;
+            if(ac.CurrentState.ToString().ToUpper().Contains("RIGHT"))
+                direction = "R";
+            else if(ac.CurrentState.ToString().ToUpper().Contains("LEFT"))
+                direction = "L";
+            else if(ac.CurrentState.ToString().ToUpper().Contains("FORWARD"))
+                direction = "F";
+
+            UpdateGrid(ac.X, ac.Y, direction);
         }
 
         void _uiController_ArrowChanged(object sender, ArrowChangedEventArgs e)

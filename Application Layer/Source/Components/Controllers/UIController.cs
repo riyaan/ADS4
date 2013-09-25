@@ -7,17 +7,28 @@ namespace Controllers
 {
     public class UIController
     {
+        // Handling the arrow coordinate change
         public event EventHandler<ArrowChangedEventArgs> ArrowChanged;
-
         protected virtual void OnArrowChanged(ArrowChangedEventArgs e)
         {
             if (ArrowChanged != null)
                 ArrowChanged(this, e);
         }
 
+        // Handles the Arrow direction changed.
+        public event EventHandler<ArrowDirectionChangedEventArgs> ArrowDirectionChanged;
+        protected virtual void OnArrowDirectionChanged(ArrowDirectionChangedEventArgs e)
+        {
+            if (ArrowDirectionChanged != null)
+                ArrowDirectionChanged(this, e);
+        }
+
+
         private MazeController _mazeController;
         private MCLController _mclController;
         private ArrowController _arrowController;
+
+        private ArrowDirectionChangedEventArgs _adcea;
 
         public UIController()
         {
@@ -36,7 +47,9 @@ namespace Controllers
 
             _arrowController = new ArrowController(_mazeController.Maze.Rows, _mazeController.Maze.Columns);
 
-            _arrowController.ArrowChanged += _arrowController_ArrowChanged;         
+            _arrowController.ArrowChanged += _arrowController_ArrowChanged;
+
+            _adcea = new ArrowDirectionChangedEventArgs();
 
             _mclController = new MCLController();
 
@@ -51,16 +64,24 @@ namespace Controllers
             direction = string.Empty;
             // Execute each command
             foreach (Context context in _mclController.Context)
-            {                
+            {
+                _adcea.Arrow = _arrowController.Arrow;
+
                 switch (context.Direction)
                 {
                     case "R":
+                        // send an event back to the UI to change the arrow direction
+                        OnArrowDirectionChanged(_adcea);
                         _arrowController.Right(context.Steps);                        
                         break;
                     case "L":
+                        // send an event back to the UI to change the arrow direction
+                        OnArrowDirectionChanged(_adcea);
                         _arrowController.Left(context.Steps);                        
                         break;
                     case "F":
+                        // send an event back to the UI to change the arrow direction
+                        OnArrowDirectionChanged(_adcea);
                         _arrowController.Forward(context.Steps);
                         break;
                 }
