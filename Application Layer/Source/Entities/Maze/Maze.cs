@@ -113,6 +113,8 @@ namespace Entities
             }
         }
 
+        // TODO: Give the recursive backtracker algorithm a try
+        // http://en.wikipedia.org/wiki/Maze_generation_algorithm
         public void FindEnd(Cell c)
         {
             // if all adjacents has been visited quit
