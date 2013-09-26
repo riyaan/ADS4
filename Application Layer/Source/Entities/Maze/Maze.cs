@@ -54,8 +54,12 @@ namespace Entities
             set { rand = value; }
         }
 
+        private Stack<Cell> _stack;
+
         public Maze(int rows, int column)
         {
+            _stack = new Stack<Cell>();
+
             Rand = new Random((int)DateTime.Now.Ticks);
 
             Rows = rows;
@@ -153,6 +157,50 @@ namespace Entities
                 }
                 else
                     return;
+
+            }
+        }
+
+        public void FindEndRecursiveBacktracker(Cell c)
+        {
+            while (!EndReached)
+            {
+                if (c.XCoordinate >= this.Rows - 1 && c.YCoordinate >= this.Columns - 1)
+                {
+                    Diagnostics.Logger.Instance.Log("End of the maze reached.");
+                    c.CellState = CELL_STATE.VISITED;
+                    EndReached = true;
+                }
+
+                if (!c.HasAllAdjacentsBeenVisited())
+                {
+                    SortAdjacentList(c.Adjacents);
+                    int numAdjacents = c.Adjacents.Count;
+
+                    // Select a random adjacent
+                    int rand = Rand.Next(numAdjacents);
+
+                    //Diagnostics.Logger.Instance.Log(String.Format("Random: {0}", rand));
+                    Cell cell = c.Adjacents[rand];
+
+                    _stack.Push(cell);
+                    cell.CellState = CELL_STATE.VISITED;
+                }
+                else if (_stack.Count > 0)
+                {
+                    Cell cell = _stack.Pop();
+                }
+                else
+                {
+                    SortAdjacentList(c.Adjacents);
+                    int numAdjacents = c.Adjacents.Count;
+
+                    // Select a random adjacent
+                    int rand = Rand.Next(numAdjacents);
+
+                    //Diagnostics.Logger.Instance.Log(String.Format("Random: {0}", rand));
+                    Cell cell = c.Adjacents[rand];                    
+                }
 
             }
         }
