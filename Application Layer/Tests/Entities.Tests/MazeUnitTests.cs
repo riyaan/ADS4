@@ -27,9 +27,9 @@ namespace Entities.Tests
         {
             Maze maze = new Maze(10, 10);
             maze.CreateAdjacents();
-            maze.FindEnd(maze.Grid[0, 0]);            
+            maze.FindEnd(maze.Grid[0, 0]);
 
-            string output = String.Empty;
+            string output = System.Environment.NewLine;
             for (int i = maze.Rows-1; i >= 0; i--)
             {
                 for (int j = maze.Columns-1; j >= 0; j--)

@@ -61,7 +61,7 @@ namespace Entities
             Rows = rows;
             Columns = column;
 
-            Size = Rows * Columns;
+            Size = Rows * Columns;            
 
             Grid = new Cell[Rows, Columns];
 
@@ -115,30 +115,32 @@ namespace Entities
 
         public void FindEnd(Cell c)
         {
-            Logger log = Logger.Instance;
-
             // if all adjacents has been visited quit
             if (c.HasAllAdjacentsBeenVisited())
             {
-                log.Log(String.Format("End position: Cell[{0}, {1}]", c.XCoordinate, c.YCoordinate));
-                EndReached = true;//return;//
+                Diagnostics.Logger.Instance.Log("All adjacents for this cell has been visited. Can't go anywhere.");
+                Diagnostics.Logger.Instance.Log(String.Format("End position: Cell[{0}, {1}]", c.XCoordinate, c.YCoordinate));
+                EndReached = true;
             }
-            
-            //log.Log(String.Format("Cell[{0},{1}]", c.XCoordinate, c.YCoordinate));
 
             SortAdjacentList(c.Adjacents);
 
-            int numAdjacents = c.Adjacents.Count;            
+            int numAdjacents = c.Adjacents.Count;
+
+            // Select a random adjacent
             int rand = Rand.Next(numAdjacents);
 
+            //Diagnostics.Logger.Instance.Log(String.Format("Random: {0}", rand));
             Cell cell = c.Adjacents[rand];
 
-            //log.Log("Adjacent count: " + numAdjacents);
-            //log.Log("Random number: " + rand);
-            //log.Log(String.Format("Adjacent - Cell[{0},{1}]", cell.XCoordinate, cell.YCoordinate));
+            //Diagnostics.Logger.Instance.Log(String.Format("Cell[{0}, {1}]", cell.XCoordinate, cell.YCoordinate));
 
-            if (cell.XCoordinate >= this.Rows-1 && cell.YCoordinate >= this.Columns-1)
+            if (cell.XCoordinate >= this.Rows - 1 && cell.YCoordinate >= this.Columns - 1)
+            {
+                Diagnostics.Logger.Instance.Log("End of the maze reached.");
+                cell.CellState = CELL_STATE.VISITED;
                 EndReached = true;
+            }
 
             while(!EndReached)//foreach (Cell cell in c.Adjacents)
             {

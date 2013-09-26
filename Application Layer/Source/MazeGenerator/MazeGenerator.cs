@@ -7,12 +7,16 @@ using System.Collections.Generic;
 
 namespace MazeGenerator
 {
+    public enum CLASS_STATE { OPEN, VISITED }
+
     public class Cell
     {
         public List<Cell> Links = new List<Cell>();
         public bool ExitCell = false;
+        public CLASS_STATE ClassState;
 
-        public bool IsLinked(Cell c) // Not actually used during generation logic, but this can be useful for drawing
+        // Not actually used during generation logic, but this can be useful for drawing
+        public bool IsLinked(Cell c) 
         {
             return Links.Contains(c) || c.Links.Contains(this);
         }
@@ -50,7 +54,7 @@ namespace MazeGenerator
 
             while (true) // This ain't Lisp, I ain't recursin'
             {
-                current.Visited = true;
+                current.Visited = true;                
 
                 if (Randomize)
                     Shuffle<Cell>(current.Links); // This is a destructive function. May want to rewrite to use a temporary clone list for iteration
@@ -58,18 +62,21 @@ namespace MazeGenerator
                 bool natural = true;
                 for (int i = 0; i < current.Links.Count; i++)
                 {
-                    next = (GenerationCell)current.Links[i]; // We cast for access to .Previous, which regular cells do not have // Note: This incurs no extra penalty so using it in the main body of a loop is A-OK
+                    next = (GenerationCell)current.Links[i]; // We cast for access to .Previous, which regular cells do not have 
+                    // Note: This incurs no extra penalty so using it in the main body of a loop is A-OK
 
                     if (next.Previous == current) // We obviously don't want to mess with a link if we've already gone that way
                         continue;
 
                     if (next.Visited) // It was already visited via some other route, so this is not what we're looking for
-                    {
-                        current.Links.RemoveAt(i--);
+                    {                        
+                        current.Links.RemoveAt(i--);                        
                         continue;
                     }
 
                     // It's an unexplored link
+                    current.ClassState = CLASS_STATE.VISITED;
+
                     if (++depth > max) // Since we're exploring, and want to keep track of the highest later on
                     {
                         exit = next;
@@ -109,11 +116,16 @@ namespace MazeGenerator
 
             for (int x = 0; x < Width; x++)
                 for (int y = 0; y < Height; y++)
+                {
                     maze[x, y] = new GenerationCell(); // initialize with non-connected cells
+                    maze[x, y].ClassState = CLASS_STATE.OPEN;
+                }
 
             // Generate links to adjacent cells, since this is an orthogonal maze
-            // To-do: Maybe encapsulate the bounds-checking and link generation process inside a small function, and call it on a list of locations instead?
-            //        Not going to bother right now since it won't significantly reduce SLOC count, but for non-2D mazes this would be nice
+            // To-do: Maybe encapsulate the bounds-checking and link generation process inside a small function, 
+            // and call it on a list of locations instead?
+            // Not going to bother right now since it won't significantly reduce SLOC count, but for non-2D 
+            // mazes this would be nice
             for (int x = 0; x < Width; x++)
                 for (int y = 0; y < Height; y++)
                 {

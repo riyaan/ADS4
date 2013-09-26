@@ -15,16 +15,23 @@ namespace MazeGenerator.Tests
             Cell[,] c = new Cell[rows,columns];
             MazeGenerator.Seed((int)DateTime.Now.Ticks);
 
-            c = MazeGenerator.GenerateOrthogonal(rows, columns, 0, 0, true);
+            c = MazeGenerator.GenerateOrthogonal(rows, columns, 0, 0, false);
 
-            StreamWriter writer = new StreamWriter(@"C:\temp\mazeGenerator.txt", true);
+            
+            string output = System.Environment.NewLine;
             for (int j = 0; j < rows; j++)
             {
                 for (int k = 0; k < columns; k++)
                 {
-                    writer.WriteLine(c[j, k]);
+                    if(c[j, k].ClassState == CLASS_STATE.OPEN)
+                        output += "|O|";
+                    else
+                        output += "|X|";
+                    //writer.WriteLine(c[j, k]);
                 }
             }
+            StreamWriter writer = new StreamWriter(@"C:\temp\mazeGenerator.txt", true);
+            writer.Write(output);
             writer.Close();
         }
     }
