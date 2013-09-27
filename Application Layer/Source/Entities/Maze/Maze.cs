@@ -120,10 +120,10 @@ namespace Entities
         // TODO: Implement the Strategy Design Pattern
         // http://en.wikipedia.org/wiki/Maze_generation_algorithm
         /// <summary>
-        /// This is a modified version of Prim's Algorithm for generating a Maze.
+        /// This is a modified version of the randomized Prim Algorithm for generating a Maze.
         /// The maze is not always solvable though.
         /// </summary>
-        /// <param name="c">The c.</param>
+        /// <param name="c">The starting cell.</param>
         public void FindEnd(Cell c)
         {
             // if all adjacents has been visited quit
@@ -161,10 +161,11 @@ namespace Entities
         }
 
         // TODO: Implement the Strategy Design Pattern
+        // http://en.wikipedia.org/wiki/Maze_generation_algorithm
         /// <summary>
         /// This is a recursive backtracking method for creating a Maze.
         /// </summary>
-        /// <param name="c">The c.</param>
+        /// <param name="c">The starting cell.</param>
         public void FindEndRecursiveBacktracker(Cell c)
         {
             Cell currentCell = c;
@@ -181,35 +182,32 @@ namespace Entities
 
                 if (!currentCell.HasAllAdjacentsBeenVisited())
                 {
-                    // TODO: Create a function for this
-                    SortAdjacentList(currentCell.Adjacents);
-                    int numAdjacents = currentCell.Adjacents.Count;
-
-                    // Select a random adjacent
-                    int rand = Rand.Next(numAdjacents);
-                    
-                    currentCell = currentCell.Adjacents[rand];                    
-                    currentCell.CellState = CELL_STATE.VISITED;
-
+                    currentCell = SelectRandomAdjacent(currentCell);
                     _stack.Push(currentCell);
                 }
                 else if (_stack.Count > 0)
-                {
                     currentCell = _stack.Pop();
-                }
                 else
-                {
-                    // TODO: Create a function for this
-                    SortAdjacentList(currentCell.Adjacents);
-                    int numAdjacents = currentCell.Adjacents.Count;
-
-                    // Select a random adjacent
-                    int rand = Rand.Next(numAdjacents);
-                    
-                    currentCell = currentCell.Adjacents[rand];
-                    currentCell.CellState = CELL_STATE.VISITED;
-                }
+                    currentCell = SelectRandomAdjacent(currentCell);
             }
+        }
+
+        /// <summary>
+        /// Selects a random adjacent cell for this current cell.
+        /// </summary>
+        /// <param name="currentCell">The current cell.</param>
+        /// <returns>A random neighbouring cell.</returns>
+        private Cell SelectRandomAdjacent(Cell currentCell)
+        {
+            SortAdjacentList(currentCell.Adjacents);
+            int numAdjacents = currentCell.Adjacents.Count;
+
+            // Select a random adjacent
+            int rand = Rand.Next(numAdjacents);
+
+            currentCell = currentCell.Adjacents[rand];
+            currentCell.CellState = CELL_STATE.VISITED;
+            return currentCell;
         }
 
         private void SortAdjacentList(List<Cell> unsorted)
