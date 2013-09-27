@@ -36,7 +36,8 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mazeLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            //this.mazeLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.mazeLayoutPanel = new MazeLayoutPanel();
             this.btnGo = new System.Windows.Forms.Button();
             this.txtCommand = new System.Windows.Forms.TextBox();
             this.menuMain.SuspendLayout();
@@ -114,7 +115,7 @@
             this.mazeLayoutPanel.ColumnCount = 2;
             this.mazeLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.mazeLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.mazeLayoutPanel.Location = new System.Drawing.Point(12, 27);
+            this.mazeLayoutPanel.Location = new System.Drawing.Point(23, 39);
             this.mazeLayoutPanel.Name = "mazeLayoutPanel";
             this.mazeLayoutPanel.RowCount = 2;
             this.mazeLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));

@@ -122,12 +122,14 @@ namespace MazeNavigatorUI
 
         private void Go()
         {
+            // http://www.richard-banks.org/2007/09/how-to-create-flicker-free.html
+            // This helps get rid of flickering
             mazeLayoutPanel.Visible = false;
+            mazeLayoutPanel.SuspendLayout();
+            
             mazeLayoutPanel.Controls.Clear();
             mazeLayoutPanel.RowCount = Maze.Rows;
-            mazeLayoutPanel.ColumnCount = Maze.Columns;
-
-            mazeLayoutPanel.SuspendLayout();
+            mazeLayoutPanel.ColumnCount = Maze.Columns;            
 
             int k = 0;
             int l = 0;
@@ -180,6 +182,9 @@ namespace MazeNavigatorUI
 
         private void UpdateGrid(int x, int y, string d)
         {
+            mazeLayoutPanel.Visible = false;
+            mazeLayoutPanel.SuspendLayout();
+
             foreach (object o in this.mazeLayoutPanel.Controls)
             {
                 Button b = (Button)o;
@@ -225,6 +230,9 @@ namespace MazeNavigatorUI
                     }
                 }
             }
+            
+            mazeLayoutPanel.ResumeLayout();
+            mazeLayoutPanel.Visible = true;
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)

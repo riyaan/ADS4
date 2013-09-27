@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MazeLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Navigator.cs">
       <SubType>Form</SubType>
     </Compile>
