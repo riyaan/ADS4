@@ -28,7 +28,7 @@ namespace Entities.Tests
         {
             Maze.Maze maze = new Maze.Maze(10, 10);
             maze.CreateAdjacents();
-            maze.FindEnd(maze.Grid[0, 0]);
+            maze.SetMazeCreationStrategy(new PrimsAlgorithm(maze));
 
             string output = System.Environment.NewLine;
             for (int i = maze.Rows-1; i >= 0; i--)

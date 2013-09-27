@@ -132,49 +132,6 @@ namespace Entities.Maze
         // TODO: Implement the Strategy Design Pattern
         // http://en.wikipedia.org/wiki/Maze_generation_algorithm
         /// <summary>
-        /// This is a modified version of the randomized Prim Algorithm for generating a Maze.
-        /// The maze is not always solvable though.
-        /// </summary>
-        /// <param name="c">The starting cell.</param>
-        public void FindEnd(Cell c)
-        {
-            // if all adjacents has been visited quit
-            if (c.HasAllAdjacentsBeenVisited())
-            {
-                Diagnostics.Logger.Instance.Log("All adjacents for this cell has been visited. Can't go anywhere.");
-                Diagnostics.Logger.Instance.Log(String.Format("End position: Cell[{0}, {1}]", c.XCoordinate, c.YCoordinate));
-                EndReached = true;
-            }
-
-            SortAdjacentList(c.Adjacents);
-            int numAdjacents = c.Adjacents.Count;
-
-            // Select a random adjacent
-            int rand = Rand.Next(numAdjacents);            
-            Cell cell = c.Adjacents[rand];            
-
-            if (cell.XCoordinate >= this.Rows - 1 && cell.YCoordinate >= this.Columns - 1)
-            {
-                Diagnostics.Logger.Instance.Log("End of the maze reached.");
-                cell.CellState = CELL_STATE.VISITED;
-                EndReached = true;
-            }
-
-            while(!EndReached)//foreach (Cell cell in c.Adjacents)
-            {
-                if (cell.CellState == CELL_STATE.OPEN) // this cell is open
-                {
-                    c.CellState = CELL_STATE.VISITED;
-                    FindEnd(cell);
-                }
-                else
-                    return;
-            }
-        }
-
-        // TODO: Implement the Strategy Design Pattern
-        // http://en.wikipedia.org/wiki/Maze_generation_algorithm
-        /// <summary>
         /// This is a recursive backtracking method for creating a Maze.
         /// </summary>
         /// <param name="c">The starting cell.</param>

@@ -11,6 +11,10 @@ namespace Entities.Maze
         public abstract void CreateMaze(Cell cell);
     }
 
+    /// <summary>
+    /// This is a modified version of the randomized Prim Algorithm for generating a Maze.
+    /// The maze is not always solvable though.
+    /// </summary>
     public class PrimsAlgorithm : MazeStrategy
     {
         private Common _common;
