@@ -8,6 +8,7 @@ namespace Entities.Maze
         public Random Rand;
         public bool EndReached;
         public Maze Maze;
+        public Stack<Cell> Stack;
 
         public void SortAdjacentList(List<Cell> unsorted)
         {
@@ -27,6 +28,24 @@ namespace Entities.Maze
                 unsorted[pos] = unsorted[i];
                 unsorted[i] = temp;
             }
+        }
+
+        /// <summary>
+        /// Selects a random adjacent cell for this current cell.
+        /// </summary>
+        /// <param name="currentCell">The current cell.</param>
+        /// <returns>A random neighbouring cell.</returns>
+        public Cell SelectRandomAdjacent(Cell currentCell)
+        {
+            SortAdjacentList(currentCell.Adjacents);
+            int numAdjacents = currentCell.Adjacents.Count;
+
+            // Select a random adjacent
+            int rand = Rand.Next(numAdjacents);
+
+            currentCell = currentCell.Adjacents[rand];
+            currentCell.CellState = CELL_STATE.VISITED;
+            return currentCell;
         }
     }
 }

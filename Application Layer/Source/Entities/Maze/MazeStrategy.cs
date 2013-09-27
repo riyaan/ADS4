@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities.Maze
 {
+    /// <summary>
+    /// Used this web page as a guide for these algorithms.
+    /// http://en.wikipedia.org/wiki/Maze_generation_algorithm
+    /// </summary>
     public abstract class MazeStrategy
     {        
         public abstract void CreateMaze(Cell cell);
@@ -63,7 +64,11 @@ namespace Entities.Maze
             }
         }
     }
-
+    
+    /// <summary>
+    /// This is a recursive backtracking method for creating a Maze.
+    /// </summary>
+    /// <param name="c">The starting cell.</param>
     public class RecursiveBacktrackingAlgorithm : MazeStrategy
     {
         private Common _common;
@@ -74,11 +79,33 @@ namespace Entities.Maze
             _common.Rand = new Random((int)DateTime.Now.Ticks);
             _common.EndReached = false;
             _common.Maze = maze;
+            _common.Stack = new Stack<Cell>();
         }
 
         public override void CreateMaze(Cell cell)
         {
-            throw new NotImplementedException();
+            Cell currentCell = cell;
+            currentCell.CellState = CELL_STATE.VISITED;
+
+            while (!_common.EndReached)
+            {
+                if (currentCell.XCoordinate >= this._common.Maze.Rows - 1 && currentCell.YCoordinate >= this._common.Maze.Columns - 1)
+                {
+                    Diagnostics.Logger.Instance.Log("End of the maze reached.");
+                    currentCell.CellState = CELL_STATE.VISITED;
+                    _common.EndReached = true;
+                }
+
+                if (!currentCell.HasAllAdjacentsBeenVisited())
+                {
+                    currentCell = _common.SelectRandomAdjacent(currentCell);
+                    _common.Stack.Push(currentCell);
+                }
+                else if (_common.Stack.Count > 0)
+                    currentCell = _common.Stack.Pop();
+                else
+                    currentCell = _common.SelectRandomAdjacent(currentCell);
+            }
         }
     }
 }
