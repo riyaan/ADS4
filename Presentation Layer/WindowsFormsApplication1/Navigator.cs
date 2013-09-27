@@ -1,5 +1,6 @@
 ﻿using Controllers;
 using Entities;
+using Entities.Maze;
 using SharedEvents;
 using System;
 using System.Configuration;

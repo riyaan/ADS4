@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Diagnostics;
+using Entities.Maze;
 
 namespace Entities.Tests
 {
@@ -10,14 +11,14 @@ namespace Entities.Tests
         [TestMethod]
         public void CreateMazeSuccess()
         {
-            Maze maze = new Maze(3, 3);
+            Maze.Maze maze = new Maze.Maze(3, 3);
             Assert.AreNotEqual(0, maze.Grid.Length);
         }
 
         [TestMethod]
         public void CreateAdjacentsSuccess()
         {
-            Maze maze = new Maze(5, 5);
+            Maze.Maze maze = new Maze.Maze(5, 5);
             maze.CreateAdjacents();
             Assert.AreNotEqual(0, maze.Grid[0, 0].Adjacents.Count);
         }
@@ -25,7 +26,7 @@ namespace Entities.Tests
         [TestMethod]
         public void FindEndSuccess()
         {
-            Maze maze = new Maze(10, 10);
+            Maze.Maze maze = new Maze.Maze(10, 10);
             maze.CreateAdjacents();
             maze.FindEnd(maze.Grid[0, 0]);
 
@@ -50,7 +51,7 @@ namespace Entities.Tests
         [TestMethod]
         public void FindEndRecursiveBacktrackerSuccess()
         {
-            Maze maze = new Maze(10, 10);
+            Maze.Maze maze = new Maze.Maze(10, 10);
             maze.CreateAdjacents();
             maze.FindEndRecursiveBacktracker(maze.Grid[0, 0]);
 

@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="ArrowContext.cs" />
     <Compile Include="Cell.cs" />
+    <Compile Include="Maze\Common.cs" />
     <Compile Include="Maze\Maze.cs" />
+    <Compile Include="Maze\MazeStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Entities
+namespace Entities.Maze
 {
     public class Maze
     {
@@ -56,6 +56,8 @@ namespace Entities
 
         private Stack<Cell> _stack;
 
+        private MazeStrategy _mazeStrategy;
+
         public Maze(int rows, int column)
         {
             _stack = new Stack<Cell>();
@@ -79,6 +81,16 @@ namespace Entities
                     Grid[i, j].Adjacents = new List<Cell>();
                 }
             }
+        }
+
+        public void SetMazeCreationStrategy(MazeStrategy mazeStrategy)
+        {
+            _mazeStrategy = mazeStrategy;
+        }
+
+        public void CreateMaze()
+        {
+            _mazeStrategy.CreateMaze(Grid[0, 0]);
         }
 
         public void CreateAdjacents()
@@ -212,23 +224,24 @@ namespace Entities
 
         private void SortAdjacentList(List<Cell> unsorted)
         {
-            // TODO: Allow the user to specify the Sorting algorithm. (Strategy Design Pattern)
+            throw new NotImplementedException();
+            //// TODO: Allow the user to specify the Sorting algorithm. (Strategy Design Pattern)
 
-            // Selection sort
-            for (int i = 0; i < unsorted.Count - 1; i++)
-            {
-                int smallest = unsorted[i].AdjacentValue;
-                int pos = i;
-                for (int j = i + 1; j < unsorted.Count; j++)
-                    if (unsorted[j].AdjacentValue < smallest)
-                    {
-                        smallest = unsorted[j].AdjacentValue;
-                        pos = j;
-                    }
-                Cell temp = unsorted[pos];
-                unsorted[pos] = unsorted[i];
-                unsorted[i] = temp;
-            }
+            //// Selection sort
+            //for (int i = 0; i < unsorted.Count - 1; i++)
+            //{
+            //    int smallest = unsorted[i].AdjacentValue;
+            //    int pos = i;
+            //    for (int j = i + 1; j < unsorted.Count; j++)
+            //        if (unsorted[j].AdjacentValue < smallest)
+            //        {
+            //            smallest = unsorted[j].AdjacentValue;
+            //            pos = j;
+            //        }
+            //    Cell temp = unsorted[pos];
+            //    unsorted[pos] = unsorted[i];
+            //    unsorted[i] = temp;
+            //}
         }
     }
 }

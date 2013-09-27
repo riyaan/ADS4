@@ -1,5 +1,7 @@
 ﻿using Diagnostics;
 using Entities;
+using Entities.Maze;
+using System.Configuration;
 
 namespace Controllers
 {
@@ -42,9 +44,18 @@ namespace Controllers
         {
             Maze = new Maze(rows, columns);
             Maze.CreateAdjacents();
-            
+
+            string algorithm = ConfigurationManager.AppSettings["mazeAlgorithm"];
+
+            if(algorithm.Equals("prim"))
+                Maze.SetMazeCreationStrategy(new PrimsAlgorithm(Maze));
+            else if(algorithm.Equals("recursiveBacktracking"))
+                Maze.SetMazeCreationStrategy(new RecursiveBacktrackingAlgorithm(Maze));
+
+            Maze.CreateMaze();
+
             // Maze.FindEnd(maze.Grid[0, 0]);
-            Maze.FindEndRecursiveBacktracker(maze.Grid[0, 0]);
+            //Maze.FindEndRecursiveBacktracker(maze.Grid[0, 0]);
 
             PrintMaze();
         }
