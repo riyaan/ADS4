@@ -56,6 +56,7 @@ namespace Controllers
             _acea = new ArrowChangedEventArgs();
 
             // TODO: Create a 'Common' configuration class for this.
+            ConfigurationManager.RefreshSection("appSettings");
             int speed = Int32.Parse(ConfigurationManager.AppSettings["animationSpeed"]) * 1000;
 
             _timer = new Timer(speed); 
