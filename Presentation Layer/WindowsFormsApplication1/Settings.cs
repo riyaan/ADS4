@@ -20,11 +20,19 @@ namespace MazeNavigatorUI
             {
                 radioPrimsAlgorithm.Checked = true;
                 radioRecursiveBacktracking.Checked = false;
+                radioCustom.Checked = false;
             }
             else if(mazeAlgorithm.Equals("recursiveBacktracking"))
             {
                 radioRecursiveBacktracking.Checked = true;
                 radioPrimsAlgorithm.Checked = false;
+                radioCustom.Checked = false;
+            }
+            else if (mazeAlgorithm.Equals("custom"))
+            {
+                radioCustom.Checked = true;
+                radioPrimsAlgorithm.Checked = false;
+                radioRecursiveBacktracking.Checked = false;
             }
         }
 
@@ -65,23 +73,35 @@ namespace MazeNavigatorUI
         {
             radioPrimsAlgorithm.Checked = true;
             radioRecursiveBacktracking.Checked = false;
+            radioCustom.Checked = false;
 
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings.Remove("mazeAlgorithm");
-
-            config.AppSettings.Settings.Add("mazeAlgorithm", "prim");
-            config.Save(ConfigurationSaveMode.Full);
+            SaveRadioButtonConfig("prim");
         }
 
         private void radioRecursiveBacktracking_Click(object sender, EventArgs e)
         {
             radioRecursiveBacktracking.Checked = true;
             radioPrimsAlgorithm.Checked = false;
+            radioCustom.Checked = false;
 
+            SaveRadioButtonConfig("recursiveBacktracking");            
+        }
+
+        private void radioCustom_Click(object sender, EventArgs e)
+        {
+            radioCustom.Checked = true;
+            radioRecursiveBacktracking.Checked = false;
+            radioPrimsAlgorithm.Checked = false;
+
+            SaveRadioButtonConfig("custom");
+        }
+
+        private void SaveRadioButtonConfig(string algorithmName)
+        {
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings.Remove("mazeAlgorithm");
 
-            config.AppSettings.Settings.Add("mazeAlgorithm", "recursiveBacktracking");
+            config.AppSettings.Settings.Add("mazeAlgorithm", algorithmName);
             config.Save(ConfigurationSaveMode.Full);
         }
     }

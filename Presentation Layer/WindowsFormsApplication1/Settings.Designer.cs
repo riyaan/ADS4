@@ -42,6 +42,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioRecursiveBacktracking = new System.Windows.Forms.RadioButton();
             this.radioPrimsAlgorithm = new System.Windows.Forms.RadioButton();
+            this.radioCustom = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.grpAnimationSpeed.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -154,11 +155,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.radioCustom);
             this.groupBox2.Controls.Add(this.radioRecursiveBacktracking);
             this.groupBox2.Controls.Add(this.radioPrimsAlgorithm);
             this.groupBox2.Location = new System.Drawing.Point(13, 136);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(160, 102);
+            this.groupBox2.Size = new System.Drawing.Size(160, 130);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Maze creation algorithm";
@@ -172,7 +174,7 @@
             this.radioRecursiveBacktracking.TabIndex = 1;
             this.radioRecursiveBacktracking.TabStop = true;
             this.radioRecursiveBacktracking.Text = "Recursive Backtracking";
-            this.radioRecursiveBacktracking.UseVisualStyleBackColor = true;            
+            this.radioRecursiveBacktracking.UseVisualStyleBackColor = true;
             this.radioRecursiveBacktracking.Click += new System.EventHandler(this.radioRecursiveBacktracking_Click);
             // 
             // radioPrimsAlgorithm
@@ -186,6 +188,18 @@
             this.radioPrimsAlgorithm.Text = "Prim\'s Algorithm";
             this.radioPrimsAlgorithm.UseVisualStyleBackColor = true;
             this.radioPrimsAlgorithm.Click += new System.EventHandler(this.radioPrimsAlgorithm_Click);
+            // 
+            // radioCustom
+            // 
+            this.radioCustom.AutoSize = true;
+            this.radioCustom.Location = new System.Drawing.Point(9, 97);
+            this.radioCustom.Name = "radioCustom";
+            this.radioCustom.Size = new System.Drawing.Size(60, 17);
+            this.radioCustom.TabIndex = 2;
+            this.radioCustom.TabStop = true;
+            this.radioCustom.Text = "Custom";
+            this.radioCustom.UseVisualStyleBackColor = true;
+            this.radioCustom.Click += new System.EventHandler(this.radioCustom_Click);
             // 
             // Settings
             // 
@@ -226,6 +240,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioRecursiveBacktracking;
         private System.Windows.Forms.RadioButton radioPrimsAlgorithm;
+        private System.Windows.Forms.RadioButton radioCustom;
 
     }
 }

@@ -53,6 +53,8 @@ namespace Controllers
                 Maze.SetMazeCreationStrategy(new PrimsAlgorithm(Maze));
             else if(algorithm.Equals("recursiveBacktracking"))
                 Maze.SetMazeCreationStrategy(new RecursiveBacktrackingAlgorithm(Maze));
+            else if (algorithm.Equals("custom"))
+                Maze.SetMazeCreationStrategy(new CustomAlgorithm(Maze));
 
             Maze.CreateMaze();
 

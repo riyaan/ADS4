@@ -108,4 +108,45 @@ namespace Entities.Maze
             }
         }
     }
+
+    public class CustomAlgorithm : MazeStrategy
+    {
+        private Common _common;
+
+        public CustomAlgorithm(Maze maze)
+        {
+            _common = new Common();
+            _common.Rand = new Random((int)DateTime.Now.Ticks);
+            _common.EndReached = false;
+            _common.Maze = maze;
+            _common.Stack = new Stack<Cell>();
+        }
+
+        public override void CreateMaze(Cell cell)
+        {
+            Cell currentCell = cell;
+
+            while (_common.EndReached == false)
+            {
+                currentCell.CellState = CELL_STATE.VISITED;
+
+                if (currentCell.XCoordinate >= this._common.Maze.Rows - 1 && currentCell.YCoordinate >= this._common.Maze.Columns - 1)
+                {
+                    Diagnostics.Logger.Instance.Log("End of the maze reached.");
+                    currentCell.CellState = CELL_STATE.VISITED;
+                    _common.EndReached = true;
+                }
+
+                if (!currentCell.HasAllAdjacentsBeenVisited())
+                {
+                    _common.Stack.Push(currentCell);
+                    currentCell = _common.SelectRandomAdjacent(currentCell);
+                }
+                else
+                {
+                    currentCell = _common.Stack.Pop();
+                }
+            }
+        }
+    }
 }
