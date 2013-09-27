@@ -10,12 +10,22 @@ namespace MazeNavigatorUI
         {
             InitializeComponent();
 
-            //ConfigurationManager.RefreshSection("appSettings");
-
             // Load the values from the config
             txtRows.Text = ConfigurationManager.AppSettings["mazeRows"];
             txtColumns.Text = ConfigurationManager.AppSettings["mazeColumns"];
             txtAnimationSpeed.Text = ConfigurationManager.AppSettings["animationSpeed"];
+
+            string mazeAlgorithm = ConfigurationManager.AppSettings["mazeAlgorithm"];
+            if(mazeAlgorithm.Equals("prim"))
+            {
+                radioPrimsAlgorithm.Checked = true;
+                radioRecursiveBacktracking.Checked = false;
+            }
+            else if(mazeAlgorithm.Equals("recursiveBacktracking"))
+            {
+                radioRecursiveBacktracking.Checked = true;
+                radioPrimsAlgorithm.Checked = false;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -49,6 +59,28 @@ namespace MazeNavigatorUI
         private void txtAnimationSpeed_TextChanged(object sender, EventArgs e)
         {
             btnSave.Enabled = true;
+        }
+
+        private void radioPrimsAlgorithm_CheckedChanged(object sender, EventArgs e)
+        {
+            radioRecursiveBacktracking.Checked = false;
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings.Remove("mazeAlgorithm");
+
+            config.AppSettings.Settings.Add("mazeAlgorithm", "prim");
+            config.Save(ConfigurationSaveMode.Full);
+        }
+
+        private void radioRecursiveBacktracking_CheckedChanged(object sender, EventArgs e)
+        {
+            radioPrimsAlgorithm.Checked = false;
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings.Remove("mazeAlgorithm");
+
+            config.AppSettings.Settings.Add("mazeAlgorithm", "recursiveBacktracking");
+            config.Save(ConfigurationSaveMode.Full);
         }
     }
 }

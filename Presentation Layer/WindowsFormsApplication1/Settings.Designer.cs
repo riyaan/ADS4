@@ -34,13 +34,17 @@
             this.txtRows = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpAnimationSpeed = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtAnimationSpeed = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtAnimationSpeed = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioRecursiveBacktracking = new System.Windows.Forms.RadioButton();
+            this.radioPrimsAlgorithm = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.grpAnimationSpeed.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -54,7 +58,7 @@
             this.groupBox1.Size = new System.Drawing.Size(153, 102);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "grpMazeSize";
+            this.groupBox1.Text = "Maze Size";
             // 
             // txtColumns
             // 
@@ -100,44 +104,7 @@
             this.grpAnimationSpeed.Size = new System.Drawing.Size(143, 102);
             this.grpAnimationSpeed.TabIndex = 1;
             this.grpAnimationSpeed.TabStop = false;
-            this.grpAnimationSpeed.Text = "Animation Speed";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(91, 148);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(182, 148);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 0;
-            // 
-            // txtAnimationSpeed
-            // 
-            this.txtAnimationSpeed.Location = new System.Drawing.Point(26, 29);
-            this.txtAnimationSpeed.Name = "txtAnimationSpeed";
-            this.txtAnimationSpeed.Size = new System.Drawing.Size(42, 20);
-            this.txtAnimationSpeed.TabIndex = 1;
-            this.txtAnimationSpeed.TextChanged += new System.EventHandler(this.txtAnimationSpeed_TextChanged);
+            this.grpAnimationSpeed.Text = "Arrow Animation Speed";
             // 
             // label4
             // 
@@ -148,11 +115,84 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "seconds.";
             // 
+            // txtAnimationSpeed
+            // 
+            this.txtAnimationSpeed.Location = new System.Drawing.Point(26, 29);
+            this.txtAnimationSpeed.Name = "txtAnimationSpeed";
+            this.txtAnimationSpeed.Size = new System.Drawing.Size(42, 20);
+            this.txtAnimationSpeed.TabIndex = 1;
+            this.txtAnimationSpeed.TextChanged += new System.EventHandler(this.txtAnimationSpeed_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(83, 291);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(174, 291);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioRecursiveBacktracking);
+            this.groupBox2.Controls.Add(this.radioPrimsAlgorithm);
+            this.groupBox2.Location = new System.Drawing.Point(13, 136);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(160, 102);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Maze creation algorithm";
+            // 
+            // radioRecursiveBacktracking
+            // 
+            this.radioRecursiveBacktracking.AutoSize = true;
+            this.radioRecursiveBacktracking.Location = new System.Drawing.Point(9, 62);
+            this.radioRecursiveBacktracking.Name = "radioRecursiveBacktracking";
+            this.radioRecursiveBacktracking.Size = new System.Drawing.Size(139, 17);
+            this.radioRecursiveBacktracking.TabIndex = 1;
+            this.radioRecursiveBacktracking.TabStop = true;
+            this.radioRecursiveBacktracking.Text = "Recursive Backtracking";
+            this.radioRecursiveBacktracking.UseVisualStyleBackColor = true;
+            this.radioRecursiveBacktracking.CheckedChanged += new System.EventHandler(this.radioRecursiveBacktracking_CheckedChanged);
+            // 
+            // radioPrimsAlgorithm
+            // 
+            this.radioPrimsAlgorithm.AutoSize = true;
+            this.radioPrimsAlgorithm.Location = new System.Drawing.Point(9, 29);
+            this.radioPrimsAlgorithm.Name = "radioPrimsAlgorithm";
+            this.radioPrimsAlgorithm.Size = new System.Drawing.Size(98, 17);
+            this.radioPrimsAlgorithm.TabIndex = 0;
+            this.radioPrimsAlgorithm.TabStop = true;
+            this.radioPrimsAlgorithm.Text = "Prim\'s Algorithm";
+            this.radioPrimsAlgorithm.UseVisualStyleBackColor = true;
+            this.radioPrimsAlgorithm.CheckedChanged += new System.EventHandler(this.radioPrimsAlgorithm_CheckedChanged);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 215);
+            this.ClientSize = new System.Drawing.Size(358, 326);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.grpAnimationSpeed);
@@ -164,6 +204,8 @@
             this.groupBox1.PerformLayout();
             this.grpAnimationSpeed.ResumeLayout(false);
             this.grpAnimationSpeed.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -181,6 +223,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAnimationSpeed;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton radioRecursiveBacktracking;
+        private System.Windows.Forms.RadioButton radioPrimsAlgorithm;
 
     }
 }
