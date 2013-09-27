@@ -240,6 +240,6 @@ namespace MazeNavigatorUI
             // Create a new form for editing the maze details.
             Settings settings = new Settings();
             settings.Show();
-        }        
+        }
     }
 }
