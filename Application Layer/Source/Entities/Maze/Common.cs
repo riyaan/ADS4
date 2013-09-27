@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities.Maze
 {
@@ -15,7 +12,6 @@ namespace Entities.Maze
         public void SortAdjacentList(List<Cell> unsorted)
         {
             // TODO: Allow the user to specify the Sorting algorithm. (Strategy Design Pattern)
-
             // Selection sort
             for (int i = 0; i < unsorted.Count - 1; i++)
             {

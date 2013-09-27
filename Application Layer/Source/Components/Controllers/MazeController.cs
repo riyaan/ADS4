@@ -47,15 +47,13 @@ namespace Controllers
 
             string algorithm = ConfigurationManager.AppSettings["mazeAlgorithm"];
 
+            // TODO: Store these 'magic values' somewhere
             if(algorithm.Equals("prim"))
                 Maze.SetMazeCreationStrategy(new PrimsAlgorithm(Maze));
             else if(algorithm.Equals("recursiveBacktracking"))
                 Maze.SetMazeCreationStrategy(new RecursiveBacktrackingAlgorithm(Maze));
 
             Maze.CreateMaze();
-
-            // Maze.FindEnd(maze.Grid[0, 0]);
-            //Maze.FindEndRecursiveBacktracker(maze.Grid[0, 0]);
 
             PrintMaze();
         }
