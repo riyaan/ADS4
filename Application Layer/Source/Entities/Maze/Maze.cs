@@ -117,8 +117,13 @@ namespace Entities
             }
         }
 
-        // TODO: Give the recursive backtracker algorithm a try
+        // TODO: Implement the Strategy Design Pattern
         // http://en.wikipedia.org/wiki/Maze_generation_algorithm
+        /// <summary>
+        /// This is a modified version of Prim's Algorithm for generating a Maze.
+        /// The maze is not always solvable though.
+        /// </summary>
+        /// <param name="c">The c.</param>
         public void FindEnd(Cell c)
         {
             // if all adjacents has been visited quit
@@ -130,16 +135,11 @@ namespace Entities
             }
 
             SortAdjacentList(c.Adjacents);
-
             int numAdjacents = c.Adjacents.Count;
 
             // Select a random adjacent
-            int rand = Rand.Next(numAdjacents);
-
-            //Diagnostics.Logger.Instance.Log(String.Format("Random: {0}", rand));
-            Cell cell = c.Adjacents[rand];
-
-            //Diagnostics.Logger.Instance.Log(String.Format("Cell[{0}, {1}]", cell.XCoordinate, cell.YCoordinate));
+            int rand = Rand.Next(numAdjacents);            
+            Cell cell = c.Adjacents[rand];            
 
             if (cell.XCoordinate >= this.Rows - 1 && cell.YCoordinate >= this.Columns - 1)
             {
@@ -157,51 +157,58 @@ namespace Entities
                 }
                 else
                     return;
-
             }
         }
 
+        // TODO: Implement the Strategy Design Pattern
+        /// <summary>
+        /// This is a recursive backtracking method for creating a Maze.
+        /// </summary>
+        /// <param name="c">The c.</param>
         public void FindEndRecursiveBacktracker(Cell c)
         {
+            Cell currentCell = c;
+            currentCell.CellState = CELL_STATE.VISITED;
+
             while (!EndReached)
             {
-                if (c.XCoordinate >= this.Rows - 1 && c.YCoordinate >= this.Columns - 1)
+                if (currentCell.XCoordinate >= this.Rows - 1 && currentCell.YCoordinate >= this.Columns - 1)
                 {
                     Diagnostics.Logger.Instance.Log("End of the maze reached.");
-                    c.CellState = CELL_STATE.VISITED;
+                    currentCell.CellState = CELL_STATE.VISITED;
                     EndReached = true;
                 }
 
-                if (!c.HasAllAdjacentsBeenVisited())
+                if (!currentCell.HasAllAdjacentsBeenVisited())
                 {
-                    SortAdjacentList(c.Adjacents);
-                    int numAdjacents = c.Adjacents.Count;
+                    // TODO: Create a function for this
+                    SortAdjacentList(currentCell.Adjacents);
+                    int numAdjacents = currentCell.Adjacents.Count;
 
                     // Select a random adjacent
                     int rand = Rand.Next(numAdjacents);
+                    
+                    currentCell = currentCell.Adjacents[rand];                    
+                    currentCell.CellState = CELL_STATE.VISITED;
 
-                    //Diagnostics.Logger.Instance.Log(String.Format("Random: {0}", rand));
-                    Cell cell = c.Adjacents[rand];
-
-                    _stack.Push(cell);
-                    cell.CellState = CELL_STATE.VISITED;
+                    _stack.Push(currentCell);
                 }
                 else if (_stack.Count > 0)
                 {
-                    Cell cell = _stack.Pop();
+                    currentCell = _stack.Pop();
                 }
                 else
                 {
-                    SortAdjacentList(c.Adjacents);
-                    int numAdjacents = c.Adjacents.Count;
+                    // TODO: Create a function for this
+                    SortAdjacentList(currentCell.Adjacents);
+                    int numAdjacents = currentCell.Adjacents.Count;
 
                     // Select a random adjacent
                     int rand = Rand.Next(numAdjacents);
-
-                    //Diagnostics.Logger.Instance.Log(String.Format("Random: {0}", rand));
-                    Cell cell = c.Adjacents[rand];                    
+                    
+                    currentCell = currentCell.Adjacents[rand];
+                    currentCell.CellState = CELL_STATE.VISITED;
                 }
-
             }
         }
 

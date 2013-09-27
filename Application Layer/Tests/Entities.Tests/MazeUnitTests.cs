@@ -46,5 +46,30 @@ namespace Entities.Tests
 
             Assert.AreEqual(1, 1);
         }
+
+        [TestMethod]
+        public void FindEndRecursiveBacktrackerSuccess()
+        {
+            Maze maze = new Maze(10, 10);
+            maze.CreateAdjacents();
+            maze.FindEndRecursiveBacktracker(maze.Grid[0, 0]);
+
+            string output = System.Environment.NewLine;
+            for (int i = maze.Rows - 1; i >= 0; i--)
+            {
+                for (int j = maze.Columns - 1; j >= 0; j--)
+                {
+                    if (maze.Grid[i, j].CellState == CELL_STATE.OPEN)
+                        output += "|O|";
+                    else
+                        output += "|X|";
+                }
+                output += System.Environment.NewLine;
+            }
+
+            Logger.Instance.Log(output);
+
+            Assert.AreEqual(1, 1);
+        }
     }
 }

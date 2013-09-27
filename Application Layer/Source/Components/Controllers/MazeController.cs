@@ -42,7 +42,9 @@ namespace Controllers
         {
             Maze = new Maze(rows, columns);
             Maze.CreateAdjacents();
-            Maze.FindEnd(maze.Grid[0, 0]);
+            
+            // Maze.FindEnd(maze.Grid[0, 0]);
+            Maze.FindEndRecursiveBacktracker(maze.Grid[0, 0]);
 
             PrintMaze();
         }
