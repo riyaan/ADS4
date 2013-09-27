@@ -85,6 +85,7 @@ namespace MazeNavigatorUI
         private void GenerateMaze()
         {
             // Get the values from the configuration file
+            ConfigurationManager.RefreshSection("appSettings");
             Rows = Int32.Parse(ConfigurationManager.AppSettings["mazeRows"]);
             Columns = Int32.Parse(ConfigurationManager.AppSettings["mazeColumns"]);
 

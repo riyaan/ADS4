@@ -45,6 +45,7 @@ namespace Controllers
             Maze = new Maze(rows, columns);
             Maze.CreateAdjacents();
 
+            ConfigurationManager.RefreshSection("appSettings");
             string algorithm = ConfigurationManager.AppSettings["mazeAlgorithm"];
 
             // TODO: Store these 'magic values' somewhere

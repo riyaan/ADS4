@@ -172,8 +172,8 @@
             this.radioRecursiveBacktracking.TabIndex = 1;
             this.radioRecursiveBacktracking.TabStop = true;
             this.radioRecursiveBacktracking.Text = "Recursive Backtracking";
-            this.radioRecursiveBacktracking.UseVisualStyleBackColor = true;
-            this.radioRecursiveBacktracking.CheckedChanged += new System.EventHandler(this.radioRecursiveBacktracking_CheckedChanged);
+            this.radioRecursiveBacktracking.UseVisualStyleBackColor = true;            
+            this.radioRecursiveBacktracking.Click += new System.EventHandler(this.radioRecursiveBacktracking_Click);
             // 
             // radioPrimsAlgorithm
             // 
@@ -185,7 +185,7 @@
             this.radioPrimsAlgorithm.TabStop = true;
             this.radioPrimsAlgorithm.Text = "Prim\'s Algorithm";
             this.radioPrimsAlgorithm.UseVisualStyleBackColor = true;
-            this.radioPrimsAlgorithm.CheckedChanged += new System.EventHandler(this.radioPrimsAlgorithm_CheckedChanged);
+            this.radioPrimsAlgorithm.Click += new System.EventHandler(this.radioPrimsAlgorithm_Click);
             // 
             // Settings
             // 

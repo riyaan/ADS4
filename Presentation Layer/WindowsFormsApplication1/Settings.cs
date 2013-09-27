@@ -35,13 +35,13 @@ namespace MazeNavigatorUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //// TODO: This is not saving.
-            //Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
-            //config.AppSettings.Settings.Add("mazeRows", txtRows.Text);
-            //config.AppSettings.Settings.Add("mazeColumns", txtColumns.Text);
-            //config.AppSettings.Settings.Add("animationSpeed", txtAnimationSpeed.Text);
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings.Remove("mazeRows");
+            config.AppSettings.Settings.Remove("mazeColumns");
 
-            //config.Save(ConfigurationSaveMode.Full);
+            config.AppSettings.Settings.Add("mazeRows", txtRows.Text);
+            config.AppSettings.Settings.Add("mazeColumns", txtColumns.Text);
+            config.Save(ConfigurationSaveMode.Full);
 
             this.Close();
         }
@@ -61,8 +61,9 @@ namespace MazeNavigatorUI
             btnSave.Enabled = true;
         }
 
-        private void radioPrimsAlgorithm_CheckedChanged(object sender, EventArgs e)
+        private void radioPrimsAlgorithm_Click(object sender, EventArgs e)
         {
+            radioPrimsAlgorithm.Checked = true;
             radioRecursiveBacktracking.Checked = false;
 
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -72,8 +73,9 @@ namespace MazeNavigatorUI
             config.Save(ConfigurationSaveMode.Full);
         }
 
-        private void radioRecursiveBacktracking_CheckedChanged(object sender, EventArgs e)
+        private void radioRecursiveBacktracking_Click(object sender, EventArgs e)
         {
+            radioRecursiveBacktracking.Checked = true;
             radioPrimsAlgorithm.Checked = false;
 
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
