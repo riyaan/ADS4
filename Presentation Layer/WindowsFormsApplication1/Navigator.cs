@@ -182,8 +182,9 @@ namespace MazeNavigatorUI
 
         private void UpdateGrid(int x, int y, string d)
         {
-            mazeLayoutPanel.Visible = false;
-            mazeLayoutPanel.SuspendLayout();
+            // TODO: This causes flickering when the arrow animates
+            //mazeLayoutPanel.Visible = false;
+            //mazeLayoutPanel.SuspendLayout();
 
             foreach (object o in this.mazeLayoutPanel.Controls)
             {
@@ -230,9 +231,10 @@ namespace MazeNavigatorUI
                     }
                 }
             }
-            
-            mazeLayoutPanel.ResumeLayout();
-            mazeLayoutPanel.Visible = true;
+
+            // TODO: This causes flickering when the arrow animates
+            //mazeLayoutPanel.ResumeLayout();
+            //mazeLayoutPanel.Visible = true;
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
