@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Controllers.ArrowController">
-    <Position X="1" Y="4.5" Width="4.5" />
+    <Position X="1.25" Y="4" Width="4" />
     <TypeIdentifier>
       <HashCode>IABAIQAAAAAgAQGAAEEAACAAAAAAAAAACAiIAEAIAAM=</HashCode>
       <FileName>ArrowController.cs</FileName>
@@ -11,21 +11,24 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Controllers.MazeController">
-    <Position X="1.5" Y="0.5" Width="3.25" />
+    <Position X="7.75" Y="10.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAEAAAABAAAAAAACAAgAACAAAAAoAAAA=</HashCode>
       <FileName>MazeController.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Maze" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Controllers.MCLController">
-    <Position X="13.25" Y="7.5" Width="3.25" />
+    <Position X="7.75" Y="0.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>MCLController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Controllers.UIController">
-    <Position X="8.25" Y="1" Width="5.75" />
+    <Position X="7" Y="5" Width="5.25" />
     <TypeIdentifier>
       <HashCode>IAAAAAIAAAAAAwAAAAAAAAAEAAAAAAAABACAAIhAgEA=</HashCode>
       <FileName>UIController.cs</FileName>
@@ -37,7 +40,11 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Entities.ArrowContext">
-    <Position X="6.75" Y="6.5" Width="3.75" />
+    <Position X="1" Y="0.5" Width="3.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Entities.Maze.Maze">
+    <Position X="12.5" Y="10.25" Width="4" />
     <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
