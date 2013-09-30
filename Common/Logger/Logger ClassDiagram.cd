@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Diagnostics.Logger">
+    <Position X="5.5" Y="2" Width="4.75" />
+    <AssociationLine Name="Instance" Type="Diagnostics.Logger" ManuallyRouted="true">
+      <Path>
+        <Point X="7.139" Y="2" />
+        <Point X="7.139" Y="0.99" />
+        <Point X="8.646" Y="0.99" />
+        <Point X="8.646" Y="2" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAjAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Logger.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="LogFile" />
+      <Property Name="Instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.IO.StreamWriter" Collapsed="true">
+    <Position X="12.25" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
