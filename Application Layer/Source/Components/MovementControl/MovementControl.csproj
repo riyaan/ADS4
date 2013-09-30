@@ -46,7 +46,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MovementContorl_ClassDiagram.cd" />
+    <None Include="MovementControl_ClassDiagram.cd" />
+    <None Include="MovementControl_Parse.sequencediagram" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MovementControl_Parse.sequencediagram.layout">
+      <DependentUpon>MovementControl_Parse.sequencediagram</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

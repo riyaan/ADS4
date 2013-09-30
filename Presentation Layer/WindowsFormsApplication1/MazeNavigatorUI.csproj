@@ -65,11 +65,17 @@
     <EmbeddedResource Include="Navigator.resx">
       <DependentUpon>Navigator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NavigatorUI_ProcessUserCommand.sequencediagram.layout">
+      <DependentUpon>NavigatorUI_ProcessUserCommand.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigatorUI__ArrowPositionChanged.sequencediagram.layout">
+      <DependentUpon>NavigatorUI__ArrowPositionChanged.sequencediagram</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewMaze.sequencediagram.layout">
       <DependentUpon>NewMaze.sequencediagram</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NavigatorUserInterfaceInitialization.sequencediagram.layout">
-      <DependentUpon>NavigatorUserInterfaceInitialization.sequencediagram</DependentUpon>
+    <EmbeddedResource Include="NavigatorUI_Initialization.sequencediagram.layout">
+      <DependentUpon>NavigatorUI_Initialization.sequencediagram</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,8 +90,10 @@
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="NavigatorUI_ProcessUserCommand.sequencediagram" />
+    <None Include="NavigatorUI__ArrowPositionChanged.sequencediagram" />
     <None Include="NewMaze.sequencediagram" />
-    <None Include="NavigatorUserInterfaceInitialization.sequencediagram" />
+    <None Include="NavigatorUI_Initialization.sequencediagram" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
