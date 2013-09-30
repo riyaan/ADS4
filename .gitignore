@@ -26,3 +26,23 @@
 /Application Layer/RecursiveBackTrackingBruteForce/bin/Debug/**/*
 /Application Layer/RecursiveBackTrackingBruteForce/obj/Debug/**/*
 /MazeGenerator/bin/Debug/**/*
+/Common/SharedEvents/bin/Debug
+/Common/SharedEvents/obj/Debug
+/Common/Logger/bin/Debug
+/Common/Logger/obj/Debug
+/Application Layer/Source/Components/Controllers/bin/Debug
+/Application Layer/Source/Components/Controllers/obj/Debug
+/Application Layer/Source/Components/MovementControl/bin/Debug
+/Application Layer/Source/Components/MovementControl/obj/Debug
+/Application Layer/Source/Entities/bin/Debug/**/*
+/Application Layer/Source/Entities/obj/Debug/**/*
+/Application Layer/Source/MazeGenerator/bin/Debug/**/*
+/Application Layer/Source/MazeGenerator/obj/Debug/**/*
+/Application Layer/Tests/Components/Controllers.Tests/bin/Debug
+/Application Layer/Tests/Components/Controllers.Tests/obj/Debug
+/Application Layer/Tests/Components/MovementControl.Tests/bin/Debug
+/Application Layer/Tests/Components/MovementControl.Tests/obj/Debug
+/Application Layer/Tests/Entities.Tests/bin/Debug/**/*
+/Application Layer/Tests/Entities.Tests/obj/Debug/**/*
+/Application Layer/Tests/MazeGenerator.Tests/bin/Debug
+/Application Layer/Tests/MazeGenerator.Tests/obj/Debug
