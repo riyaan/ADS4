@@ -245,7 +245,7 @@ namespace MazeNavigatorUI
 
                 // alert everything to stop
                 _isRunning = false;
-                MessageBox.Show("Error", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Sorry. Try again!", "Error", MessageBoxButtons.OK);
                 CreateMazeVisually();
                 _uiController.InitializeControllers();
                 ClearCommandText();
@@ -262,7 +262,7 @@ namespace MazeNavigatorUI
             {
                 // alert everything to stop
                 _isRunning = false;
-                MessageBox.Show("Success", "Success", MessageBoxButtons.OK);
+                MessageBox.Show("Well done!", "Success", MessageBoxButtons.OK);
                 CreateMazeVisually();
                 _uiController.InitializeControllers();
                 ClearCommandText();
@@ -280,7 +280,13 @@ namespace MazeNavigatorUI
         {
             // Create a new form for editing the maze details.
             Settings settings = new Settings();
-            settings.Show();
+            settings.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About aboutScreen = new About();
+            aboutScreen.ShowDialog();
         }
     }
 }
