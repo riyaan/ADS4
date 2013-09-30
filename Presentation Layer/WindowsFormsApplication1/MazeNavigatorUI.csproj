@@ -65,6 +65,12 @@
     <EmbeddedResource Include="Navigator.resx">
       <DependentUpon>Navigator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewMaze.sequencediagram.layout">
+      <DependentUpon>NewMaze.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigatorUserInterfaceInitialization.sequencediagram.layout">
+      <DependentUpon>NavigatorUserInterfaceInitialization.sequencediagram</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -78,6 +84,8 @@
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="NewMaze.sequencediagram" />
+    <None Include="NavigatorUserInterfaceInitialization.sequencediagram" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
