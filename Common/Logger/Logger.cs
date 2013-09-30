@@ -28,7 +28,7 @@ namespace Diagnostics
 
         private Logger()
         {
-            this.logFile = new StreamWriter(@"C:\temp\logs\maze.txt", true);
+            this.logFile = new StreamWriter(@"maze.log", true);
         }
 
         public void Log(string output)

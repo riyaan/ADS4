@@ -37,9 +37,9 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mazeLayoutPanel = new MazeNavigatorUI.MazeLayoutPanel(this.components);
             this.btnGo = new System.Windows.Forms.Button();
             this.txtCommand = new System.Windows.Forms.TextBox();
+            this.mazeLayoutPanel = new MazeNavigatorUI.MazeLayoutPanel(this.components);
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,14 +68,14 @@
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -108,6 +108,25 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "A&bout";
             // 
+            // btnGo
+            // 
+            this.btnGo.Enabled = false;
+            this.btnGo.Location = new System.Drawing.Point(452, 381);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(75, 23);
+            this.btnGo.TabIndex = 4;
+            this.btnGo.Text = "Go";
+            this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // txtCommand
+            // 
+            this.txtCommand.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCommand.Location = new System.Drawing.Point(12, 381);
+            this.txtCommand.Name = "txtCommand";
+            this.txtCommand.Size = new System.Drawing.Size(434, 20);
+            this.txtCommand.TabIndex = 5;
+            // 
             // mazeLayoutPanel
             // 
             this.mazeLayoutPanel.AutoSize = true;
@@ -124,25 +143,9 @@
             this.mazeLayoutPanel.Size = new System.Drawing.Size(3, 3);
             this.mazeLayoutPanel.TabIndex = 3;
             // 
-            // btnGo
-            // 
-            this.btnGo.Location = new System.Drawing.Point(452, 381);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(75, 23);
-            this.btnGo.TabIndex = 4;
-            this.btnGo.Text = "Go";
-            this.btnGo.UseVisualStyleBackColor = true;
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
-            // 
-            // txtCommand
-            // 
-            this.txtCommand.Location = new System.Drawing.Point(12, 381);
-            this.txtCommand.Name = "txtCommand";
-            this.txtCommand.Size = new System.Drawing.Size(434, 20);
-            this.txtCommand.TabIndex = 5;
-            // 
             // NavigatorUI
             // 
+            this.AcceptButton = this.btnGo;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;

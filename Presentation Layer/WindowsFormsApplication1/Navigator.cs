@@ -75,7 +75,8 @@ namespace MazeNavigatorUI
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
+        {
+            btnGo.Enabled = true;
             GenerateMaze();
             CreateMazeVisually();
             UpdateGrid(0, 0, "F");
@@ -175,9 +176,12 @@ namespace MazeNavigatorUI
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            Diagnostics.Logger.Instance.Log("Go button clicked");
-            _isRunning = true;
-            _uiController.ParseCommand(txtCommand.Text);
+            if (!String.IsNullOrEmpty(txtCommand.Text))
+            {
+                Diagnostics.Logger.Instance.Log("Go button clicked");
+                _isRunning = true;
+                _uiController.ParseCommand(txtCommand.Text);
+            }
         }
 
         private void UpdateGrid(int x, int y, string d)
@@ -215,17 +219,11 @@ namespace MazeNavigatorUI
 
                         // Check if the button at this location is 'Closed'.
                         // If so, warn the user and reset the arrow.
-                        if (b.BackColor.Equals(Color.Blue))
-                        {
-                            Diagnostics.Logger.Instance.Log("Cell cannot be entered.");
-                            
-                            // alert everything to stop
-                            _isRunning = false;
-                            MessageBox.Show("Error", "Error", MessageBoxButtons.OKCancel);                            
-                            CreateMazeVisually();
-                            _uiController.InitializeControllers();
+                        if (HasClosedCellBeenReached(b))                            
                             break;
-                        }
+
+                        if (MazeExitPointHasBeenReached(b))
+                            break;
 
                         break;
                     }
@@ -235,6 +233,47 @@ namespace MazeNavigatorUI
             // TODO: This causes flickering when the arrow animates
             //mazeLayoutPanel.ResumeLayout();
             //mazeLayoutPanel.Visible = true;
+        }
+
+        private bool HasClosedCellBeenReached(Button b)
+        {
+            bool ClosedCellReached = false;
+
+            if (b.BackColor.Equals(Color.Blue))
+            {
+                Diagnostics.Logger.Instance.Log("Cell cannot be entered.");
+
+                // alert everything to stop
+                _isRunning = false;
+                MessageBox.Show("Error", "Error", MessageBoxButtons.OK);
+                CreateMazeVisually();
+                _uiController.InitializeControllers();
+                ClearCommandText();
+                ClosedCellReached = true;
+            }
+            return ClosedCellReached;
+        }
+
+        private bool MazeExitPointHasBeenReached(Button b)
+        {
+            bool ExitPointReached = false;
+
+            if (b.BackColor.Equals(Color.Yellow))
+            {
+                // alert everything to stop
+                _isRunning = false;
+                MessageBox.Show("Success", "Success", MessageBoxButtons.OK);
+                CreateMazeVisually();
+                _uiController.InitializeControllers();
+                ClearCommandText();
+                ExitPointReached = true;
+            }
+            return ExitPointReached;
+        }
+
+        private void ClearCommandText()
+        {
+            txtCommand.Clear();
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)

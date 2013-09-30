@@ -40,9 +40,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioCustom = new System.Windows.Forms.RadioButton();
             this.radioRecursiveBacktracking = new System.Windows.Forms.RadioButton();
             this.radioPrimsAlgorithm = new System.Windows.Forms.RadioButton();
-            this.radioCustom = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.grpAnimationSpeed.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -165,6 +165,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Maze creation algorithm";
             // 
+            // radioCustom
+            // 
+            this.radioCustom.AutoSize = true;
+            this.radioCustom.Location = new System.Drawing.Point(9, 97);
+            this.radioCustom.Name = "radioCustom";
+            this.radioCustom.Size = new System.Drawing.Size(60, 17);
+            this.radioCustom.TabIndex = 2;
+            this.radioCustom.TabStop = true;
+            this.radioCustom.Text = "Custom";
+            this.radioCustom.UseVisualStyleBackColor = true;
+            this.radioCustom.Click += new System.EventHandler(this.radioCustom_Click);
+            // 
             // radioRecursiveBacktracking
             // 
             this.radioRecursiveBacktracking.AutoSize = true;
@@ -189,18 +201,6 @@
             this.radioPrimsAlgorithm.UseVisualStyleBackColor = true;
             this.radioPrimsAlgorithm.Click += new System.EventHandler(this.radioPrimsAlgorithm_Click);
             // 
-            // radioCustom
-            // 
-            this.radioCustom.AutoSize = true;
-            this.radioCustom.Location = new System.Drawing.Point(9, 97);
-            this.radioCustom.Name = "radioCustom";
-            this.radioCustom.Size = new System.Drawing.Size(60, 17);
-            this.radioCustom.TabIndex = 2;
-            this.radioCustom.TabStop = true;
-            this.radioCustom.Text = "Custom";
-            this.radioCustom.UseVisualStyleBackColor = true;
-            this.radioCustom.Click += new System.EventHandler(this.radioCustom_Click);
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,7 +212,7 @@
             this.Controls.Add(this.grpAnimationSpeed);
             this.Controls.Add(this.groupBox1);
             this.Name = "Settings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
