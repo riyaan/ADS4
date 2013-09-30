@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="7b8a3acd-1d14-4682-9755-e89b96a56842" name="Parser_Parse" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="7b8a3acd-1d14-4682-9755-e89b96a56842" name="Parse Command" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
-      <interaction Id="3159849a-3303-4798-ba43-16c03987836c" name="Parser_Parse" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+      <interaction Id="3159849a-3303-4798-ba43-16c03987836c" name="Parse Command" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
         <fragments>
           <behaviorExecutionSpecification Id="2432a508-5b54-474c-8586-74e40e5cbc85" name="BehaviorExecutionSpecification">
             <coveredLifelines>
@@ -179,6 +179,16 @@
               </interactionOperand>
             </operands>
           </combinedFragment>
+          <operandOccurrenceSpecification Id="cb36db4e-0122-4116-9b83-6b5b4caf1595" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="c51bd186-08db-4729-8ff6-3944eba99dc9" LastKnownName="commands : List&lt;Context&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="983649b5-3f5a-433c-affc-7bf762bfd45d" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7cfe3fdf-bbd3-47d7-ae89-331c6ff0de5b" LastKnownName="mclCommand : MclCommand" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="ac60a725-1b31-406b-8cf3-4c20adbefb41" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="83c5f13a-f77b-4f86-8412-43d7ec7f06d0" LastKnownName="item : Context" />
@@ -187,16 +197,6 @@
           <operandOccurrenceSpecification Id="8859f396-d8a0-46c5-b2b4-3b5626fcade5" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="2fb77671-ce51-4ab1-b66f-0bb0c1fa2d81" LastKnownName="this : Parser" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="983649b5-3f5a-433c-affc-7bf762bfd45d" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7cfe3fdf-bbd3-47d7-ae89-331c6ff0de5b" LastKnownName="mclCommand : MclCommand" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="cb36db4e-0122-4116-9b83-6b5b4caf1595" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="c51bd186-08db-4729-8ff6-3944eba99dc9" LastKnownName="commands : List&lt;Context&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="17a56088-c034-489b-855a-67e0769a4d32" name="OperandOccurrenceSpecification">
@@ -301,14 +301,14 @@
               <lifelineMoniker Id="7cfe3fdf-bbd3-47d7-ae89-331c6ff0de5b" LastKnownName="mclCommand : MclCommand" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="12962f1d-6a82-43c9-954c-f15f43c0d056" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="2fb77671-ce51-4ab1-b66f-0bb0c1fa2d81" LastKnownName="this : Parser" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="e0d14afe-739d-46fc-9d98-4ad71f4f5ab5" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="7cfe3fdf-bbd3-47d7-ae89-331c6ff0de5b" LastKnownName="mclCommand : MclCommand" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="12962f1d-6a82-43c9-954c-f15f43c0d056" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="2fb77671-ce51-4ab1-b66f-0bb0c1fa2d81" LastKnownName="this : Parser" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="1d78708a-8c36-4c04-8b85-666d9f94b42c" name="ExecutionOccurrenceSpecification">
@@ -508,16 +508,6 @@
               <lifelineMoniker Id="7cfe3fdf-bbd3-47d7-ae89-331c6ff0de5b" LastKnownName="mclCommand : MclCommand" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="733c3cc9-4b1f-4685-b66d-d08f8395a4d0" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7cfe3fdf-bbd3-47d7-ae89-331c6ff0de5b" LastKnownName="mclCommand : MclCommand" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="bf1e51b6-1e94-4b48-a8aa-22b0d00aec6a" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="2fb77671-ce51-4ab1-b66f-0bb0c1fa2d81" LastKnownName="this : Parser" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="fb3c9a45-6e39-4e62-bb76-5b56fea820a4" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="c51bd186-08db-4729-8ff6-3944eba99dc9" LastKnownName="commands : List&lt;Context&gt;" />
@@ -526,6 +516,16 @@
           <operandOccurrenceSpecification Id="36f78470-f6a0-4392-8db0-8cf6534a9fca" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="83c5f13a-f77b-4f86-8412-43d7ec7f06d0" LastKnownName="item : Context" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="733c3cc9-4b1f-4685-b66d-d08f8395a4d0" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7cfe3fdf-bbd3-47d7-ae89-331c6ff0de5b" LastKnownName="mclCommand : MclCommand" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="bf1e51b6-1e94-4b48-a8aa-22b0d00aec6a" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="2fb77671-ce51-4ab1-b66f-0bb0c1fa2d81" LastKnownName="this : Parser" />
             </covered>
           </operandOccurrenceSpecification>
           <executionOccurrenceSpecification Id="a468de4d-f495-4a67-977a-fee28110703b" name="ExecutionOccurrenceSpecification">

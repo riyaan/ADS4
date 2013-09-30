@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="cea1b46c-b564-4e19-9e38-5d5bae065bf3" name="NavigatorUI_NavigatorUI" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="cea1b46c-b564-4e19-9e38-5d5bae065bf3" name="User Interface Initialization" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
-      <interaction Id="12973abb-d317-49b3-8e9e-e9439cfaf9a8" name="NavigatorUI_NavigatorUI" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+      <interaction Id="12973abb-d317-49b3-8e9e-e9439cfaf9a8" name="User Interface Initialization" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
         <fragments>
           <behaviorExecutionSpecification Id="077cfd4b-b420-4ae7-a588-4a40ea3dec79" name="BehaviorExecutionSpecification">
             <coveredLifelines>
@@ -100,14 +100,14 @@
               <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="component : MazeLayoutPanel" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="0e8f0329-9db4-4433-bde1-57d6983c2881" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="component : MazeLayoutPanel" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="781077a9-a624-40e8-a9ba-bf031020f69b" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="0e8f0329-9db4-4433-bde1-57d6983c2881" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="component : MazeLayoutPanel" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="1fbfb425-0d96-429b-9d67-d9bcdb23f216" name="MessageOccurrenceSpecification">

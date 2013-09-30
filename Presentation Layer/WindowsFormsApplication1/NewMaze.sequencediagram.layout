@@ -285,9 +285,6 @@
         <lifelineHoverShape Id="b2b60569-b3b2-416e-b9c2-0dc4c9a7b083" absoluteBounds="16.430961354638278, 1, 0, 39.375">
           <lifelineMoniker Id="8c31b82a-775e-4ec0-9e71-b9a0c7c86b1c" LastKnownName="Logger.instance : Logger" />
         </lifelineHoverShape>
-        <dotNetExecutionSpecificationShape Id="e14a1d0e-0bc2-436e-b6f0-00820b82610c" absoluteBounds="16.430961354638278, 34.1180553480983, 0.125, 0.55" customColor="184, 204, 215">
-          <behaviorExecutionSpecificationMoniker Id="5953609b-1550-4535-9560-6e07b2079fc1" LastKnownName="BehaviorExecutionSpecification" />
-        </dotNetExecutionSpecificationShape>
         <dotNetExecutionSpecificationShape Id="fc05f3f6-4393-4dc0-a035-1ed92b7740e8" absoluteBounds="16.430961354638278, 5.9499999999999984, 0.125, 0.55" customColor="184, 204, 215" visualStyleMode="Modified">
           <behaviorExecutionSpecificationMoniker Id="c65acf9d-c88d-45a4-a2d8-e623c4391d6a" LastKnownName="BehaviorExecutionSpecification" />
         </dotNetExecutionSpecificationShape>
@@ -302,6 +299,9 @@
         </dotNetExecutionSpecificationShape>
         <dotNetExecutionSpecificationShape Id="299b7193-75e3-478b-b3ce-f372c7fc7e26" absoluteBounds="16.430961354638278, 28.216041511297256, 0.125, 0.55000000000000071" customColor="184, 204, 215" visualStyleMode="Modified">
           <behaviorExecutionSpecificationMoniker Id="809c8021-2d4b-4e73-ad5c-4854f141cdcc" LastKnownName="BehaviorExecutionSpecification" />
+        </dotNetExecutionSpecificationShape>
+        <dotNetExecutionSpecificationShape Id="e14a1d0e-0bc2-436e-b6f0-00820b82610c" absoluteBounds="16.430961354638278, 34.1180553480983, 0.125, 0.55" customColor="184, 204, 215">
+          <behaviorExecutionSpecificationMoniker Id="5953609b-1550-4535-9560-6e07b2079fc1" LastKnownName="BehaviorExecutionSpecification" />
         </dotNetExecutionSpecificationShape>
       </relativeChildShapes>
     </lifelineShape>

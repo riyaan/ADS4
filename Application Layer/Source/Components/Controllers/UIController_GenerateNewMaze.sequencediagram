@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="0bef0f84-64da-4716-8b4d-816cbf794ebb" name="UIController_GenerateNewMaze" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="0bef0f84-64da-4716-8b4d-816cbf794ebb" name="Generate New Maze" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
-      <interaction Id="c47b78d9-3198-4b3d-ac8e-92d43c8d4462" name="UIController_GenerateNewMaze" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+      <interaction Id="c47b78d9-3198-4b3d-ac8e-92d43c8d4462" name="Generate New Maze" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
         <ownedCommentsInternal>
           <comment Id="37325c7b-c84a-447e-b3d7-15e4f3be80ab">
             <body>The 'algorithm' value is retrieved from the configuration file.</body>
@@ -273,14 +273,14 @@
               <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
             </covered>
           </operandOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="76ead416-e8ad-49f3-a255-a3ebf5545798" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="84f04679-4b1d-4bc7-ba3e-c6d455c9331e" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="e9231808-50df-4c1a-af8c-fcdb6e22e024" LastKnownName="this._mazeController : MazeController" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="76ead416-e8ad-49f3-a255-a3ebf5545798" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="ecaf06d1-6726-42ec-99df-2dc321cfb81b" name="ExecutionOccurrenceSpecification">
@@ -715,14 +715,14 @@
               <lifelineMoniker Id="cd8a6254-c90f-4a3c-bedf-43ec496ad367" LastKnownName="mazeStrategy : PrimsAlgorithm" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="f60d3df6-4ac5-4e26-bf0e-ca7a9e47efff" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="e9231808-50df-4c1a-af8c-fcdb6e22e024" LastKnownName="this._mazeController : MazeController" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="f7350488-d4cf-4cd2-a725-c788e177c17d" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="cd8a6254-c90f-4a3c-bedf-43ec496ad367" LastKnownName="mazeStrategy : PrimsAlgorithm" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="f60d3df6-4ac5-4e26-bf0e-ca7a9e47efff" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="e9231808-50df-4c1a-af8c-fcdb6e22e024" LastKnownName="this._mazeController : MazeController" />
             </covered>
           </messageOccurrenceSpecification>
           <lostFoundTarget Id="b2e8de00-556e-443c-860a-912eb68fed76" name="LostFoundTarget" />
@@ -792,14 +792,14 @@
               <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="7e724474-1bdf-4391-9612-40586fd51cb7" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="f06710cd-2a00-473a-aa7c-97149e245d60" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="e9231808-50df-4c1a-af8c-fcdb6e22e024" LastKnownName="this._mazeController : MazeController" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="7e724474-1bdf-4391-9612-40586fd51cb7" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="35911c15-1562-4a18-b167-8daffa8a28fe" name="ExecutionOccurrenceSpecification">
@@ -1018,6 +1018,16 @@
               <lifelineMoniker Id="e9231808-50df-4c1a-af8c-fcdb6e22e024" LastKnownName="this._mazeController : MazeController" />
             </covered>
           </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="c41f0faa-ccf2-40ac-80fe-2adab928cfbc" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="08a03616-7d8b-4b22-8eaf-25606257665d" LastKnownName="mazeStrategy : RecursiveBacktrackingAlgorithm" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="f0bc680a-2b04-4dfa-8e1b-dabd96c3ad1b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="6d756627-672e-4531-804e-1beb7bcd2629" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="295d72ec-4798-44df-a956-3367f751100d" LastKnownName="mazeStrategy : CustomAlgorithm" />
@@ -1031,16 +1041,6 @@
           <operandOccurrenceSpecification Id="8e59d18c-b8b3-4522-93cb-01c0bd5d5f78" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="cd8a6254-c90f-4a3c-bedf-43ec496ad367" LastKnownName="mazeStrategy : PrimsAlgorithm" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="f0bc680a-2b04-4dfa-8e1b-dabd96c3ad1b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="c41f0faa-ccf2-40ac-80fe-2adab928cfbc" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="08a03616-7d8b-4b22-8eaf-25606257665d" LastKnownName="mazeStrategy : RecursiveBacktrackingAlgorithm" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="f29be471-2196-42a4-acd5-22982a3b6544" name="BehaviorExecutionSpecification">
@@ -1093,12 +1093,12 @@
             </covered>
           </messageOccurrenceSpecification>
           <lostFoundTarget Id="a69fb613-c5eb-4f51-bc92-7cfc817170c0" name="LostFoundTarget" />
-          <lostFoundTarget Id="4e979f3c-773a-4f13-b282-7ebc0eb68303" name="LostFoundTarget" />
           <messageOccurrenceSpecification Id="493d760c-dd33-4b36-85c3-cf62e7327e33" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="295d72ec-4798-44df-a956-3367f751100d" LastKnownName="mazeStrategy : CustomAlgorithm" />
             </covered>
           </messageOccurrenceSpecification>
+          <lostFoundTarget Id="4e979f3c-773a-4f13-b282-7ebc0eb68303" name="LostFoundTarget" />
           <messageOccurrenceSpecification Id="9ee98bc7-3ad0-495c-bf4c-413f6a4e9eb4" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="e9231808-50df-4c1a-af8c-fcdb6e22e024" LastKnownName="this._mazeController : MazeController" />
@@ -1174,19 +1174,14 @@
               <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="eecaba76-614e-45dc-a728-3d2920334aba" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="295d72ec-4798-44df-a956-3367f751100d" LastKnownName="mazeStrategy : CustomAlgorithm" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="2ee4c945-3734-47fa-9cfb-31f42cd88a75" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="08a03616-7d8b-4b22-8eaf-25606257665d" LastKnownName="mazeStrategy : RecursiveBacktrackingAlgorithm" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="242abd37-b1ad-45a5-b570-4e2126e4eefa" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="2d97d54c-127b-4da6-b8fe-b5e6d80ddf34" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="cd8a6254-c90f-4a3c-bedf-43ec496ad367" LastKnownName="mazeStrategy : PrimsAlgorithm" />
+              <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="a5a49d00-4b0b-4497-803d-fc2f856de16b" name="OperandOccurrenceSpecification">
@@ -1194,9 +1189,14 @@
               <lifelineMoniker Id="e9231808-50df-4c1a-af8c-fcdb6e22e024" LastKnownName="this._mazeController : MazeController" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2d97d54c-127b-4da6-b8fe-b5e6d80ddf34" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="eecaba76-614e-45dc-a728-3d2920334aba" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="9ae113df-db00-4532-9b66-217c2e8c581e" LastKnownName="this._mazeController.maze : Maze" />
+              <lifelineMoniker Id="295d72ec-4798-44df-a956-3367f751100d" LastKnownName="mazeStrategy : CustomAlgorithm" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="242abd37-b1ad-45a5-b570-4e2126e4eefa" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cd8a6254-c90f-4a3c-bedf-43ec496ad367" LastKnownName="mazeStrategy : PrimsAlgorithm" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="9351fd44-e71f-4ec7-abf2-dd62f8daf94f" name="BehaviorExecutionSpecification">
@@ -1573,14 +1573,14 @@
               <lifelineMoniker Id="b6f5a70b-bc94-41d8-bdd5-0f386eb1921c" LastKnownName="this._arrowController._acea : ArrowChangedEventArgs" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="dc5fec10-9ef8-4ef3-b4b9-968eb703db21" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="b6f5a70b-bc94-41d8-bdd5-0f386eb1921c" LastKnownName="this._arrowController._acea : ArrowChangedEventArgs" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="5f77d909-49eb-45be-bc66-6bf464402438" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="9733df18-a37d-47ed-9147-d643c8a0a5bf" LastKnownName="this._arrowController : ArrowController" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="dc5fec10-9ef8-4ef3-b4b9-968eb703db21" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="b6f5a70b-bc94-41d8-bdd5-0f386eb1921c" LastKnownName="this._arrowController._acea : ArrowChangedEventArgs" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="a3c185f6-4886-425f-a27c-d2fc5fbd5325" name="ExecutionOccurrenceSpecification">
