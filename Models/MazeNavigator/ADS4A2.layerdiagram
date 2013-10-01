@@ -77,16 +77,16 @@ subscribers to this event.</body>
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
       <childLayers>
-        <layer Id="06f8b546-007a-4539-abc1-496dd5b89509" name="UI Controller">
+        <layer Id="06f8b546-007a-4539-abc1-496dd5b89509" name="UI Process Components (UIP)">
           <childLayers>
-            <layer Id="0acbd0e9-a1ee-46ef-bf9b-77b08043d298" name="UI Components">
+            <layer Id="0acbd0e9-a1ee-46ef-bf9b-77b08043d298" name="UI Controller">
               <dependencyToLayers>
                 <dependencyFromLayerToLayer Id="da26262c-97a0-4258-8924-fb817b6cbbb3" direction="Bidirectional">
                   <layerMoniker Id="a82d3c70-d58f-4d7f-bd82-2840b3e1a531" />
                 </dependencyFromLayerToLayer>
               </dependencyToLayers>
             </layer>
-            <layer Id="a82d3c70-d58f-4d7f-bd82-2840b3e1a531" name="UI Process Components (UIP)" />
+            <layer Id="a82d3c70-d58f-4d7f-bd82-2840b3e1a531" name="UI Components" />
           </childLayers>
         </layer>
       </childLayers>
