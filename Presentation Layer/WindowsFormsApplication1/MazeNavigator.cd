@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SharedEvents.ArrowChangedEventArgs">
+    <Position X="3.25" Y="4.5" Width="3.75" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Arrow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Entities.ArrowContext" Collapsed="true">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controllers.UIController">
+    <Position X="9" Y="1.25" Width="4.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MazeNavigatorUI.NavigatorUI">
+    <Position X="9.5" Y="4.5" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>RgCABAAgQCUAAEAAAIjDAQGCEggIBAABSgQAAKoACAA=</HashCode>
+      <FileName>Navigator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_uiController" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

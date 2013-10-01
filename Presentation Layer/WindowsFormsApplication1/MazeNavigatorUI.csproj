@@ -99,6 +99,7 @@
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="MazeNavigator.cd" />
     <None Include="NavigatorUI_ProcessUserCommand.sequencediagram" />
     <None Include="NavigatorUI__ArrowPositionChanged.sequencediagram" />
     <None Include="NewMaze.sequencediagram" />
