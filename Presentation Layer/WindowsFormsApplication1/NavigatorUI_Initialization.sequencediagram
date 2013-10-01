@@ -6,7 +6,7 @@
         <fragments>
           <behaviorExecutionSpecification Id="077cfd4b-b420-4ae7-a588-4a40ea3dec79" name="BehaviorExecutionSpecification">
             <coveredLifelines>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </coveredLifelines>
             <finish>
               <executionOccurrenceSpecificationMoniker Id="3ee793af-044d-4045-a72b-288e19a94337" LastKnownName="ExecutionOccurrenceSpecification" />
@@ -30,23 +30,23 @@
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </executionOccurrenceSpecification>
           <lostFoundTarget Id="ded3589c-45eb-41a2-8954-ddd86fd503b6" name="LostFoundTarget" />
           <messageOccurrenceSpecification Id="03e51cd8-3012-40e6-b546-62e6ec9f23b5" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="362681f3-61f8-4e7a-9244-7ae84c13422a" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </messageOccurrenceSpecification>
           <behaviorExecutionSpecification Id="e3447454-3abb-4a5e-892c-5a3521c6e122" name="BehaviorExecutionSpecification">
             <coveredLifelines>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </coveredLifelines>
             <finish>
               <executionOccurrenceSpecificationMoniker Id="b9f43094-4a04-4736-84e8-fb5d4331790e" LastKnownName="ExecutionOccurrenceSpecification" />
@@ -67,17 +67,17 @@
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification Id="77206887-78f0-44e6-a029-b50ee44e947e" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </messageOccurrenceSpecification>
           <behaviorExecutionSpecification Id="ea008a6e-44bf-46c0-85a3-d4273acd2d70" name="BehaviorExecutionSpecification">
             <coveredLifelines>
-              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="component : MazeLayoutPanel" />
+              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="MazeLayoutPanel" />
             </coveredLifelines>
             <finish>
               <executionOccurrenceSpecificationMoniker Id="f8984e33-b5c5-4706-828e-ad946d76594a" LastKnownName="ExecutionOccurrenceSpecification" />
@@ -97,27 +97,27 @@
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
-              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="component : MazeLayoutPanel" />
+              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="MazeLayoutPanel" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="781077a9-a624-40e8-a9ba-bf031020f69b" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="0e8f0329-9db4-4433-bde1-57d6983c2881" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="component : MazeLayoutPanel" />
+              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="MazeLayoutPanel" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="781077a9-a624-40e8-a9ba-bf031020f69b" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="1fbfb425-0d96-429b-9d67-d9bcdb23f216" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="component : MazeLayoutPanel" />
+              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="MazeLayoutPanel" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="938812be-fe45-4e5c-a3db-5e0f895dfa4a" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="f8984e33-b5c5-4706-828e-ad946d76594a" name="ExecutionOccurrenceSpecification">
@@ -127,7 +127,7 @@
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
-              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="component : MazeLayoutPanel" />
+              <lifelineMoniker Id="2203a819-5132-4806-9505-430846a7fa06" LastKnownName="MazeLayoutPanel" />
             </covered>
           </executionOccurrenceSpecification>
           <executionOccurrenceSpecification Id="b9f43094-4a04-4736-84e8-fb5d4331790e" name="ExecutionOccurrenceSpecification">
@@ -137,12 +137,12 @@
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </executionOccurrenceSpecification>
           <behaviorExecutionSpecification Id="6846c1b2-3f0d-45c0-9a64-c5fb4fdf8eb3" name="BehaviorExecutionSpecification">
             <coveredLifelines>
-              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="this._uiController : UIController" />
+              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="UIController" />
             </coveredLifelines>
             <finish>
               <executionOccurrenceSpecificationMoniker Id="da2f39d5-6878-45d7-9c07-69f6e9f23277" LastKnownName="ExecutionOccurrenceSpecification" />
@@ -162,27 +162,27 @@
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
-              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="this._uiController : UIController" />
+              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="UIController" />
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification Id="46df7b8b-959f-4b7c-8f38-21afd6017031" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="95878fbf-745c-49cf-bb09-0dbeff85e0ee" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="this._uiController : UIController" />
+              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="UIController" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="1cf8fbb5-19f4-4d83-897c-063eaf2734f2" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="this._uiController : UIController" />
+              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="UIController" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="e2e1da96-cbd9-45ed-acaa-c8caba6b459f" name="MessageOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="da2f39d5-6878-45d7-9c07-69f6e9f23277" name="ExecutionOccurrenceSpecification">
@@ -192,7 +192,7 @@
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
-              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="this._uiController : UIController" />
+              <lifelineMoniker Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" LastKnownName="UIController" />
             </covered>
           </executionOccurrenceSpecification>
           <executionOccurrenceSpecification Id="3ee793af-044d-4045-a72b-288e19a94337" name="ExecutionOccurrenceSpecification">
@@ -202,12 +202,12 @@
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
-              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="this : NavigatorUI" />
+              <lifelineMoniker Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" LastKnownName="NavigatorUI" />
             </covered>
           </executionOccurrenceSpecification>
         </fragments>
         <lifelines>
-          <lifeline Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" name="this : NavigatorUI" isActor="false" lifelineDisplayName="this : NavigatorUI" referencedInstance="(Assembly=&quot;$(861aaf1b-28bc-42ec-97ac-f57c157b9a78.OutputPathUri)&quot; Namespace=MazeNavigatorUI Type=NavigatorUI ObjectInstance=&quot;Object instance 1&quot;)" referencedType="MazeNavigatorUI‎.NavigatorUI">
+          <lifeline Id="8831cf1b-8dd0-4f04-8f13-f95a69a648a9" name="NavigatorUI" isActor="false" lifelineDisplayName="NavigatorUI" referencedInstance="(Assembly=&quot;$(861aaf1b-28bc-42ec-97ac-f57c157b9a78.OutputPathUri)&quot; Namespace=MazeNavigatorUI Type=NavigatorUI ObjectInstance=&quot;Object instance 1&quot;)" referencedType="MazeNavigatorUI‎.NavigatorUI">
             <referencesInternal>
               <reference Id="3e647efe-e400-47b3-b914-a2ab2770ad4e" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=MazeNavigatorUI)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(861aaf1b-28bc-42ec-97ac-f57c157b9a78.OutputPathUri)&amp;quot; Namespace=MazeNavigatorUI Type=NavigatorUI)&quot;)" tag="DGQL" />
               <reference Id="3ef8840f-5560-46fe-828d-9bf13574312d" handle="(Assembly=&quot;$(861aaf1b-28bc-42ec-97ac-f57c157b9a78.OutputPathUri)&quot; Namespace=MazeNavigatorUI Type=NavigatorUI)" tag="DGML" />
@@ -217,7 +217,7 @@
               <executionOccurrenceSpecificationMoniker Id="3ee793af-044d-4045-a72b-288e19a94337" LastKnownName="ExecutionOccurrenceSpecification" />
             </topLevelOccurrences>
           </lifeline>
-          <lifeline Id="2203a819-5132-4806-9505-430846a7fa06" name="component : MazeLayoutPanel" isActor="false" lifelineDisplayName="component : MazeLayoutPanel" referencedInstance="(Assembly=&quot;$(861aaf1b-28bc-42ec-97ac-f57c157b9a78.OutputPathUri)&quot; Namespace=MazeNavigatorUI Type=MazeLayoutPanel ObjectInstance=&quot;Object instance 22&quot;)" referencedType="MazeNavigatorUI‎.MazeLayoutPanel">
+          <lifeline Id="2203a819-5132-4806-9505-430846a7fa06" name="MazeLayoutPanel" isActor="false" lifelineDisplayName="MazeLayoutPanel" referencedInstance="(Assembly=&quot;$(861aaf1b-28bc-42ec-97ac-f57c157b9a78.OutputPathUri)&quot; Namespace=MazeNavigatorUI Type=MazeLayoutPanel ObjectInstance=&quot;Object instance 22&quot;)" referencedType="MazeNavigatorUI‎.MazeLayoutPanel">
             <referencesInternal>
               <reference Id="c0b54263-8343-4591-9ae8-651e7f866f60" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=MazeNavigatorUI)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(861aaf1b-28bc-42ec-97ac-f57c157b9a78.OutputPathUri)&amp;quot; Namespace=MazeNavigatorUI Type=MazeLayoutPanel)&quot;)" tag="DGQL" />
               <reference Id="cf89f909-e0e0-4847-bad6-53e31fcd575e" handle="(Assembly=&quot;$(861aaf1b-28bc-42ec-97ac-f57c157b9a78.OutputPathUri)&quot; Namespace=MazeNavigatorUI Type=MazeLayoutPanel)" tag="DGML" />
@@ -227,7 +227,7 @@
               <executionOccurrenceSpecificationMoniker Id="f8984e33-b5c5-4706-828e-ad946d76594a" LastKnownName="ExecutionOccurrenceSpecification" />
             </topLevelOccurrences>
           </lifeline>
-          <lifeline Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" name="this._uiController : UIController" isActor="false" lifelineDisplayName="this._uiController : UIController" referencedInstance="(Assembly=&quot;$(9e96fea3-d5fb-49f9-9939-5e8667532986.OutputPathUri)&quot; Namespace=Controllers Type=UIController ObjectInstance=&quot;Object instance 188&quot;)" referencedType="Controllers‎.UIController">
+          <lifeline Id="4bed1196-9d30-4a1d-8230-8fc0745c2a7b" name="UIController" isActor="false" lifelineDisplayName="UIController" referencedInstance="(Assembly=&quot;$(9e96fea3-d5fb-49f9-9939-5e8667532986.OutputPathUri)&quot; Namespace=Controllers Type=UIController ObjectInstance=&quot;Object instance 188&quot;)" referencedType="Controllers‎.UIController">
             <referencesInternal>
               <reference Id="d69a656f-98e1-4465-a16f-253c0b5e0f62" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=Controllers)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(9e96fea3-d5fb-49f9-9939-5e8667532986.OutputPathUri)&amp;quot; Namespace=Controllers Type=UIController)&quot;)" tag="DGQL" />
               <reference Id="acee4ce4-eecc-454b-8367-c7100f3493e5" handle="(Assembly=&quot;$(9e96fea3-d5fb-49f9-9939-5e8667532986.OutputPathUri)&quot; Namespace=Controllers Type=UIController)" tag="DGML" />
