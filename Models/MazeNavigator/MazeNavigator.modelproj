@@ -22,6 +22,13 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="MazeGenerationAlgorithm.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MazeGenerationAlgorithm.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>MazeGenerationAlgorithm.activitydiagram</DependentUpon>
+    </Content>
     <Content Include="UMLComponentDiagram1.componentdiagram">
       <SubType>Content</SubType>
     </Content>
