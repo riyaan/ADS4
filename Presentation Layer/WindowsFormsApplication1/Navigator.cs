@@ -245,7 +245,7 @@ namespace MazeNavigatorUI
 
                 // alert everything to stop
                 _isRunning = false;
-                MessageBox.Show("Sorry. Try again!", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Sorry. Try again!", "Out of moves.", MessageBoxButtons.OK);
                 CreateMazeVisually();
                 _uiController.InitializeControllers();
                 ClearCommandText();
