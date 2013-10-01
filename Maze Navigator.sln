@@ -19,6 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{E98CAA8A-425A-44ED-843C-215F547661C2}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\MazeNavigatorCodeMap.dgml = Documentation\MazeNavigatorCodeMap.dgml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Layer", "Application Layer", "{AA74BD5F-4CC1-45D9-9012-3D7E087CE955}"
 EndProject
