@@ -275,14 +275,14 @@ namespace MazeNavigatorUI
         {
             txtCommand.Clear();
         }
-
+        
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Create a new form for editing the maze details.
             Settings settings = new Settings();
             settings.ShowDialog();
         }
-
+        
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About aboutScreen = new About();

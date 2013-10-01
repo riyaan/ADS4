@@ -1,5 +1,4 @@
-﻿using Entities;
-using Entities.Maze;
+﻿using Entities.Maze;
 using MovementControl;
 using SharedEvents;
 using System;
