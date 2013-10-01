@@ -56,6 +56,7 @@
     <None Include="MazeAlgorithmGenerationClassDiagram.cd" />
     <None Include="ArrowStateClassDiagram.cd" />
     <None Include="EntitiesClassDiagram.cd" />
+    <None Include="Maze\MazeStrategy.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
