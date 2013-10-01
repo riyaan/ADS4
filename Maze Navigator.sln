@@ -77,11 +77,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sequence Diagrams", "Sequen
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class Diagrams", "Class Diagrams", "{372B6D36-5D24-402F-B6D9-299257BDBDDE}"
-	ProjectSection(SolutionItems) = preProject
-		Application Layer\Source\Components\Controllers\Controllers_ClassDiagram.cd = Application Layer\Source\Components\Controllers\Controllers_ClassDiagram.cd
-		Common\Logger\Logger ClassDiagram.cd = Common\Logger\Logger ClassDiagram.cd
-		Application Layer\Source\Components\MovementControl\MovementControl_ClassDiagram.cd = Application Layer\Source\Components\MovementControl\MovementControl_ClassDiagram.cd
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
