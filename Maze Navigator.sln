@@ -24,8 +24,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Layer", "Applic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation Layer", "Presentation Layer", "{482763A2-A46A-4D7F-91FC-821886CD454D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{73F6C8C5-583C-41CF-8289-9A9CF22D7CA5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{F990D9A5-F3C8-47BB-8608-06F7876A6D74}"
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "MazeNavigator", "Models\MazeNavigator\MazeNavigator.modelproj", "{7D2E9721-AF94-414E-B947-F96B36700656}"

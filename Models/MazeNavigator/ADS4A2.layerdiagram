@@ -2,67 +2,71 @@
 <layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="d8f84467-3ef5-47c1-926e-d58b9d909eeb" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
   <comments>
     <comment Id="89b86354-a098-413d-a0a3-7028741eb995" name="Comment1">
-      <body>Based this architecture on the following:
-
-http://msdn.microsoft.com/en-us/library/ff648105.aspx</body>
+      <body>I based this design on the following: 
+http://msdn.microsoft.com/en-us/library/ff648105.aspx
+</body>
     </comment>
-    <comment Id="3c1cb693-ff2c-4c13-b8a3-cc2655a9f752" name="Comment2">
-      <body>The Maze is passed on to the UI Controller to display (TODO: Convert this to XML?)</body>
+    <comment Id="01b3eef6-ac48-41c5-9558-40a5c6ae7aa9" name="Comment2">
+      <body>This layer handles the input of user information. It is responsible for the display of information as well. I.e. update the position of the Arrow with in the Maze.
+
+UI Components - The Visual Studio controls.
+UIP - The event handlers within the .NET for the          respective controls.</body>
     </comment>
   </comments>
   <layers>
-    <layer Id="ff3f4ed2-4545-4830-895a-d52bbed5e945" name="Data Access Layer">
-      <dependencyToLayers>
-        <dependencyFromLayerToLayer Id="058c198c-14f9-4aa7-8fee-d1ec2ebb018a" direction="Bidirectional">
-          <layerMoniker Id="e3c8a6e1-c2c3-4ff0-86a0-effb81606b8e" />
-        </dependencyFromLayerToLayer>
-      </dependencyToLayers>
-      <childLayers>
-        <layer Id="bfe71b75-2f0e-4be4-b6a1-c5dd8de3c39f" name="Data Access Component" />
-      </childLayers>
-    </layer>
-    <layer Id="e3c8a6e1-c2c3-4ff0-86a0-effb81606b8e" name="Application Logic Layer">
+    <layer Id="e3c8a6e1-c2c3-4ff0-86a0-effb81606b8e" name="Application Layer">
       <dependencyToLayers>
         <dependencyFromLayerToLayer Id="3c177d2d-d200-437e-a0b1-a47038ca418f" direction="Bidirectional">
           <layerMoniker Id="78f8e3cb-7fca-46dc-8d76-a3b182a68a24" />
         </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="6c546698-b1b1-48d9-a7ce-dd40be5f266d" direction="Bidirectional">
+          <layerMoniker Id="f94d2c9d-4e12-4e73-aa9b-a561122b18ff" />
+        </dependencyFromLayerToLayer>
       </dependencyToLayers>
       <childLayers>
-        <layer Id="701a0427-9327-4ce7-93fa-39247229d237" name="Application Components">
+        <layer Id="701a0427-9327-4ce7-93fa-39247229d237" name="Components">
           <dependencyToLayers>
             <dependencyFromLayerToLayer Id="07acaf73-082d-452b-97f3-1b96861e9ed7" direction="Bidirectional">
               <layerMoniker Id="71f8d216-7558-42f3-8fa6-dcb1c6470eaf" />
             </dependencyFromLayerToLayer>
           </dependencyToLayers>
           <childLayers>
-            <layer Id="c2daa742-1096-4c60-a0c2-aeead2195293" name="Main Controller">
+            <layer Id="4bd70cf7-cd7a-4c97-8ce9-0bff8ab02b42" name="MovementControl" />
+            <layer Id="0ef53d94-83dd-4ab5-b506-b4f54902c533" name="Controllers">
               <dependencyToLayers>
-                <dependencyFromLayerToLayer Id="2d5ee92b-7431-4776-9efd-3d30aeefded3" direction="Bidirectional">
-                  <layerMoniker Id="88b6aa65-2f3b-4e83-87ef-eb70baaf979c" />
+                <dependencyFromLayerToLayer Id="1202063a-4bea-4dbc-bc40-4b9e90bc7e43" direction="Forward">
+                  <layerMoniker Id="4bd70cf7-cd7a-4c97-8ce9-0bff8ab02b42" />
                 </dependencyFromLayerToLayer>
               </dependencyToLayers>
+              <childLayers>
+                <layer Id="88b6aa65-2f3b-4e83-87ef-eb70baaf979c" name="Maze Controller">
+                  <dependencyToLayers>
+                    <dependencyFromLayerToLayer Id="5508f8a6-4e4a-420d-8f9e-1573218e0e9e" direction="Bidirectional">
+                      <layerMoniker Id="bb16c506-8b28-4550-8b44-550d62017a95" />
+                    </dependencyFromLayerToLayer>
+                  </dependencyToLayers>
+                </layer>
+                <layer Id="bb16c506-8b28-4550-8b44-550d62017a95" name="Arrow Controller">
+                  <dependencyToLayers>
+                    <dependencyFromLayerToLayer Id="ce11f1fd-af71-430d-ac62-46b83edc0ffc" direction="Bidirectional">
+                      <layerMoniker Id="5c7a8bbf-cb24-4732-b5ac-ab5cbaebd41c" />
+                    </dependencyFromLayerToLayer>
+                  </dependencyToLayers>
+                </layer>
+                <layer Id="5c7a8bbf-cb24-4732-b5ac-ab5cbaebd41c" name="MCL Controller" />
+              </childLayers>
             </layer>
-            <layer Id="88b6aa65-2f3b-4e83-87ef-eb70baaf979c" name="Maze Controller">
-              <dependencyToLayers>
-                <dependencyFromLayerToLayer Id="5508f8a6-4e4a-420d-8f9e-1573218e0e9e" direction="Bidirectional">
-                  <layerMoniker Id="bb16c506-8b28-4550-8b44-550d62017a95" />
-                </dependencyFromLayerToLayer>
-              </dependencyToLayers>
-            </layer>
-            <layer Id="bb16c506-8b28-4550-8b44-550d62017a95" name="Arrow Controller">
-              <dependencyToLayers>
-                <dependencyFromLayerToLayer Id="ce11f1fd-af71-430d-ac62-46b83edc0ffc" direction="Bidirectional">
-                  <layerMoniker Id="5c7a8bbf-cb24-4732-b5ac-ab5cbaebd41c" />
-                </dependencyFromLayerToLayer>
-              </dependencyToLayers>
-            </layer>
-            <layer Id="5c7a8bbf-cb24-4732-b5ac-ab5cbaebd41c" name="MCL Controller" />
           </childLayers>
         </layer>
-        <layer Id="71f8d216-7558-42f3-8fa6-dcb1c6470eaf" name="Application Entities (Arrow, Cell, Maze)" />
+        <layer Id="71f8d216-7558-42f3-8fa6-dcb1c6470eaf" name="Application Entities" />
       </childLayers>
     </layer>
     <layer Id="78f8e3cb-7fca-46dc-8d76-a3b182a68a24" name="Presentation Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="96aebdd1-19d6-47dc-80d3-335bdd59b7f7" direction="Bidirectional">
+          <layerMoniker Id="f94d2c9d-4e12-4e73-aa9b-a561122b18ff" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
       <childLayers>
         <layer Id="06f8b546-007a-4539-abc1-496dd5b89509" name="UI Controller">
           <childLayers>
@@ -84,6 +88,12 @@ http://msdn.microsoft.com/en-us/library/ff648105.aspx</body>
           <layerMoniker Id="78f8e3cb-7fca-46dc-8d76-a3b182a68a24" />
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
+    </layer>
+    <layer Id="f94d2c9d-4e12-4e73-aa9b-a561122b18ff" name="Common Layer">
+      <childLayers>
+        <layer Id="299ffb9e-8ab5-46f8-ae90-a6d7e8e01fbf" name="Diagnostics" />
+        <layer Id="10f0474b-442b-41ef-b8af-c77cdb29104f" name="Event Handling (Shared Events)" />
+      </childLayers>
     </layer>
   </layers>
 </layerModel>
