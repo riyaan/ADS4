@@ -9,6 +9,16 @@ namespace MovementControl
          * */
         const string PATTERN = @"(F[1-9])|(R[1-9])|(L[1-9])";
 
+        public MclCommand MclCommand
+        {
+            get; set;            
+        }
+
+        public Context Context
+        {
+            get; set; 
+        }
+
         public List<Context> Parse(string mcl)
         {
             List<Context> commands = new List<Context>();

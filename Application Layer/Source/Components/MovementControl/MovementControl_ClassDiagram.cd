@@ -22,11 +22,15 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MovementControl.Parser">
-    <Position X="7.75" Y="2" Width="3" />
+    <Position X="6.75" Y="3.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAgAAEAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Parser.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MclCommand" />
+      <Property Name="Context" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
