@@ -2,12 +2,13 @@
 <layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="d8f84467-3ef5-47c1-926e-d58b9d909eeb" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
   <comments>
     <comment Id="89b86354-a098-413d-a0a3-7028741eb995" name="Architecture Comment">
-      <body>I based this design on the following: 
+      <body>I based this design on the following:
+
 http://msdn.microsoft.com/en-us/library/ff648105.aspx
 </body>
     </comment>
     <comment Id="01b3eef6-ac48-41c5-9558-40a5c6ae7aa9" name="Presentation Layer Comments">
-      <body>This layer handles the input of user information. It is responsible for the display of information as well. I.e. updating the position of the Arrow within the Maze.
+      <body>This layer handles the input of user information. It is responsible for the display of information as well. i.e. updating the position of the Arrow within the Maze.
 
 UI Components - The Visual Studio controls that are used.
 UIP - The event handlers within the .NET for the          respective controls.</body>
@@ -20,6 +21,9 @@ subscribers to this event.</body>
     </comment>
     <comment Id="22e18f5d-ecd9-472c-8a06-5aaa05fb52eb" name="Application Layer Comments">
       <body>This layer encapsulates the logic and interactions between the User Interface and application components. All interaction is managed via Controllers to keep inter-component communications minimal.</body>
+    </comment>
+    <comment Id="d83155bf-26aa-4f24-b5f8-2d8461575e81" name="Comment1">
+      <body>This program makes use of the .NET configuration classes for storage and retrieval of configuration information for this application.</body>
     </comment>
   </comments>
   <layers>
@@ -99,10 +103,16 @@ subscribers to this event.</body>
       </dependencyToLayers>
     </layer>
     <layer Id="f94d2c9d-4e12-4e73-aa9b-a561122b18ff" name="Common Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="e2035935-1d7e-4ab2-ac1b-6e7941f26e30" direction="Bidirectional">
+          <layerMoniker Id="9eadedc8-68a2-4919-a2a6-d8462fa68712" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
       <childLayers>
         <layer Id="299ffb9e-8ab5-46f8-ae90-a6d7e8e01fbf" name="Diagnostics (Logging)" />
         <layer Id="10f0474b-442b-41ef-b8af-c77cdb29104f" name="Event Handling" />
       </childLayers>
     </layer>
+    <layer Id="9eadedc8-68a2-4919-a2a6-d8462fa68712" name=".NET Configuration Data Store" />
   </layers>
 </layerModel>
