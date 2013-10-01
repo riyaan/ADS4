@@ -95,9 +95,9 @@ subscribers to this event.</body>
         </layer>
       </childLayers>
     </layer>
-    <layer Id="579e6565-1b08-4c3c-93c8-f8d8567b4c2c" name="User">
+    <layer Id="579e6565-1b08-4c3c-93c8-f8d8567b4c2c" name="Client">
       <dependencyToLayers>
-        <dependencyFromLayerToLayer Id="d0729e35-51a5-46ac-b222-964db3d24642" direction="Bidirectional">
+        <dependencyFromLayerToLayer Id="dcd08eac-30e3-449e-ba89-f73036c204c4" direction="Forward">
           <layerMoniker Id="78f8e3cb-7fca-46dc-8d76-a3b182a68a24" />
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
