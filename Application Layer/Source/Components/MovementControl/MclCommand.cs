@@ -4,7 +4,7 @@ namespace MovementControl
 {
     public class MclCommand : ExpressionBase
     {
-        string Command;
+        public string Command { get; set; }
 
         // The command will be in the form: Dn
         // D: Direction
