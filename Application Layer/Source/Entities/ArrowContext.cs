@@ -1,6 +1,10 @@
 ﻿
 namespace Entities
 {
+    /// <summary>
+    /// The State design pattern implementation
+    /// </summary>
+    /// 
     public abstract class ArrowState
     {
         public abstract void Forward(ArrowContext context);
@@ -10,13 +14,9 @@ namespace Entities
 
     public class ArrowContext
     {
-        private ArrowState _currentState;
-
-        public ArrowState CurrentState 
-        {
-            get { return _currentState; }
-            set { _currentState = value; }
-        }
+        public ArrowState CurrentState { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         public ArrowContext(ArrowState arrowState)
         {
@@ -24,23 +24,7 @@ namespace Entities
 
             this.X = 0;
             this.Y = 0;
-        }
-
-        private int x;
-
-        public int X
-        {
-            get { return x; }
-            set { x = value; }
-        }
-
-        private int y;
-
-        public int Y
-        {
-            get { return y; }
-            set { y = value; }
-        }
+        }                     
 
         public void Forward() { this.CurrentState.Forward(this); }
 

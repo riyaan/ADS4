@@ -10,57 +10,12 @@ namespace Entities
 
     public class Cell
     {
-        private int xCoordinate;
-
-        public int XCoordinate
-        {
-            get { return xCoordinate; }
-            set { xCoordinate = value; }
-        }
-
-        private int yCoordinate;
-
-        public int YCoordinate
-        {
-            get { return yCoordinate; }
-            set { yCoordinate = value; }
-        }
-
-        List<Cell> adjacents;
-
-        public List<Cell> Adjacents
-        {
-            get { return adjacents; }
-            set { adjacents = value; }
-        }
-
-        private CELL_STATE cellState;
-
-        public CELL_STATE CellState
-        {
-            get { return cellState; }
-            set { cellState = value; }
-        }
-
-        private bool allAdjacentsVisited;
-
-        public bool AllAdjacentsVisited
-        {
-            get { return allAdjacentsVisited; }
-            set { allAdjacentsVisited = value; }
-        }
-
-        private int adjacentValue;
-
-        public int AdjacentValue
-        {
-            get { return adjacentValue; }
-            set { adjacentValue = value; }
-        }
-
-        public Cell()
-        {            
-        }
+        public int XCoordinate { get; set; }
+        public int YCoordinate { get; set; }
+        public List<Cell> Adjacents { get; set; }
+        public CELL_STATE CellState { get; set; }
+        public bool AllAdjacentsVisited { get; set; }
+        public int AdjacentValue { get; set; }
 
         public bool HasAllAdjacentsBeenVisited()
         {
