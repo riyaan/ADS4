@@ -10,37 +10,13 @@ using System.Windows.Forms;
 namespace MazeNavigatorUI
 {
     public partial class NavigatorUI : Form
-    {
-        private int rows;
-        public int Rows
-        {
-            get { return rows; }
-            set { rows = value; }
-        }
-
-        private int columns;
-        public int Columns
-        {
-            get { return columns; }
-            set { columns = value; }
-        }
-
-        private Random random;
-        public Random Random
-        {
-            get { return random; }
-            set { random = value; }
-        }
-
-        private Maze maze;
-        public Maze Maze
-        {
-            get { return maze; }
-            set { maze = value; }
-        }        
+    {        
+        public int Rows { get; set; }        
+        public int Columns { get; set; }
+        public Random Random { get; set; }        
+        public Maze Maze { get; set; }        
 
         private UIController _uiController;
-
         private bool _isRunning;
 
         public NavigatorUI()
