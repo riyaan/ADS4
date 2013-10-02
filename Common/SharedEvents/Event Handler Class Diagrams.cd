@@ -20,13 +20,6 @@
       <Property Name="Arrow" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SharedEvents.MazeChangedEventArgs">
-    <Position X="1.5" Y="3.75" Width="3.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
-      <FileName>MazeEventArgs.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Entities.ArrowContext">
     <Position X="6.5" Y="0.5" Width="2.75" />
     <TypeIdentifier />
