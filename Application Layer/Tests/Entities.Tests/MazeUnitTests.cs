@@ -19,7 +19,8 @@ namespace Entities.Tests
         public void CreateAdjacentsSuccess()
         {
             Maze.Maze maze = new Maze.Maze(5, 5);
-            maze.CreateAdjacents();
+            Common common = new Common();
+            common.CreateAdjacents(maze);
             Assert.AreNotEqual(0, maze.Grid[0, 0].Adjacents.Count);
         }
 
@@ -27,7 +28,8 @@ namespace Entities.Tests
         public void FindEndSuccess()
         {
             Maze.Maze maze = new Maze.Maze(10, 10);
-            maze.CreateAdjacents();
+            Common common = new Common();
+            common.CreateAdjacents(maze);
             maze.SetMazeCreationStrategy(new PrimsAlgorithm(maze));
 
             string output = System.Environment.NewLine;
@@ -52,7 +54,8 @@ namespace Entities.Tests
         public void FindEndRecursiveBacktrackerSuccess()
         {
             Maze.Maze maze = new Maze.Maze(10, 10);
-            maze.CreateAdjacents();
+            Common common = new Common();
+            common.CreateAdjacents(maze);
             maze.SetMazeCreationStrategy(new RecursiveBacktrackingAlgorithm(maze));
 
             string output = System.Environment.NewLine;

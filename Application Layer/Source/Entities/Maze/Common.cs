@@ -5,10 +5,10 @@ namespace Entities.Maze
 {
     public class Common
     {
-        public Random Rand;
-        public bool EndReached;
-        public Maze Maze;
-        public Stack<Cell> Stack;
+        public Random Rand { get; set; }
+        public bool EndReached { get; set; }
+        public Maze Maze { get; set; }
+        public Stack<Cell> Stack { get; set; }
 
         public void SortAdjacentList(List<Cell> unsorted)
         {
@@ -46,6 +46,45 @@ namespace Entities.Maze
             currentCell = currentCell.Adjacents[rand];
             currentCell.CellState = CELL_STATE.VISITED;
             return currentCell;
+        }
+
+        public void CreateAdjacents(Maze maze)
+        {
+            // TODO: Add diagonal adjacents.
+            // The adjacents are currently only:
+            // towards the left, the top, right, and beneath
+
+            Maze = maze;
+
+            for (int i = 0; i < Maze.Rows; i++)
+            {
+                for (int j = 0; j < Maze.Columns; j++)
+                {
+                    if ((i - 1) >= 0)
+                    {
+                        Maze.Grid[i, j].Adjacents.Add(Maze.Grid[i - 1, j]);
+                        Maze.Grid[i - 1, j].AdjacentValue = Maze.Rand.Next(Maze.Size);
+                    }
+
+                    if ((i + 1) < Maze.Rows)
+                    {
+                        Maze.Grid[i, j].Adjacents.Add(Maze.Grid[i + 1, j]);
+                        Maze.Grid[i + 1, j].AdjacentValue = Maze.Rand.Next(Maze.Size);
+                    }
+
+                    if ((j - 1) >= 0)
+                    {
+                        Maze.Grid[i, j].Adjacents.Add(Maze.Grid[i, j - 1]);
+                        Maze.Grid[i, j - 1].AdjacentValue = Maze.Rand.Next(Maze.Size);
+                    }
+
+                    if ((j + 1) < Maze.Columns)
+                    {
+                        Maze.Grid[i, j].Adjacents.Add(Maze.Grid[i, j + 1]);
+                        Maze.Grid[i, j + 1].AdjacentValue = Maze.Rand.Next(Maze.Size);
+                    }
+                }
+            }
         }
     }
 }

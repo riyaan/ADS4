@@ -12,18 +12,22 @@ namespace Controllers
         public int Columns { get; set; }
         public Maze Maze { get; set; }
 
+        private Common _common;
+
         public MazeController(int rows, int columns)
         {
             Rows = rows;
             Columns = columns;
 
-            CreateMaze(Rows, Columns);
+            CreateMaze(Rows, Columns);            
         }
 
         private void CreateMaze(int rows, int columns)
         {
             Maze = new Maze(rows, columns);
-            Maze.CreateAdjacents();
+
+            _common = new Common();
+            _common.CreateAdjacents(Maze);
 
             ConfigurationManager.RefreshSection("appSettings");
             string algorithm = ConfigurationManager.AppSettings["mazeAlgorithm"];
