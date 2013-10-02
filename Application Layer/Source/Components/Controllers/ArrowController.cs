@@ -152,5 +152,6 @@ namespace Controllers
             _count = 0;
             OnAnimationCompleted(new EventArgs());
         }
+
     }
 }
