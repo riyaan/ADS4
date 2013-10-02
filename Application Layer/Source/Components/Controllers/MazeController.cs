@@ -8,6 +8,13 @@ namespace Controllers
     // TODO: Make this a singleton as well? (Singleton Design Pattern)
     public class MazeController
     {
+        const string PRIM = "prim";
+        const string RECURSIVE_BACKTRACKING = "recursiveBacktracking";
+        const string CUSTOM = "custom";
+
+        const string SECTION = "appSettings";
+        const string ALGORITHM_SECTION = "mazeAlgorithm";
+
         public int Rows { get; set; }
         public int Columns { get; set; }
         public Maze Maze { get; set; }
@@ -18,7 +25,6 @@ namespace Controllers
         {
             Rows = rows;
             Columns = columns;
-
             CreateMaze(Rows, Columns);            
         }
 
@@ -29,15 +35,15 @@ namespace Controllers
             _common = new Common();
             _common.CreateAdjacents(Maze);
 
-            ConfigurationManager.RefreshSection("appSettings");
-            string algorithm = ConfigurationManager.AppSettings["mazeAlgorithm"];
+            ConfigurationManager.RefreshSection(SECTION);
+            string algorithm = ConfigurationManager.AppSettings[ALGORITHM_SECTION];
 
             // TODO: Store these 'magic values' somewhere
-            if(algorithm.Equals("prim"))
+            if(algorithm.Equals(PRIM))
                 Maze.SetMazeCreationStrategy(new PrimsAlgorithm(Maze));
-            else if(algorithm.Equals("recursiveBacktracking"))
+            else if(algorithm.Equals(RECURSIVE_BACKTRACKING))
                 Maze.SetMazeCreationStrategy(new RecursiveBacktrackingAlgorithm(Maze));
-            else if (algorithm.Equals("custom"))
+            else if (algorithm.Equals(CUSTOM))
                 Maze.SetMazeCreationStrategy(new CustomAlgorithm(Maze));
 
             Maze.CreateMaze();
