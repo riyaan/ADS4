@@ -18,12 +18,7 @@ namespace Controllers
         private MazeController _mazeController;
         private MCLController _mclController;
         private ArrowController _arrowController;
-
-        private int _count = 0;
-
-        public UIController()
-        {
-        }        
+        private int _count = 0;     
 
         public void InitializeControllers()
         {
@@ -34,13 +29,7 @@ namespace Controllers
             _arrowController.AnimationCompleted += _arrowController_AnimationCompleted;
 
             _count = 0;
-        }
-
-        void _arrowController_ArrowChanged(object sender, ArrowChangedEventArgs e)
-        {            
-            // Pass the event on to the calling party
-            OnArrowChanged(e);
-        }
+        }        
 
         public Maze GenerateNewMaze(int rows, int columns)
         {
@@ -50,6 +39,12 @@ namespace Controllers
             InitializeControllers();
 
             return _mazeController.Maze; // return the maze for display purposes
+        }
+
+        void _arrowController_ArrowChanged(object sender, ArrowChangedEventArgs e)
+        {
+            // Pass the event on to the calling party
+            OnArrowChanged(e);
         }
 
         void _arrowController_AnimationCompleted(object sender, EventArgs e)

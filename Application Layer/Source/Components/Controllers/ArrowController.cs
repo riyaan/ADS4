@@ -26,13 +26,7 @@ namespace Controllers
                 AnimationCompleted(this, e);
         }
 
-        private ArrowContext arrow;
-
-        public ArrowContext Arrow
-        {
-            get { return arrow; }
-            set { arrow = value; }
-        }
+        public ArrowContext Arrow { get; set; }
 
         private int _rows;
         private int _columns;

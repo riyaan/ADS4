@@ -8,29 +8,9 @@ namespace Controllers
     // TODO: Make this a singleton as well? (Singleton Design Pattern)
     public class MazeController
     {
-        private int rows;
-
-        public int Rows
-        {
-            get { return rows; }
-            set { rows = value; }
-        }
-
-        private int columns;
-
-        public int Columns
-        {
-            get { return columns; }
-            set { columns = value; }
-        }
-
-        private Maze maze;
-
-        public Maze Maze
-        {
-            get { return maze; }
-            set { maze = value; }
-        }
+        public int Rows { get; set; }
+        public int Columns { get; set; }
+        public Maze Maze { get; set; }
 
         public MazeController(int rows, int columns)
         {
