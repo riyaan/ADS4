@@ -8,7 +8,6 @@ namespace Entities.Maze
         public Random Rand { get; set; }
         public bool EndReached { get; set; }
         public Maze Maze { get; set; }
-        public Stack<Cell> Stack { get; set; }
 
         public void SortAdjacentList(List<Cell> unsorted)
         {

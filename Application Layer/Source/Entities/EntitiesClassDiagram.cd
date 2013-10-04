@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Entities.ArrowContext">
-    <Position X="0.5" Y="1" Width="3.75" />
+    <Position X="5.5" Y="5.75" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAACADgAAAAYBI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAACACAAAAAYAI=</HashCode>
       <FileName>ArrowContext.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_currentState" />
       <Property Name="CurrentState" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Entities.Cell">
-    <Position X="2.75" Y="8.25" Width="5.5" />
+    <Position X="7.5" Y="9.25" Width="5.5" />
     <TypeIdentifier>
-      <HashCode>AAQCAAAEAgAAAAQAAAIEAgACAAIAABAAAAAAAAAQAgA=</HashCode>
+      <HashCode>AAQAAAAAAgAAAAQAAAIAAAAAAAIAABAAAAAAAAAAAgA=</HashCode>
       <FileName>Cell.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -22,33 +21,28 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Entities.Maze.Common">
-    <Position X="3.75" Y="4.75" Width="3.5" />
+    <Position X="16.5" Y="6.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>gABIgAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>gABIgAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Maze\Common.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="Maze" />
+      <Property Name="Maze" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="Stack" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Entities.Maze.Maze">
-    <Position X="9" Y="3.25" Width="4.25" />
+    <Position X="10.25" Y="3.5" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>gAAAAoAAAAIAgEAAAIBAAAAAAACAAAAACAAACAgAAQA=</HashCode>
+      <HashCode>gAAAAgAAAAAAgEAAAAAAAAAAAACAAAAAAAAACAgAAQA=</HashCode>
       <FileName>Maze\Maze.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_mazeStrategy" />
+      <Property Name="Grid" />
     </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="grid" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Entities.ArrowState">
-    <Position X="6.75" Y="0.5" Width="2.5" />
+    <Position X="6.25" Y="3.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
       <FileName>ArrowContext.cs</FileName>
@@ -62,7 +56,7 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="Entities.CELL_STATE">
-    <Position X="0.5" Y="5.75" Width="1.5" />
+    <Position X="16" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Cell.cs</FileName>
