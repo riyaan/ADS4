@@ -57,6 +57,34 @@ namespace MazeNavigatorUI
             CreateMazeVisually();
             UpdateGrid(0, 0, "F");
             _isRunning = true;
+        }        
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new form for editing the maze details.
+            Settings settings = new Settings();
+            settings.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About aboutScreen = new About();
+            aboutScreen.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtCommand.Text))
+            {
+                Diagnostics.Logger.Instance.Log("Go button clicked");
+                _isRunning = true;
+                _uiController.ParseCommand(txtCommand.Text);
+            }
         }
 
         private void GenerateMaze()
@@ -103,10 +131,10 @@ namespace MazeNavigatorUI
             // This helps get rid of flickering
             mazeLayoutPanel.Visible = false;
             mazeLayoutPanel.SuspendLayout();
-            
+
             mazeLayoutPanel.Controls.Clear();
             mazeLayoutPanel.RowCount = Maze.Rows;
-            mazeLayoutPanel.ColumnCount = Maze.Columns;            
+            mazeLayoutPanel.ColumnCount = Maze.Columns;
 
             int k = 0;
             int l = 0;
@@ -143,21 +171,6 @@ namespace MazeNavigatorUI
             this.txtCommand.Location = new Point(mazeLayoutPanel.Bounds.Left, mazeLayoutPanel.Bounds.Bottom);
             this.txtCommand.Size = new Size(this.Size.Width / 2, this.txtCommand.Height);
             this.btnGo.Location = new Point(this.txtCommand.Bounds.Right, mazeLayoutPanel.Bounds.Bottom);
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnGo_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(txtCommand.Text))
-            {
-                Diagnostics.Logger.Instance.Log("Go button clicked");
-                _isRunning = true;
-                _uiController.ParseCommand(txtCommand.Text);
-            }
         }
 
         private void UpdateGrid(int x, int y, string d)
@@ -250,19 +263,7 @@ namespace MazeNavigatorUI
         private void ClearCommandText()
         {
             txtCommand.Clear();
-        }
+        }        
         
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Create a new form for editing the maze details.
-            Settings settings = new Settings();
-            settings.ShowDialog();
-        }
-        
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            About aboutScreen = new About();
-            aboutScreen.ShowDialog();
-        }
     }
 }

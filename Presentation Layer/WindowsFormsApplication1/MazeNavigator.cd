@@ -8,7 +8,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Entities.ArrowContext" Collapsed="true">
-    <Position X="4.5" Y="1.25" Width="1.5" />
+    <Position X="4.5" Y="2.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="Controllers.UIController">
@@ -20,10 +20,9 @@
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Properties" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>RgCABAAgQCUAAEAAAIjDAQGCEggIBAABSgQAAKoACAA=</HashCode>
+      <HashCode>RACABAAgQCUAAEAAAIiDAQGCEggIBAABSgAAAKoACAA=</HashCode>
       <FileName>Navigator.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

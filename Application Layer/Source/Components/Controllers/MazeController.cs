@@ -37,8 +37,7 @@ namespace Controllers
 
             ConfigurationManager.RefreshSection(SECTION);
             string algorithm = ConfigurationManager.AppSettings[ALGORITHM_SECTION];
-
-            // TODO: Store these 'magic values' somewhere
+            
             if(algorithm.Equals(PRIM))
                 Maze.SetMazeCreationStrategy(new PrimsAlgorithm(Maze));
             else if(algorithm.Equals(RECURSIVE_BACKTRACKING))
