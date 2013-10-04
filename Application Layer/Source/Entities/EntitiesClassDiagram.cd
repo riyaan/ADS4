@@ -49,7 +49,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Entities.Maze.MazeStrategy">
-    <Position X="12" Y="1.25" Width="4" />
+    <Position X="16.5" Y="3.75" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Maze\MazeStrategy.cs</FileName>
