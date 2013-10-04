@@ -1,34 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Controllers.ArrowController">
-    <Position X="0.75" Y="4" Width="4" />
+    <Position X="15.25" Y="2.75" Width="4" />
     <TypeIdentifier>
-      <HashCode>IABAIQAAAAAgAQGAAEEAACAAAAAAAAAACAiIAEAIAAM=</HashCode>
+      <HashCode>IABAIQAAAAAgAQGAAEEAACAAAAAAAAAACAiIAEAAAAM=</HashCode>
       <FileName>ArrowController.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Arrow" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Controllers.MazeController">
-    <Position X="7.75" Y="10.25" Width="3.25" />
+    <Position X="3.5" Y="3.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAEAAAABAAAAAAACAAgAACAAAAAoAAAA=</HashCode>
+      <HashCode>AEABAgAAAAAAAEAAAAAAAAAAAECAAigAAAAAAAoAAAA=</HashCode>
       <FileName>MazeController.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Maze" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Controllers.MCLController">
-    <Position X="8.25" Y="0.75" Width="3.25" />
+    <Position X="9.25" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>MCLController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Controllers.UIController">
-    <Position X="7" Y="5" Width="5.25" />
+    <Position X="7.75" Y="3.75" Width="5.25" />
     <TypeIdentifier>
       <HashCode>IAAAAAIAAAAAAwAAAAAAAAAEAAAAAAAABACAAIhAgEA=</HashCode>
       <FileName>UIController.cs</FileName>
@@ -38,14 +32,6 @@
       <Field Name="_mclController" />
       <Field Name="_arrowController" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="Entities.ArrowContext">
-    <Position X="1" Y="0.5" Width="3.75" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="Entities.Maze.Maze">
-    <Position X="2" Y="10.25" Width="4" />
-    <TypeIdentifier />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
